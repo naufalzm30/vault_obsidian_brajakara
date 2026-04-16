@@ -48,7 +48,7 @@ Setiap user bertanya tentang aktivitas terbaru, info dari mesin lain, atau "apa 
 
 ## Memory Sync
 
-File memory Claude tersimpan di `~/.claude/projects/-home-tower-vault-obsidian-brajakara/memory/`. File ini **tidak** ada dalam repo vault, sehingga tidak ter-sync antar mesin.
+File memory Claude tersimpan di `~/.claude/projects/-home-salazar-Brajakara-vault-Brajakara-Naufal/memory/` (salazar) atau path serupa di mesin lain. File ini **tidak** ada dalam repo vault, sehingga tidak ter-sync antar mesin.
 
 **Aturan:** Setiap kali menulis atau mengupdate file memory di `~/.claude/.../memory/`, **langsung copy juga** file yang sama ke `06_INDEX (Navigation hub)/claude_memory/` di dalam vault, lalu jalankan git sync seperti biasa.
 
