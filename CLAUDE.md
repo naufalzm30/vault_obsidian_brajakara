@@ -92,6 +92,16 @@ Kalau user menyebut sedang bekerja di folder project di luar vault (misal `~/wea
 - Tambahkan ke bagian `## Temuan / Catatan Penting` di note project tersebut
 - **Wajib catat otomatis** setiap akses project eksternal: branch aktif, repo URL, status container, commit terakhir — tanpa perlu diminta user
 
+## Memory Sync
+
+Setiap update rule/instruksi → langsung sinkronkan ke **semua** tempat sekaligus tanpa menunggu ditegur:
+1. `CLAUDE.md`
+2. `06_INDEX (Navigation hub)/claude_memory/feedback_behavior.md`
+3. `06_INDEX (Navigation hub)/Claude_Memory_Feedback.md`
+4. `~/.claude/projects/.../memory/feedback_notes.md`
+
+Lalu push vault ke GitHub.
+
 ## Note Format
 
 Notes use standard Markdown with Obsidian extensions:
