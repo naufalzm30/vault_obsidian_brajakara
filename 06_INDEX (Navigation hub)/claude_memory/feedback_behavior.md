@@ -52,6 +52,14 @@ Kalau user sebut lagi kerja di folder project di luar vault → langsung baca ko
 
 **How to apply:** Catat ke bagian `## Temuan / Catatan Penting` di note project relevan. Fokus: apa yang bakal bikin pusing saat debug nanti, bukan deskripsi ulang kode.
 
+**Wajib catat otomatis** setiap akses project eksternal (tanpa diminta):
+- Branch aktif
+- Repo URL
+- Status container (`docker compose ps`)
+- Commit terakhir (`git log --oneline -3`)
+
+Catat ke frontmatter + `## Temuan / Catatan Penting` di note vault project tersebut.
+
 ## Git Sync — Output Ringkas
 
 Saat git sync vault, jangan tampilkan output git mentah. Cukup tulis satu baris: **"syncing to github..."** (atau sejenisnya yang singkat).
