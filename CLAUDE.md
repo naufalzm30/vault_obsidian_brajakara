@@ -56,6 +56,28 @@ Ini memastikan memory Claude ikut ter-sync ke GitHub dan bisa dibaca dari mesin 
 
 Sumber kebenaran: file di `~/.claude/.../memory/` (dipakai Claude aktif). Mirror untuk sync: `06_INDEX (Navigation hub)/claude_memory/`.
 
+## Daily Note
+
+Setiap kali membuat/mengedit file apapun di vault — **langsung update juga daily note hari ini** (`00_INBOX/Daily_Notes/YYYY-MM-DD.md`). Jangan tunggu diminta. Jangan lupa.
+
+Format entry di daily note:
+```
+### [Judul Singkat Aktivitas]
+- poin ringkas apa yang dikerjakan / dicatat
+```
+
+Kalau file daily note belum ada, buat dulu dengan frontmatter:
+```markdown
+---
+date: YYYY-MM-DD
+tags: [daily-note]
+---
+
+# Daily Note — YYYY-MM-DD
+
+## Recap Hari Ini
+```
+
 ## Note-Taking Behavior
 
 - Catat informasi baru secara proaktif ke folder yang relevan **tanpa menunggu diminta secara spesifik**
