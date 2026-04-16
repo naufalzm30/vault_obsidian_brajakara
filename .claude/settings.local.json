@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs ls *)",
+      "Read(//home/salazar/.claude/**)",
+      "Read(//home/salazar/**)",
+      "Bash(python3 -m json.tool)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:api.github.com)",
+      "Bash(claude plugin *)",
+      "Bash(mkdir -p \"/home/salazar/Brajakara_vault/Brajakara_Naufal/.claude/plugins/caveman/hooks\")",
+      "Bash(mkdir -p \"/home/salazar/Brajakara_vault/Brajakara_Naufal/.claude/plugins/caveman/skills/caveman\")",
+      "Bash(cp /home/salazar/.claude/plugins/marketplaces/caveman/hooks/caveman-config.js \"/home/salazar/Brajakara_vault/Brajakara_Naufal/.claude/plugins/caveman/hooks/\")",
+      "Bash(cp /home/salazar/.claude/plugins/marketplaces/caveman/hooks/caveman-activate.js \"/home/salazar/Brajakara_vault/Brajakara_Naufal/.claude/plugins/caveman/hooks/\")",
+      "Bash(cp /home/salazar/.claude/plugins/marketplaces/caveman/hooks/caveman-mode-tracker.js \"/home/salazar/Brajakara_vault/Brajakara_Naufal/.claude/plugins/caveman/hooks/\")",
+      "Bash(cp /home/salazar/.claude/plugins/marketplaces/caveman/skills/caveman/SKILL.md \"/home/salazar/Brajakara_vault/Brajakara_Naufal/.claude/plugins/caveman/skills/caveman/\")",
+      "Bash(bash /home/salazar/.claude/statusline-command.sh)",
+      "Bash(python3 -c \"import json; d=json.load\\(open\\('/home/salazar/.claude/settings.json'\\)\\); print\\(d.get\\('enabledPlugins', {}\\).get\\('caveman@caveman', False\\)\\)\")",
+      "Bash(git config *)"
+    ]
+  }
+}

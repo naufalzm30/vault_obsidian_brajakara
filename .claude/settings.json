@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/plugins/caveman/hooks/caveman-activate.js",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/plugins/caveman/hooks/caveman-mode-tracker.js",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

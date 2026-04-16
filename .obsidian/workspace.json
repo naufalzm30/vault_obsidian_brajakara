@@ -1,0 +1,265 @@
+{
+  "main": {
+    "id": "f2325a1381b70db8",
+    "type": "split",
+    "children": [
+      {
+        "id": "9603ffdbe45de417",
+        "type": "split",
+        "children": [
+          {
+            "id": "06065993fa2dad0c",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "3d3d45168e1dbaf6",
+                "type": "leaf",
+                "state": {
+                  "type": "graph",
+                  "state": {},
+                  "icon": "lucide-git-fork",
+                  "title": "Graph view"
+                }
+              }
+            ]
+          },
+          {
+            "id": "380ae35025e563e5",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "87b3cca770bc2bf6",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "terminal:terminal",
+                  "state": {
+                    "terminal:terminal": {
+                      "cwd": "/home/salazar/Brajakara_vault/Brajakara_Naufal",
+                      "focus": false,
+                      "profile": {
+                        "args": [],
+                        "executable": "/bin/sh",
+                        "followTheme": true,
+                        "name": "",
+                        "platforms": {
+                          "linux": true
+                        },
+                        "pythonExecutable": "python3",
+                        "restoreHistory": false,
+                        "rightClickAction": "copyPaste",
+                        "successExitCodes": [
+                          "0",
+                          "SIGINT",
+                          "SIGTERM"
+                        ],
+                        "terminalOptions": {
+                          "documentOverride": null
+                        },
+                        "type": "integrated",
+                        "useWin32Conhost": true
+                      },
+                      "serial": null
+                    }
+                  },
+                  "pinned": true,
+                  "icon": "terminal",
+                  "title": "Terminal: ✳ Test context functionality"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal"
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "18e042579414ff07",
+    "type": "split",
+    "children": [
+      {
+        "id": "f638cfed3e49d7f8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2c5fbf746b0a7e72",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "e4a3ffcd14b3b168",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "af283500ac8d08e7",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "ad6c83b5fa561585",
+    "type": "split",
+    "children": [
+      {
+        "id": "6eb6c6c088c252a9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9e271d184fdf281b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Welcome.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Welcome"
+            }
+          },
+          {
+            "id": "0570da07127ebc2b",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Welcome.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Welcome"
+            }
+          },
+          {
+            "id": "d7d3ea273459866e",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "d86761285d13db7c",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "57b66e390b187e9d",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Welcome.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Welcome"
+            }
+          },
+          {
+            "id": "98a932a7a7058792",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "terminal:Open terminal": false,
+      "templater-obsidian:Templater": false
+    }
+  },
+  "active": "87b3cca770bc2bf6",
+  "lastOpenFiles": [
+    "Welcome.md",
+    "create a link.md",
+    "CLAUDE.md",
+    "CLAUDE.md.tmp.20789.1776318887037",
+    "CLAUDE.md.tmp.5642.1776318656490",
+    "CLAUDE.md.tmp.5642.1776315254538",
+    "CLAUDE.md.tmp.5642.1776315120982",
+    "04_INFRASTRUCTURE_REFERENCE/Proxmox_MORDOR.md",
+    "04_INFRASTRUCTURE_REFERENCE/Brajakara_Infrastructure_Overview.md.tmp.5642.1776314948315",
+    "04_INFRASTRUCTURE_REFERENCE/Proxmox_MORDOR.md.tmp.5642.1776314941268",
+    "04_INFRASTRUCTURE_REFERENCE/Brajakara_Infrastructure_Overview.md",
+    "04_INFRASTRUCTURE_REFERENCE/Brajakara_Infrastructure_Overview.md.tmp.5642.1776314206470",
+    "CLAUDE.md.tmp.5642.1776308567037",
+    "06_INDEX (Navigation hub)",
+    "05_ARCHIVED"
+  ]
+}
