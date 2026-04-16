@@ -60,6 +60,18 @@ Kalau user sebut lagi kerja di folder project di luar vault → langsung baca ko
 
 Catat ke frontmatter + `## Temuan / Catatan Penting` di note vault project tersebut.
 
+## Memory Sync
+
+Setiap update rule/instruksi → langsung sinkronkan ke **semua** tempat sekaligus tanpa menunggu ditegur:
+1. `CLAUDE.md`
+2. `06_INDEX (Navigation hub)/claude_memory/feedback_behavior.md`
+3. `06_INDEX (Navigation hub)/Claude_Memory_Feedback.md`
+4. `~/.claude/projects/.../memory/feedback_notes.md`
+
+**Why:** Claude berkali-kali update satu tempat dan lupa sisanya.
+
+**How to apply:** Update 4 tempat sekaligus → push vault ke GitHub.
+
 ## Git Sync — Output Ringkas
 
 Saat git sync vault, jangan tampilkan output git mentah. Cukup tulis satu baris: **"syncing to github..."** (atau sejenisnya yang singkat).
