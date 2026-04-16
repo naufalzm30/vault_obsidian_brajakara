@@ -2,6 +2,7 @@
 tags: [project, backend, django, mqtt, docker, pdam]
 date_created: 2026-04-16
 status: aktif
+repo: git@github.com:Brajakara-Teknologi-Media/BRAJA_PDAMSBY.git
 ---
 
 # PDAM Surabaya — Backend Project
