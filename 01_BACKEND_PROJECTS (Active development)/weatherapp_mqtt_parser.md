@@ -185,6 +185,25 @@ weatherapp_mqtt_parser/
 └── Backup/                             ← arsip backup
 ```
 
+## Temuan / Catatan Penting
+
+### DB Pindah ke Lokal Port 4307
+- Host berubah: `10.20.0.11` → `127.0.0.1`, port `4307`
+- **Wajib** `network_mode: "host"` di docker-compose — tanpa ini container tidak bisa konek ke host port
+- Credentials MQTT juga ganti: `vius/vius` → `B-Tech/B-Tech`
+
+### Dynamic Topic Refresh (no reconnect)
+- Client lama reconnect penuh tiap 120 detik (destroy + recreate `mqttobj`) — rawan disconnect lama
+- Versi baru: `refresh_topics()` tiap 5 menit, subscribe/unsubscribe delta saja, koneksi tetap hidup
+- Track `subscribed_topics` sebagai set — bisa debug topic apa yang aktif
+
+### Guard Year Not Numeric
+- Tambah validasi di `weatherapp_mysql_connector.py`: kalau year bukan digit → skip + log `[SKIP] Year not numeric`
+- Sebelumnya: crash silent kalau logger kirim data malformed
+
+### Log Docker Dibatasi
+- `max-size: 20m`, `max-file: 3` — kalau tidak ada ini, log docker bisa tumbuh tak terbatas di server
+
 ## Deployment
 
 - Versi aktif: `dockerize/` via Docker

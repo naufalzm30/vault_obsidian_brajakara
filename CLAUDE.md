@@ -84,6 +84,13 @@ tags: [daily-note]
 - Pecah topik besar ke file terpisah, hubungkan dengan `[[wikilink]]`
 - Server Brajakara punya alias unik (contoh: azkaban, rockbottom, MORDOR) — gunakan alias tersebut apa adanya, jangan diubah
 
+## External Project Tracking
+
+Kalau user menyebut sedang bekerja di folder project di luar vault (misal `~/weatherapp_mqtt_parser`, `~/BRAJA_PDAMSBY`, dll):
+- Baca kode/git log di folder tersebut langsung (`cd` ke sana, tidak perlu minta izin)
+- Catat **temuan penting** ke vault note project yang relevan — bukan full dokumentasi, tapi hal-hal yang membantu produktivitas atau bug hunting ke depannya: perubahan kritis, bug baru, quirk, keputusan arsitektur tidak obvious
+- Tambahkan ke bagian `## Temuan / Catatan Penting` di note project tersebut
+
 ## Note Format
 
 Notes use standard Markdown with Obsidian extensions:

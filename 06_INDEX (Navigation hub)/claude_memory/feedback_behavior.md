@@ -44,6 +44,14 @@ git push origin master
 
 **Why (tambahan):** User pernah marah karena Claude lupa push script statusline caveman. File apapun di dalam repo vault = harus di-push.
 
+## External Project Tracking
+
+Kalau user sebut lagi kerja di folder project di luar vault → langsung baca kode/git log di sana, catat temuan penting ke vault note-nya. Tidak perlu minta izin, tidak perlu full doc.
+
+**Why:** User ingin hal penting (bug, quirk, perubahan kritis) ter-capture otomatis ke vault tanpa harus minta Claude secara eksplisit.
+
+**How to apply:** Catat ke bagian `## Temuan / Catatan Penting` di note project relevan. Fokus: apa yang bakal bikin pusing saat debug nanti, bukan deskripsi ulang kode.
+
 ## Git Sync — Output Ringkas
 
 Saat git sync vault, jangan tampilkan output git mentah. Cukup tulis satu baris: **"syncing to github..."** (atau sejenisnya yang singkat).
