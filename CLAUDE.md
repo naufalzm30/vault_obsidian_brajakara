@@ -32,6 +32,16 @@ Selalu gunakan `/effort max` di setiap session untuk respons berkualitas terting
 
 Selalu gunakan **Bahasa Indonesia** dalam semua respons dan catatan percakapan.
 
+## Git Sync
+
+Setiap kali membuat perubahan pada vault (buat/edit/hapus file):
+1. `git pull --rebase origin master` dulu — selesaikan konflik jika ada
+2. `git add` file yang diubah
+3. `git commit -m "pesan singkat deskriptif"`
+4. `git push origin master`
+
+Lakukan ini **otomatis tanpa diminta**. Remote: `origin` → `git@github.com:naufalzm30/vault_obsidian_brajakara.git`.
+
 ## Note-Taking Behavior
 
 - Catat informasi baru secara proaktif ke folder yang relevan **tanpa menunggu diminta secara spesifik**
