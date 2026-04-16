@@ -15,10 +15,14 @@
                 "id": "3d3d45168e1dbaf6",
                 "type": "leaf",
                 "state": {
-                  "type": "graph",
-                  "state": {},
-                  "icon": "lucide-git-fork",
-                  "title": "Graph view"
+                  "type": "markdown",
+                  "state": {
+                    "file": "04_INFRASTRUCTURE_REFERENCE/Proxmox_MORDOR.md",
+                    "mode": "source",
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "Proxmox_MORDOR"
                 }
               }
             ]
@@ -246,6 +250,8 @@
   },
   "active": "87b3cca770bc2bf6",
   "lastOpenFiles": [
+    "04_INFRASTRUCTURE_REFERENCE/Proxmox_MORDOR.md",
+    "04_INFRASTRUCTURE_REFERENCE/Brajakara_Infrastructure_Overview.md",
     "Welcome.md",
     "create a link.md",
     "CLAUDE.md",
@@ -253,10 +259,8 @@
     "CLAUDE.md.tmp.5642.1776318656490",
     "CLAUDE.md.tmp.5642.1776315254538",
     "CLAUDE.md.tmp.5642.1776315120982",
-    "04_INFRASTRUCTURE_REFERENCE/Proxmox_MORDOR.md",
     "04_INFRASTRUCTURE_REFERENCE/Brajakara_Infrastructure_Overview.md.tmp.5642.1776314948315",
     "04_INFRASTRUCTURE_REFERENCE/Proxmox_MORDOR.md.tmp.5642.1776314941268",
-    "04_INFRASTRUCTURE_REFERENCE/Brajakara_Infrastructure_Overview.md",
     "04_INFRASTRUCTURE_REFERENCE/Brajakara_Infrastructure_Overview.md.tmp.5642.1776314206470",
     "CLAUDE.md.tmp.5642.1776308567037",
     "06_INDEX (Navigation hub)",
