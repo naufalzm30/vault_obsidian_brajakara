@@ -90,6 +90,7 @@ Kalau user menyebut sedang bekerja di folder project di luar vault (misal `~/wea
 - Baca kode/git log di folder tersebut langsung (`cd` ke sana, tidak perlu minta izin)
 - Catat **temuan penting** ke vault note project yang relevan — bukan full dokumentasi, tapi hal-hal yang membantu produktivitas atau bug hunting ke depannya: perubahan kritis, bug baru, quirk, keputusan arsitektur tidak obvious
 - Tambahkan ke bagian `## Temuan / Catatan Penting` di note project tersebut
+- **Wajib catat otomatis** setiap akses project eksternal: branch aktif, repo URL, status container, commit terakhir — tanpa perlu diminta user
 
 ## Note Format
 
