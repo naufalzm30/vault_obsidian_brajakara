@@ -17,7 +17,12 @@
       "Bash(cp /home/salazar/.claude/plugins/marketplaces/caveman/skills/caveman/SKILL.md \"/home/salazar/Brajakara_vault/Brajakara_Naufal/.claude/plugins/caveman/skills/caveman/\")",
       "Bash(bash /home/salazar/.claude/statusline-command.sh)",
       "Bash(python3 -c \"import json; d=json.load\\(open\\('/home/salazar/.claude/settings.json'\\)\\); print\\(d.get\\('enabledPlugins', {}\\).get\\('caveman@caveman', False\\)\\)\")",
-      "Bash(git config *)"
+      "Bash(git config *)",
+      "Bash(touch '/home/salazar/Brajakara_vault/Brajakara_Naufal/01_BACKEND_PROJECTS \\(Active development\\)/.gitkeep')",
+      "Bash(touch '/home/salazar/Brajakara_vault/Brajakara_Naufal/02_BACKEND_REFERENCE \\(Permanent, reusable patterns\\)/.gitkeep')",
+      "Bash(touch '/home/salazar/Brajakara_vault/Brajakara_Naufal/03_QUICK_SNIPPETS \\(Code examples, not full projects\\)/.gitkeep')",
+      "Bash(touch /home/salazar/Brajakara_vault/Brajakara_Naufal/00_INBOX/Daily_Notes/.gitkeep)",
+      "Bash(touch '/home/salazar/Brajakara_vault/Brajakara_Naufal/06_INDEX \\(Navigation hub\\)/.gitkeep')"
     ]
   }
 }
