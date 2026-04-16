@@ -42,6 +42,8 @@ Setiap kali membuat perubahan pada vault (buat/edit/hapus file):
 
 Lakukan ini **otomatis tanpa diminta**. Remote: `origin` → `git@github.com:naufalzm30/vault_obsidian_brajakara.git`.
 
+Setiap user bertanya tentang aktivitas terbaru, info dari mesin lain, atau "apa yang baru" — **selalu `git fetch` + `git pull` dulu** sebelum menjawab. Vault ini digunakan dari banyak mesin (salazar, tower, dll).
+
 ## Note-Taking Behavior
 
 - Catat informasi baru secara proaktif ke folder yang relevan **tanpa menunggu diminta secara spesifik**
