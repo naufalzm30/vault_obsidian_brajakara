@@ -48,13 +48,21 @@ Setiap user bertanya tentang aktivitas terbaru, info dari mesin lain, atau "apa 
 
 ## Memory Sync
 
-File memory Claude tersimpan di `~/.claude/projects/-home-salazar-Brajakara-vault-Brajakara-Naufal/memory/` (salazar) atau path serupa di mesin lain. File ini **tidak** ada dalam repo vault, sehingga tidak ter-sync antar mesin.
+File memory Claude tersimpan di `~/.claude/projects/-home-salazar-vault_obsidian_brajakara/memory/` (salazar) atau path serupa di mesin lain. File ini **tidak** ada dalam repo vault, sehingga tidak ter-sync antar mesin.
 
 **Aturan:** Setiap kali menulis atau mengupdate file memory di `~/.claude/.../memory/`, **langsung copy juga** file yang sama ke `06_INDEX (Navigation hub)/claude_memory/` di dalam vault, lalu jalankan git sync seperti biasa.
 
 Ini memastikan memory Claude ikut ter-sync ke GitHub dan bisa dibaca dari mesin lain (salazar, tower, dll).
 
 Sumber kebenaran: file di `~/.claude/.../memory/` (dipakai Claude aktif). Mirror untuk sync: `06_INDEX (Navigation hub)/claude_memory/`.
+
+Setiap update rule/instruksi → langsung sinkronkan ke **semua** tempat sekaligus tanpa menunggu ditegur:
+1. `CLAUDE.md`
+2. `06_INDEX (Navigation hub)/claude_memory/feedback_behavior.md`
+3. `06_INDEX (Navigation hub)/Claude_Memory_Feedback.md`
+4. `~/.claude/projects/.../memory/feedback_notes.md`
+
+Lalu push vault ke GitHub.
 
 ## Daily Note
 
@@ -91,16 +99,6 @@ Kalau user menyebut sedang bekerja di folder project di luar vault (misal `~/wea
 - Catat **temuan penting** ke vault note project yang relevan — bukan full dokumentasi, tapi hal-hal yang membantu produktivitas atau bug hunting ke depannya: perubahan kritis, bug baru, quirk, keputusan arsitektur tidak obvious
 - Tambahkan ke bagian `## Temuan / Catatan Penting` di note project tersebut
 - **Wajib catat otomatis** setiap akses project eksternal: branch aktif, repo URL, status container, commit terakhir — tanpa perlu diminta user
-
-## Memory Sync
-
-Setiap update rule/instruksi → langsung sinkronkan ke **semua** tempat sekaligus tanpa menunggu ditegur:
-1. `CLAUDE.md`
-2. `06_INDEX (Navigation hub)/claude_memory/feedback_behavior.md`
-3. `06_INDEX (Navigation hub)/Claude_Memory_Feedback.md`
-4. `~/.claude/projects/.../memory/feedback_notes.md`
-
-Lalu push vault ke GitHub.
 
 ## Note Format
 
