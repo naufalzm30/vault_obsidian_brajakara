@@ -8,30 +8,23 @@ tags: [profil, pengalaman]
 **Posisi:** Backend & Infrastructure Engineer  
 **Status:** Aktif
 
-## Project Aktif
+---
 
-### PDAM_SBY (BRAJA_PDAMSBY)
-- Sistem backend untuk PDAM Surabaya
-- Fitur: taksasi otomatis per balai, running taksasi manual
-- Environment: UAT dan produksi
-- Stack: *(perlu dilengkapi)*
-- Repo: `docker-preparations` branch
+## Data Engineering & Early Warning System
 
-### WEATHERAPP
-- Sistem monitoring cuaca dengan integrasi ML prediction
-- Ekstraksi data dari format saintifik kompleks: **NetCDF** dan **Weatherlink**
-- Data mining untuk pengolahan data **presipitasi (curah hujan)** yang akurat
-- Pipeline: raw scientific data → preprocessing → prediksi
-- Stack: MQTT, backend service
-- *(detail stack/bahasa perlu dilengkapi)*
+- Melakukan ekstraksi data (data mining) dari format saintifik kompleks seperti **NetCDF** dan **Weatherlink** untuk pengolahan data presipitasi (curah hujan) yang akurat.
+- Membangun pipeline dari raw scientific format → preprocessing → model prediksi yang terintegrasi ke sistem monitoring cuaca (WEATHERAPP).
 
-## Infrastruktur yang Dikelola
+## Backend System — PDAM Surabaya
 
-- VPS Biznet + Hostinger (cloud)
-- **Proxmox VE** on-premise — virtualisasi untuk sandbox pengujian fitur baru secara terisolasi dan aman
-- WireGuard VPN (mesh antar server)
-- Server dengan alias kreatif: MORDOR, azkaban, rockbottom, DungeonTower, lumbungpadi
+- Mengembangkan sistem backend untuk PDAM Surabaya dengan fitur taksasi otomatis per balai dan eksekusi taksasi manual on-demand.
+- Mengelola environment UAT dan produksi secara paralel dengan kontrol deployment berbasis branch (`docker-preparations`).
 
-## Catatan
+## Infrastructure & Virtualization
 
-> Bagian bertanda *perlu dilengkapi* sebaiknya diisi untuk resume yang akurat. Informasi ini dikumpulkan dari memory session sebelumnya.
+- Mengoperasikan dan mengelola infrastruktur virtualisasi berbasis **Proxmox VE** sebagai lingkungan sandbox untuk pengujian fitur baru secara terisolasi dan aman.
+- Membangun dan memelihara jaringan antar server menggunakan **WireGuard VPN** pada infrastruktur multi-node (VPS Biznet, Hostinger, dan on-premise).
+
+---
+
+> **Catatan:** Beberapa detail stack/bahasa masih perlu dilengkapi untuk akurasi resume.

@@ -9,23 +9,16 @@ tags: [profil, identitas]
 **Role:** Backend & Infrastructure Engineer  
 **Perusahaan:** Brajakara Teknologi
 
-## Tagline / Positioning
+## Positioning
 
-Versatile backend engineer yang handle full-cycle: dari nulis kode → deployment → maintain infra — bukan spesialisasi sempit.
+Engineer yang beroperasi full-cycle — dari pengembangan backend, deployment, hingga manajemen infrastruktur — tanpa batas spesialisasi sempit.
 
 ## Highlight Karir
 
-- Backend development untuk sistem monitoring cuaca (WEATHERAPP)
-- Backend untuk sistem PDAM Surabaya (PDAM_SBY) — termasuk taksasi otomatis
-- Ekstraksi dan pengolahan data saintifik kompleks: **NetCDF** dan **Weatherlink** untuk data presipitasi
-- Manage infra on-premise (Proxmox VE) dan cloud sekaligus, termasuk sandbox terisolasi untuk pengujian fitur
-- Pengalaman ML prediction (terintegrasi ke weather monitoring, berbasis data curah hujan)
-
-## Cara Kerja
-
-- Mulai dari kode, naik ke deployment, sampai infrastruktur
-- Terbiasa handle beberapa project paralel dengan stack berbeda
-- Fasih di Linux (Arch-based, Debian), VPS, container, VPN
+- Membangun pipeline data saintifik dari format **NetCDF** dan **Weatherlink** untuk pengolahan data presipitasi yang akurat, terintegrasi ke sistem prediksi cuaca.
+- Mengembangkan sistem backend untuk PDAM Surabaya dengan otomasi taksasi multi-balai.
+- Mengoperasikan infrastruktur virtualisasi **Proxmox VE** sebagai sandbox terisolasi untuk pengujian fitur secara aman.
+- Mengelola jaringan VPN multi-node dan infrastruktur cloud + on-premise secara bersamaan.
 
 ## Referensi Lanjutan
 
