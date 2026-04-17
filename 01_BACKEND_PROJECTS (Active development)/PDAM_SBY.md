@@ -72,8 +72,8 @@ Taksasi (tiap jam / tiap 15 menit)
 | `message2sensordata` | tiap 2.5 menit* | Parse raw message → sensor data + kubikasi |
 | `call_insertMissing` | tiap 5 menit | Isi data yang hilang |
 | `cek_anomali_kubikasi` | tiap 5 menit | Deteksi anomali kubikasi |
-| `runningTaksasi` | tiap jam (menit ke-3) | Hitung taksasi |
-| `runningTaksasiOtomatis` | tiap 15 menit (balai 4,5) | Taksasi otomatis |
+| ~~`runningTaksasi`~~ | ~~tiap jam (menit ke-3)~~ | **dinonaktifkan** |
+| `runningTaksasiOtomatis` | tiap 15 menit (semua balai) | Taksasi otomatis |
 | `publish_resend2` | tiap 3 jam | Resend data gagal terkirim |
 | `create_threshold` | Senin 01:00 | Update threshold sensor |
 
