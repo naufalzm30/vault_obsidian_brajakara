@@ -60,6 +60,14 @@ Kalau user sebut lagi kerja di folder project di luar vault → langsung baca ko
 
 Catat ke frontmatter + `## Temuan / Catatan Penting` di note vault project tersebut.
 
+## Rekam Jejak Pekerjaan
+
+Setiap user menyebut sesuatu yang dikerjakan di Brajakara → **langsung catat ke `07_PROFIL (Professional Identity)/rekam_jejak.md`** tanpa menunggu diminta.
+
+**Why:** User ingin bisa tracking "aku sudah ngapain aja di Brajakara" untuk kebutuhan resume dan referensi karir.
+
+**How to apply:** Format entry: `### YYYY-MM-DD — [Judul]`, dengan kategori dan deskripsi dampak singkat. Terapkan di semua session, semua mesin.
+
 ## Memory Sync
 
 Setiap update rule/instruksi → langsung sinkronkan ke **semua** tempat sekaligus tanpa menunggu ditegur:

@@ -41,6 +41,14 @@ Setiap akses project eksternal (SSH ke server lain, `cd` ke folder project) → 
 
 **Why:** User harus mengingatkan berulang kali — ini harus jadi reflek otomatis tanpa diminta.
 
+## Rekam Jejak Pekerjaan
+
+Setiap user menyebut sesuatu yang dikerjakan di Brajakara → **langsung catat ke `07_PROFIL (Professional Identity)/rekam_jejak.md`** tanpa menunggu diminta.
+
+**Why:** User ingin bisa tracking "aku sudah ngapain aja di Brajakara" untuk resume dan referensi karir.
+
+**How to apply:** Format: `### YYYY-MM-DD — [Judul]`, dengan kategori dan deskripsi dampak singkat.
+
 ## Sinkronisasi Memory
 
 Setiap update rule/instruksi → langsung sinkronkan ke **semua** tempat:

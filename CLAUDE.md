@@ -86,6 +86,19 @@ tags: [daily-note]
 ## Recap Hari Ini
 ```
 
+## Rekam Jejak Pekerjaan
+
+Setiap kali user menyebut sesuatu yang dikerjakan di Brajakara (fitur baru, bug fix, migrasi, konfigurasi, riset, dll) — **langsung catat ke `07_PROFIL (Professional Identity)/rekam_jejak.md`** tanpa menunggu diminta.
+
+Format entry:
+```
+### YYYY-MM-DD — [Judul Singkat]
+**Kategori:** Backend / Infra / Data Engineering / dll
+- deskripsi singkat apa yang dikerjakan dan dampaknya
+```
+
+Tujuan: tracking longitudinal "aku sudah ngapain aja di Brajakara" untuk kebutuhan resume, review, atau referensi karir ke depan.
+
 ## Note-Taking Behavior
 
 - Catat informasi baru secara proaktif ke folder yang relevan **tanpa menunggu diminta secara spesifik**
