@@ -20,9 +20,10 @@ Tracking longitudinal aktivitas pekerjaan di Brajakara untuk referensi resume, r
 - Melakukan ekstraksi data (data mining) dari format saintifik kompleks **NetCDF** dan **Weatherlink**
 - Pengolahan data presipitasi (curah hujan) yang akurat untuk input pipeline prediksi
 
-### (Ongoing) — Backend PDAM Surabaya
+### (Ongoing) — Backend PDAM Surabaya (Full Ownership)
 **Kategori:** Backend
-- Pengembangan sistem taksasi otomatis per balai
+- Bertanggung jawab penuh atas seluruh backend PDAM SBY — semua fitur API dan function logic yang bersifat domain-spesifik PDAM dikerjakan sendiri
+- Termasuk: sistem taksasi otomatis per balai, taksasi manual, dan seluruh business logic lainnya
 - Pengelolaan environment UAT dan produksi paralel
 
 ### (Ongoing) — Infrastruktur Virtualisasi

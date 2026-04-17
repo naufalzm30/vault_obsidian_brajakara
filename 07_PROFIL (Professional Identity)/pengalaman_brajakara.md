@@ -15,9 +15,10 @@ tags: [profil, pengalaman]
 - Melakukan ekstraksi data (data mining) dari format saintifik kompleks seperti **NetCDF** dan **Weatherlink** untuk pengolahan data presipitasi (curah hujan) yang akurat.
 - Membangun pipeline dari raw scientific format → preprocessing → model prediksi yang terintegrasi ke sistem monitoring cuaca (WEATHERAPP).
 
-## Backend System — PDAM Surabaya
+## Backend System — PDAM Surabaya (Full Ownership)
 
-- Mengembangkan sistem backend untuk PDAM Surabaya dengan fitur taksasi otomatis per balai dan eksekusi taksasi manual on-demand.
+- Bertanggung jawab penuh atas seluruh backend PDAM SBY — semua fitur API dan function logic yang bersifat domain-spesifik PDAM dikerjakan sendiri.
+- Mencakup taksasi otomatis per balai, taksasi manual on-demand, dan seluruh business logic sistem.
 - Mengelola environment UAT dan produksi secara paralel dengan kontrol deployment berbasis branch (`docker-preparations`).
 
 ## Infrastructure & Virtualization
