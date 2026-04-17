@@ -18,15 +18,17 @@ tags: [profil, pengalaman]
 - Repo: `docker-preparations` branch
 
 ### WEATHERAPP
-- Sistem monitoring cuaca
-- Integrasi ML prediction
+- Sistem monitoring cuaca dengan integrasi ML prediction
+- Ekstraksi data dari format saintifik kompleks: **NetCDF** dan **Weatherlink**
+- Data mining untuk pengolahan data **presipitasi (curah hujan)** yang akurat
+- Pipeline: raw scientific data → preprocessing → prediksi
 - Stack: MQTT, backend service
-- *(detail perlu dilengkapi)*
+- *(detail stack/bahasa perlu dilengkapi)*
 
 ## Infrastruktur yang Dikelola
 
 - VPS Biznet + Hostinger (cloud)
-- Proxmox on-premise
+- **Proxmox VE** on-premise — virtualisasi untuk sandbox pengujian fitur baru secara terisolasi dan aman
 - WireGuard VPN (mesh antar server)
 - Server dengan alias kreatif: MORDOR, azkaban, rockbottom, DungeonTower, lumbungpadi
 

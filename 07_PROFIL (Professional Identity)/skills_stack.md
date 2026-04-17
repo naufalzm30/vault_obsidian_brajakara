@@ -14,7 +14,7 @@ tags: [profil, skills]
 ## Infrastructure & DevOps
 
 - VPS: Biznet, Hostinger
-- On-premise: Proxmox
+- On-premise: **Proxmox VE** — virtualisasi untuk lingkungan sandbox pengujian fitur baru secara terisolasi
 - VPN: WireGuard
 - Container: *(perlu dilengkapi — Docker? Podman?)*
 - OS: Linux (EndeavourOS/Arch, Debian)
@@ -25,10 +25,17 @@ tags: [profil, skills]
 - CCTV integration
 - MQTT broker
 
+## Data Engineering & Scientific Data
+
+- Ekstraksi dan parsing format data saintifik: **NetCDF**, **Weatherlink**
+- Data mining untuk pengolahan data presipitasi (curah hujan)
+- Pipeline dari raw scientific format → data siap pakai untuk analisis/prediksi
+
 ## Machine Learning
 
 - Prediction model (terintegrasi ke weather app)
-- *(detail perlu dilengkapi)*
+- Input data: hasil olahan dari NetCDF/Weatherlink
+- *(detail model/library perlu dilengkapi)*
 
 ---
 

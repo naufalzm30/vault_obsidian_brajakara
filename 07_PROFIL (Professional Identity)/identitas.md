@@ -17,8 +17,9 @@ Versatile backend engineer yang handle full-cycle: dari nulis kode → deploymen
 
 - Backend development untuk sistem monitoring cuaca (WEATHERAPP)
 - Backend untuk sistem PDAM Surabaya (PDAM_SBY) — termasuk taksasi otomatis
-- Manage infra on-premise dan cloud sekaligus
-- Pengalaman ML prediction (terintegrasi ke weather monitoring)
+- Ekstraksi dan pengolahan data saintifik kompleks: **NetCDF** dan **Weatherlink** untuk data presipitasi
+- Manage infra on-premise (Proxmox VE) dan cloud sekaligus, termasuk sandbox terisolasi untuk pengujian fitur
+- Pengalaman ML prediction (terintegrasi ke weather monitoring, berbasis data curah hujan)
 
 ## Cara Kerja
 
