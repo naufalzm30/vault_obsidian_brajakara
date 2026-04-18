@@ -9,6 +9,18 @@ Tracking longitudinal aktivitas pekerjaan di Brajakara untuk referensi resume, r
 
 ---
 
+### 2026-04-18 — Otomasi Provisioning WireGuard VPN
+**Kategori:** Infrastructure / DevOps
+- Analisa struktur konfigurasi WireGuard di server `azkaban` (103.103.23.233): pola naming, subnet, perbedaan config tipe `adm` vs `sta`
+- Menemukan bahwa `server_peers.conf` bukan include aktif WireGuard — hanya referensi manual yang out-of-sync, bukan bagian dari protokol
+- Membuat script `generate_new_profile.sh` di `/etc/wireguard/` untuk otomasi pembuatan profil VPN baru: auto-increment nama profil, validasi subnet, cek duplikasi IP, generate keypair, distribusi file ke folder yang tepat, hot-reload peer tanpa restart interface
+- Menambahkan nama pemilik profil sebagai comment konsisten di semua file (`keys/`, `client_configs/`, `wg0.conf`, `server_peers.conf`)
+- Merapikan entry `adm0121` (bang vius) yang formatnya tidak konsisten — di-rename ke `adm0026` sesuai urutan iterasi, comment digabung jadi satu baris
+- Membuat `README.md` di `/etc/wireguard/` sebagai dokumentasi operator
+- Mendokumentasikan seluruh setup ke vault (`WireGuard_Azkaban.md`)
+
+---
+
 ### 2026-04-17 — Setup Folder Profil Professional
 **Kategori:** Dokumentasi
 - Membuat folder `07_PROFIL` di vault sebagai referensi identitas profesional dan resume
