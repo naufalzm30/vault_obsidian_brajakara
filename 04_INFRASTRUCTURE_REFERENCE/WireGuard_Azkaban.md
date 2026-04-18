@@ -14,7 +14,8 @@ Server WireGuard utama Brajakara, berjalan di `azkaban@103.103.23.233:51820`.
 ├── wg0.conf              # Konfigurasi server aktif (interface + semua peer)
 ├── server_peers.conf     # Referensi manual daftar peer (tidak dipakai WG secara aktif)
 ├── new_server_peers.conf # Fragmentasi lama, tidak relevan
-├── add_wg_peer.sh        # Script otomasi pembuatan profil baru
+├── README.md             # Dokumentasi folder ini
+├── generate_new_profile.sh  # Script otomasi pembuatan profil baru
 ├── client_configs/       # File .conf untuk didistribusikan ke client
 │   └── {name}.conf
 └── keys/                 # Keypair tiap client
@@ -38,17 +39,18 @@ Server IP di jaringan VPN: `10.20.0.1/24`
 
 ```bash
 ssh azkaban@103.103.23.233
-sudo bash /etc/wireguard/add_wg_peer.sh
+sudo bash /etc/wireguard/generate_new_profile.sh
 ```
 
 Script akan:
-1. Prompt nama profile dan IP
-2. Validasi prefix cocok dengan subnet
-3. Cek duplikasi nama dan IP
-4. Generate keypair → simpan ke `keys/`
-5. Buat client `.conf` → simpan ke `client_configs/`
-6. Append `[Peer]` block ke `wg0.conf` dan `server_peers.conf`
-7. Hot-reload via `wg set` tanpa restart interface
+1. Pilih tipe `adm`/`sta` via menu select
+2. Nama profil di-generate otomatis (iterasi dari nomor terakhir)
+3. Input IP address + nama pemilik profil
+4. Validasi subnet dan duplikasi IP
+5. Generate keypair → simpan ke `keys/`
+6. Buat client `.conf` → simpan ke `client_configs/`
+7. Append `[Peer]` block ke `wg0.conf` dan `server_peers.conf`
+8. Hot-reload via `wg set` tanpa restart interface
 
 ## Catatan Penting
 
