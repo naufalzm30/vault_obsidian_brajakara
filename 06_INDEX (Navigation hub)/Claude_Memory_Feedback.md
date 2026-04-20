@@ -12,6 +12,13 @@ Catat informasi baru ke folder relevan **tanpa menunggu diminta**.
 
 **How to apply:** Setiap ada info baru (infra, project, snippet, dll) → langsung tulis ke folder sesuai. Pecah topik besar ke file terpisah, hubungkan dengan `[[wikilink]]`.
 
+## Tanya Commit Message Sebelum Push (Project Code)
+
+Untuk repo selain vault (BRAJA_PDAMSBY, dll): **tanya commit message ke user dulu** sebelum push. Jangan auto-generate.
+
+**Why:** User ingin kontrol atas pesan commit mereka sendiri.
+**How to apply:** Vault sync tetap otomatis. Project code → tanya dulu.
+
 ## Git Sync Otomatis
 
 Setiap Write/Edit file di vault → **langsung** jalankan:

@@ -28,6 +28,13 @@ Vault dipakai dari banyak mesin (salazar, tower, dll). Kalau user tanya "apa yan
 
 **How to apply:** Terapkan di semua mesin, semua session. Jangan jawab dulu sebelum pull.
 
+## Tanya Commit Message Sebelum Push (Project Code)
+
+Untuk repo selain vault (BRAJA_PDAMSBY, dll): **tanya commit message ke user dulu** sebelum `git commit` + `git push`. Jangan auto-generate.
+
+**Why:** User ingin kontrol atas pesan commit mereka sendiri.
+**How to apply:** Vault sync tetap otomatis. Untuk project code → tanya dulu.
+
 ## Git Sync Otomatis
 
 Setiap Write/Edit file di vault → langsung jalankan:

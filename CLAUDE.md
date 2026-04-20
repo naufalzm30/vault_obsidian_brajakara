@@ -44,6 +44,10 @@ Setiap kali membuat perubahan pada vault (buat/edit/hapus file):
 
 Lakukan ini **otomatis tanpa diminta**. Remote: `origin` → `git@github.com:naufalzm30/vault_obsidian_brajakara.git`.
 
+## Commit Message — Project Code
+
+Untuk repo **selain vault** (BRAJA_PDAMSBY, dll): **selalu tanya commit message ke user sebelum push**. Jangan auto-generate tanpa konfirmasi.
+
 Saat menampilkan progress git sync, cukup tulis satu baris: **"syncing to github..."** — jangan tampilkan output mentah git.
 
 Setiap user bertanya tentang aktivitas terbaru, info dari mesin lain, atau "apa yang baru" — **selalu `git fetch` + `git pull` dulu** sebelum menjawab. Vault ini digunakan dari banyak mesin (salazar, tower, dll).
