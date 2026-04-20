@@ -46,7 +46,7 @@ Lakukan ini **otomatis tanpa diminta**. Remote: `origin` → `git@github.com:nau
 
 ## Commit Message — Project Code
 
-Untuk repo **selain vault** (BRAJA_PDAMSBY, dll): **selalu tanya commit message ke user sebelum push**. Jangan auto-generate tanpa konfirmasi.
+Untuk repo **selain vault** (BRAJA_PDAMSBY, dll): buat commit message yang **meaningful dan representatif** — jangan generic. Tidak perlu tanya ke user.
 
 Saat menampilkan progress git sync, cukup tulis satu baris: **"syncing to github..."** — jangan tampilkan output mentah git.
 

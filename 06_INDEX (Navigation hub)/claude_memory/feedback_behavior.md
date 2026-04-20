@@ -28,12 +28,12 @@ Vault dipakai dari banyak mesin (salazar, tower, dll). Kalau user tanya "apa yan
 
 **How to apply:** Terapkan di semua mesin, semua session. Jangan jawab dulu sebelum pull.
 
-## Tanya Commit Message Sebelum Push (Project Code)
+## Commit Message — Project Code
 
-Untuk repo selain vault (BRAJA_PDAMSBY, dll): **tanya commit message ke user dulu** sebelum `git commit` + `git push`. Jangan auto-generate.
+Untuk repo selain vault (BRAJA_PDAMSBY, dll): buat commit message yang **meaningful dan representatif**. Tidak perlu tanya user.
 
-**Why:** User ingin kontrol atas pesan commit mereka sendiri.
-**How to apply:** Vault sync tetap otomatis. Untuk project code → tanya dulu.
+**Why:** User tidak mau diganggu tanya-tanya, tapi commit message harus deskriptif — bukan generic seperti "update views.py".
+**How to apply:** Ringkas apa yang berubah dan kenapa, bukan cuma nama file.
 
 ## Git Sync Otomatis
 
