@@ -27,6 +27,13 @@ Tracking longitudinal aktivitas pekerjaan di Brajakara untuk referensi resume, r
 
 ---
 
+### 2026-04-21 — Integrasi Notif Telegram BRAJA_PDAMSBY check_data
+**Kategori:** Backend
+- Lanjut implementasi `run_checks.py` di `core_logic/check_data/`
+- Integrasi notifikasi Telegram otomatis untuk alert station: missing data, threshold invalid, battery lemah (< 11V)
+
+---
+
 ### (Ongoing) — Data Engineering WEATHERAPP
 **Kategori:** Data Engineering
 - Melakukan ekstraksi data (data mining) dari format saintifik kompleks **NetCDF** dan **Weatherlink**
