@@ -63,3 +63,31 @@ Setiap update rule/instruksi → langsung sinkronkan ke **semua** tempat:
 2. `06_INDEX/claude_memory/feedback_behavior.md`
 3. `06_INDEX/Claude_Memory_Feedback.md`
 4. `~/.claude/projects/.../memory/feedback_notes.md`
+
+## WAJIB Pakai RTK + Caveman
+
+Dua tools ini WAJIB aktif di setiap session — bukan optional.
+
+### Caveman Mode
+- Auto-active via `SessionStart` hook
+- Drop articles, filler, hedging — fragments OK
+- Normal style hanya di: code, commit message, security warning, irreversible action
+
+### RTK (Rust Token Killer)
+WAJIB prefix `rtk` di depan command verbose, atau pipe ke `rtk log` / `rtk pipe`. Hook `rtk hook claude` HANYA telemetry — TIDAK auto-route output.
+
+| Tujuan | Pakai |
+|---|---|
+| Docker logs | `docker logs X --tail N \| rtk log` |
+| Pytest | `rtk pytest` |
+| Git log/diff | `rtk git log` / `rtk diff` |
+| Find/grep/tree/ls | `rtk find` / `rtk grep` / `rtk tree` / `rtk ls` |
+| Cargo / Jest / Vitest | `rtk cargo` / `rtk jest` / `rtk vitest` |
+| Curl JSON | `rtk curl` |
+| psql / kubectl / docker | `rtk psql` / `rtk kubectl` / `rtk docker` |
+| npm / pnpm | `rtk npm` / `rtk pnpm` |
+| Custom verbose | `<cmd> \| rtk log` atau `\| rtk pipe` |
+
+**Why:** Output verbose tanpa RTK menghabiskan context window. User sudah install RTK + setup hook → tidak ada alasan tidak pakai.
+
+**How to apply:** Sebelum tiap Bash command verbose, cek `rtk --help`. Kalau ada wrapper, pakai. Kalau tidak ada, pipe ke `rtk log`/`rtk pipe`. Command yang sudah compact (mkdir, cp) tidak perlu.

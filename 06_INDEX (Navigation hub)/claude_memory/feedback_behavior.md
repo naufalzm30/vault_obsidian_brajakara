@@ -94,3 +94,41 @@ Saat git sync vault, jangan tampilkan output git mentah. Cukup tulis satu baris:
 **Why:** Output panjang git pull/commit/push memenuhi layar dan tidak informatif bagi user.
 
 **How to apply:** Setiap selesai git sync vault, ringkas jadi satu baris pendek saja.
+
+## WAJIB Pakai RTK + Caveman
+
+Dua tools ini WAJIB aktif di setiap session — bukan optional.
+
+### Caveman Mode
+- Auto-active via `SessionStart` hook
+- Drop articles, filler, hedging — fragments OK
+- Kalau drift, langsung balik
+- Normal style hanya di: code, commit message, security warning, irreversible action
+
+### RTK (Rust Token Killer)
+WAJIB prefix `rtk` di depan command verbose, atau pipe ke `rtk log` / `rtk pipe`. Hook `rtk hook claude` di `PreToolUse` HANYA untuk telemetry — TIDAK auto-route output.
+
+| Tujuan | Pakai |
+|---|---|
+| Docker logs | `docker logs X --tail N \| rtk log` |
+| Pytest | `rtk pytest` (cuma failures) |
+| Git log/diff | `rtk git log` / `rtk diff` |
+| Cari file | `rtk find` |
+| Grep | `rtk grep` |
+| Cargo build/test | `rtk cargo build` |
+| Jest/Vitest | `rtk jest` / `rtk vitest` |
+| Curl JSON | `rtk curl` |
+| Tree/ls | `rtk tree` / `rtk ls` |
+| psql | `rtk psql` |
+| kubectl | `rtk kubectl` |
+| docker | `rtk docker` |
+| npm/pnpm | `rtk npm` / `rtk pnpm` |
+| Custom verbose | `<cmd> \| rtk log` atau `\| rtk pipe` |
+
+**Why:** Output verbose (logs, test, build) tanpa RTK menghabiskan context window — token waste. User SUDAH install RTK + setup hook, jadi tidak ada alasan untuk tidak pakai.
+
+**How to apply:**
+1. Sebelum tiap Bash command verbose → cek `rtk --help` apakah ada wrapper khusus
+2. Kalau ada, prefix `rtk`
+3. Kalau tidak ada wrapper khusus, pipe output ke `rtk log` (untuk log) atau `rtk pipe` (general filter)
+4. Untuk command yang sudah pasti compact (mkdir, cp, simple echo) → tidak perlu RTK

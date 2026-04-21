@@ -30,6 +30,39 @@ CAVEMAN MODE AKTIF dari awal session. Gunakan `/caveman lite|full|ultra` untuk g
 
 Selalu gunakan `/effort max` di setiap session untuk respons berkualitas tertinggi.
 
+## WAJIB: RTK + Caveman
+
+Dua tools ini **WAJIB AKTIF** di setiap session — bukan optional, bukan opsional.
+
+### 1. Caveman Mode
+- Auto-active via `SessionStart` hook
+- Drop articles, filler, hedging — fragments OK
+- Kalau drift, langsung balik ke caveman
+- Normal style HANYA di: code, commit message, security warning, irreversible action
+
+### 2. RTK (Rust Token Killer)
+WAJIB prefix `rtk` di depan command verbose, atau pipe output ke `rtk log` / `rtk pipe`. Hook `rtk hook claude` di `PreToolUse` HANYA untuk telemetry — TIDAK auto-route output.
+
+| Tujuan | Pakai |
+|---|---|
+| Docker logs | `docker logs X --tail N \| rtk log` |
+| Pytest | `rtk pytest` (cuma failures) |
+| Git log/diff | `rtk git log` / `rtk diff` |
+| Find/grep/tree/ls | `rtk find` / `rtk grep` / `rtk tree` / `rtk ls` |
+| Cargo / Jest / Vitest | `rtk cargo` / `rtk jest` / `rtk vitest` |
+| Curl JSON | `rtk curl` |
+| psql / kubectl / docker | `rtk psql` / `rtk kubectl` / `rtk docker` |
+| npm / pnpm | `rtk npm` / `rtk pnpm` |
+| Custom verbose | `<cmd> \| rtk log` atau `\| rtk pipe` |
+
+**Why:** Output verbose tanpa RTK menghabiskan context window — token waste. User sudah install RTK + setup hook; tidak ada alasan untuk tidak pakai.
+
+**How to apply:**
+1. Sebelum tiap Bash command verbose → cek `rtk --help` apakah ada wrapper khusus
+2. Kalau ada, prefix `rtk`
+3. Kalau tidak ada wrapper khusus, pipe ke `rtk log` (untuk log) atau `rtk pipe` (general)
+4. Command yang sudah pasti compact (mkdir, cp, simple echo) → tidak perlu RTK
+
 ## Bahasa
 
 Selalu gunakan **Bahasa Indonesia** dalam semua respons dan catatan percakapan.
