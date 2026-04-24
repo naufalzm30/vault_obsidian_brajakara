@@ -24,6 +24,129 @@ The vault uses a numbered folder system:
 
 New notes that haven't been categorized yet go into `00_INBOX/`. Daily notes live in `00_INBOX/Daily_Notes/`.
 
+## Navigation Map — Project & Paths
+
+Project aktif Brajakara + lokasi di mesin dev + note vault + repo. Path di kolom "Local Path (tower)" adalah standar di mesin **tower** (primary dev machine). Di mesin lain bisa beda — cek dulu kalau perlu (`ls ~/<name>` atau `find ~ -maxdepth 2 -name <name>`).
+
+| Project | Local Path (tower) | Vault Note | Repo |
+|---|---|---|---|
+| BE_WEATHERAPP | `~/BE_WEATHERAPP` | `01_BACKEND.../BE_WEATHERAPP.md` | `Brajakara-Teknologi-Media/BE_WEATHERAPP` |
+| weatherapp_mqtt_parser | `~/weatherapp_mqtt_parser` | `01_BACKEND.../weatherapp_mqtt_parser.md` | local only |
+| BRAJA_PDAMSBY | `~/BRAJA_PDAMSBY` | `01_BACKEND.../PDAM_SBY.md` | `Brajakara-Teknologi-Media/BRAJA_PDAMSBY` |
+| FE_BRAJA_PDAMSBY | `~/FE_BRAJA_PDAMSBY` | `01_BACKEND.../FE_BRAJA_PDAMSBY.md` (skeleton) | (cek di tower) |
+| FE_weatherapp_palembang | `~/FE_weatherapp_palembang` | `01_BACKEND.../FE_weatherapp_palembang.md` (skeleton) | (cek di tower) |
+| GO_WHATSAPP_API | `~/GO_WHATSAPP_API` | `01_BACKEND.../GO_WHATSAPP_API.md` (skeleton) | (cek di tower) |
+| wa_notif | `~/wa_notif` | `01_BACKEND.../wa_notif.md` (skeleton) | (cek di tower) |
+| webhook_receiver | `~/webhook_receiver` | `01_BACKEND.../webhook_receiver.md` (skeleton) | (cek di tower) |
+
+## Server Alias Quick Ref
+
+Alias unik Brajakara — pakai apa adanya, jangan diubah. Full detail: `[[Brajakara_Infrastructure_Overview]]`.
+
+| Alias | IP | Fungsi Utama |
+|---|---|---|
+| rockbottom | `103.150.227.16` | MQTT broker (Mosquitto) |
+| azkaban | `103.103.23.233` | VPN (WireGuard) + CCTV restreamer + Plane + Nginx RP |
+| riverstyx | `103.94.239.32` | **Backbone Brajakara** — backend weather app + service pendukung |
+| FOEWS | `213.210.21.73` | Aplikasi FOEWS + legacy services (migrasi bertahap) |
+| MORDOR | `10.20.0.18` | Proxmox host — semua VM Brajakara jalan di sini |
+| ServerFlowMeter-no-JH | — | Prod BRAJA_PDAMSBY (path: `/home/usflowmeter/pdam-daas-project/src/DOCKER_BRAJA_PDAMSBY`) |
+| salazar | — | Dev laptop user (vault + Claude Code, tanpa project lokal) |
+| tower | — | Dev PC user (primary — semua project di `~/`) |
+
+### Subnet WireGuard (azkaban)
+- `10.20.0.x` — admin/human VPN clients, komputer
+- `10.20.1.x` — Raspberry Pi CCTV lapangan
+
+## Machine Profiles
+
+| Mesin | Role | Project Lokal | Catatan |
+|---|---|---|---|
+| **salazar** | Dev laptop | TIDAK ada — cuma vault + Claude Code | Kalau user minta kerja di project, minta lanjut di tower atau remote |
+| **tower** | Dev PC (primary) | SEMUA project di `~/<name>` langsung | Layout flat di `$HOME` |
+| **MORDOR** | Proxmox host | — | VM sandbox |
+| **riverstyx** | Prod backbone | BE_WEATHERAPP deployed | Jangan edit code langsung di prod |
+
+## Persona Shortcuts
+
+File profil profesional user — pakai untuk pertanyaan identitas / skills / pengalaman.
+
+| Topik | File |
+|---|---|
+| Identitas | `07_PROFIL (Professional Identity)/identitas.md` |
+| Skills / stack | `07_PROFIL (Professional Identity)/skills_stack.md` |
+| Rekam jejak (longitudinal) | `07_PROFIL (Professional Identity)/rekam_jejak.md` — **auto-update tiap kerjaan baru** |
+| Pengalaman Brajakara | `07_PROFIL (Professional Identity)/pengalaman_brajakara.md` |
+
+## Triage — Where to Look First
+
+| User bilang / tanya... | Buka dulu |
+|---|---|
+| Nama project (PDAM, WEATHERAPP, dll) | Vault note di `01_BACKEND_PROJECTS (Active development)/` |
+| Nama server/alias | Section di `04_INFRASTRUCTURE_REFERENCE/Brajakara_Infrastructure_Overview.md` |
+| "aktivitas terbaru" / "apa yang baru" / "kemarin" | `rtk git fetch && rtk git pull` → daily note terbaru + rekam jejak |
+| Bug / quirk existing | `## Temuan / Catatan Penting` di note project |
+| Infra / VPN / deployment | `04_INFRASTRUCTURE_REFERENCE/` |
+| Pattern reusable | `02_BACKEND_REFERENCE/` (kosong per 2026-04-24) |
+| Memory Claude / context lama | `06_INDEX (Navigation hub)/claude_memory/` atau `~/.claude/.../memory/` |
+| Identitas / skill / rekam jejak | `07_PROFIL (Professional Identity)/` |
+
+## Global Gotchas
+
+Hal lintas-project yang sering bikin salah langkah:
+
+- **MQTT creds lama `vius/vius`** — sekarang `B-Tech/B-Tech` (weatherapp ecosystem)
+- **DB `weather_app` pindah** ke `127.0.0.1:4307` (bukan `10.20.0.11` lama) → wajib `network_mode: host` di docker-compose
+- **Year bug logger** — logger kadang kirim `current_year + 41/42/43`, ada koreksi hardcoded di parser
+- **Path stale `/home/viusp/...`** di `.service` file & `views.py` BE_WEATHERAPP — perlu update per mesin saat deploy ulang
+- **Telegram bot BE_WEATHERAPP**: 2 config — `TELEGRAM_MALANG` + `TELEGRAM_PALU`
+- **Telegram bot PDAM**: `@suryasembadabot` (`7699190789:...`) → 4 channel: MISSING, THRESHOLD, VOLTASE_TURUN, KUBIKASI_MINUS
+- **BE_WEATHERAPP `DEBUG = True`** + Django 3.2 — belum production-ready
+- **PDAM dead tables** di `dbflowmeter`: `checker_data`, `sensor_data`, `station` (nama lama, belum di-drop)
+- **PDAM `taksasi.py` vs `taksasi_old.py` vs `taksasi_backup.py`** — hati-hati salah edit file
+- **PDAM Supercronic stagger trick**: dua job `*/5` + `sleep 150` = efektif tiap 2.5 menit
+- **Inovastek Ayana Resort** — offset sensor hardcoded (+3, -20, +3.1) + timezone +1 jam
+
+## Domain Glossary
+
+Istilah khusus ekosistem Brajakara:
+
+| Istilah | Arti |
+|---|---|
+| **kubikasi** | Volume air (m³) terakumulasi dari flow meter PDAM |
+| **voltased** | Status voltase turun (< 11V) di sensor — indikasi battery lemah |
+| **taksasi** | Estimasi/prediksi data — job rutin PDAM isi data yang hilang berdasarkan pola historis |
+| **anomali** | Data sensor yang out-of-range atau tidak konsisten dengan pola |
+| **balai** | Unit organisasi (BWS — Balai Wilayah Sungai) user BE_WEATHERAPP |
+| **station** | Stasiun monitoring (sensor + koordinat + topic MQTT) |
+| **logger** | Alat IoT di lapangan yang kirim data via MQTT (CSV format) |
+| **stagger trick** | Dua cronjob `*/5` dengan offset `sleep 150` untuk efektif jalan tiap 2.5 menit |
+| **FOEWS** | Flood Operation & Early Warning System — aplikasi legacy Brajakara |
+| **threshold** | Ambang batas sensor per station untuk trigger alert |
+| **missing** / **threshold** / **voltased** / **minus** | 4 kategori check_data PDAM untuk trigger notif Telegram |
+
+## Env / Secrets Matrix
+
+| Project | File Config | Secrets Penting |
+|---|---|---|
+| BE_WEATHERAPP | `weather_project/.env` | DB creds MySQL, Django SECRET_KEY, Telegram tokens (MALANG + PALU) |
+| weatherapp_mqtt_parser | `Config.ini` + `dockerize/Config.ini` (plaintext, bukan `.env`!) | MQTT broker/user/pass, DB MySQL creds |
+| BRAJA_PDAMSBY | `pdam_project/pdam_project/.env` | PostgreSQL creds (`usflowmeter@128.46.8.224`), Django SECRET_KEY, `TELEGRAM_BOT_TOKEN` (perlu ditambah di prod) |
+| BRAJA_PDAMSBY (prod `ServerFlowMeter-no-JH`) | `/home/usflowmeter/pdam-daas-project/src/DOCKER_BRAJA_PDAMSBY/.env` | Sama seperti dev + **belum ada `TELEGRAM_BOT_TOKEN`** per 2026-04-21 |
+| MQTT broker (`rockbottom`) | `/etc/mosquitto/...` | User auth — creds di password_file |
+
+⚠️ **Jangan commit `.env` ke repo**. Kalau nemu secret leak di git history, flag ke user.
+
+## Startup Ritual
+
+Auto-check tanpa diminta di setiap session baru di vault:
+
+1. `rtk git fetch && rtk git pull --rebase origin master` — sync update dari mesin lain
+2. Baca daily note hari ini (`00_INBOX/Daily_Notes/YYYY-MM-DD.md`) — state aktif
+3. Baca 10 entry terakhir `07_PROFIL (Professional Identity)/rekam_jejak.md` — konteks longitudinal
+4. Cek `project_active.md` di `~/.claude/.../memory/` — task pending
+5. Ready
+
 ## Mode
 
 CAVEMAN MODE AKTIF dari awal session. Gunakan `/caveman lite|full|ultra` untuk ganti level. Default: **full**.

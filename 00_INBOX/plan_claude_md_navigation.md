@@ -1,9 +1,12 @@
 ---
 date: 2026-04-24
-tags: [plan, claude-md, meta, wip]
-status: wip
-mesin: tower → lanjut di mesin lain
+tags: [plan, claude-md, meta, implemented]
+status: implemented-salazar
+mesin: tower → dilanjutkan dan di-implement di salazar
+implementasi_salazar: 2026-04-24
 ---
+
+> **Status update 2026-04-24 (salazar):** Plan di-implement di salazar. CLAUDE.md sudah ditambahi 9 section (6 dari plan asli + 3 tambahan: Machine Profiles, Domain Glossary, Env/Secrets Matrix). Skeleton 5 project note sudah dibuat (FE_BRAJA_PDAMSBY, FE_weatherapp_palembang, GO_WHATSAPP_API, wa_notif, webhook_receiver). Pending: verify path + repo URL + isi detail tiap skeleton saat akses di tower.
 
 # Plan — Optimasi CLAUDE.md untuk Navigasi Cepat
 

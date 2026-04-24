@@ -34,6 +34,15 @@ Tracking longitudinal aktivitas pekerjaan di Brajakara untuk referensi resume, r
 
 ---
 
+### 2026-04-24 — Optimasi CLAUDE.md Navigation Vault
+**Kategori:** Dokumentasi / Meta
+- Identifikasi masalah: navigasi dari CLAUDE.md ke notes/project/persona tidak efisien — Claude sering tebak path, baca satu-per-satu
+- Tambah 9 section ke `CLAUDE.md` vault: Navigation Map, Server Alias Quick Ref, Machine Profiles, Persona Shortcuts, Triage, Global Gotchas, Domain Glossary, Env/Secrets Matrix, Startup Ritual
+- Backfill 5 note skeleton project yang belum ada di vault: `FE_BRAJA_PDAMSBY`, `FE_weatherapp_palembang`, `GO_WHATSAPP_API`, `wa_notif`, `webhook_receiver`
+- Plan awal dibuat di tower, di-implement di salazar — demonstrasi workflow multi-mesin lewat git sync vault
+
+---
+
 ### (Ongoing) — Data Engineering WEATHERAPP
 **Kategori:** Data Engineering
 - Melakukan ekstraksi data (data mining) dari format saintifik kompleks **NetCDF** dan **Weatherlink**
