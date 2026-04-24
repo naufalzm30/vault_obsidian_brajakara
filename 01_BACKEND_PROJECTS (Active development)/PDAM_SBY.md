@@ -96,6 +96,21 @@ Ada di `predictions/` — saat ini tidak dijadwalkan:
 psql -U usflowmeter -h 128.46.8.224 -d dbflowmeter
 ```
 
+## Temuan / Catatan Penting
+
+### 2026-04-24 — Dead Tables di DB `dbflowmeter`
+Hasil crosscheck Django models vs `\dt` PostgreSQL. **3 dead tables** ditemukan (ada di DB, tidak ada di model manapun):
+
+| Tabel | Keterangan |
+|---|---|
+| `checker_data` | Nama lama — sudah diganti `pdam_checker_data` |
+| `sensor_data` | Nama lama — sudah diganti `pdam_sensor_data` |
+| `station` | Nama lama — sudah diganti `pdam_station` |
+
+Semua tabel Django (19 custom + built-in) hadir di DB. Dead tables belum di-drop — hanya dicatat untuk referensi.
+
+---
+
 ## Catatan Operasional
 
 - Guard script: `docker_compose_guard.sh` — kemungkinan watchdog container

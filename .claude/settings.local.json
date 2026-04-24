@@ -23,13 +23,7 @@
       "Bash(touch '/home/salazar/Brajakara_vault/Brajakara_Naufal/03_QUICK_SNIPPETS \\(Code examples, not full projects\\)/.gitkeep')",
       "Bash(touch /home/salazar/Brajakara_vault/Brajakara_Naufal/00_INBOX/Daily_Notes/.gitkeep)",
       "Bash(touch '/home/salazar/Brajakara_vault/Brajakara_Naufal/06_INDEX \\(Navigation hub\\)/.gitkeep')",
-      "mcp__ide__getDiagnostics",
-      "mcp__code-review-graph__list_repos_tool",
-      "mcp__code-review-graph__list_graph_stats_tool"
+      "Skill(keybindings-help)"
     ]
-  },
-  "enableAllProjectMcpServers": true,
-  "enabledMcpjsonServers": [
-    "code-review-graph"
-  ]
+  }
 }
