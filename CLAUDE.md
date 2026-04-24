@@ -298,6 +298,43 @@ tags: [daily-note]
 ## Recap Hari Ini
 ```
 
+### WAJIB — Auto-Wikilink Keyword di Daily Note
+
+Setiap nulis daily note, **keyword kunci WAJIB di-wrap jadi `[[wikilink]]`** biar backlink Obsidian kerja. Jangan nulis nama project/server/persona mentahan.
+
+**Mapping keyword → wikilink target:**
+
+| Keyword (raw text di daily note) | Wikilink target |
+|---|---|
+| BRAJA_PDAMSBY / PDAM / PDAM_SBY / flow meter PDAM | `[[PDAM_SBY]]` |
+| BE_WEATHERAPP / backend weather app | `[[BE_WEATHERAPP]]` |
+| weatherapp_mqtt_parser / MQTT parser / dockerize (weatherapp) | `[[weatherapp_mqtt_parser]]` |
+| FE_BRAJA_PDAMSBY | `[[FE_BRAJA_PDAMSBY]]` |
+| FE_weatherapp_palembang | `[[FE_weatherapp_palembang]]` |
+| GO_WHATSAPP_API | `[[GO_WHATSAPP_API]]` |
+| wa_notif | `[[wa_notif]]` |
+| webhook_receiver | `[[webhook_receiver]]` |
+| azkaban / WireGuard VPN server | `[[WireGuard_Azkaban]]` atau `[[Brajakara_Infrastructure_Overview\|azkaban]]` |
+| rockbottom / MQTT broker | `[[Brajakara_Infrastructure_Overview\|rockbottom]]` |
+| riverstyx | `[[Brajakara_Infrastructure_Overview\|riverstyx]]` |
+| FOEWS (server) | `[[Brajakara_Infrastructure_Overview\|FOEWS]]` |
+| MORDOR / Proxmox | `[[Proxmox_MORDOR]]` |
+| ServerFlowMeter-no-JH / prod PDAM | `[[Brajakara_Infrastructure_Overview\|ServerFlowMeter-no-JH]]` |
+| rekam jejak / karier / pengalaman | `[[rekam_jejak]]` / `[[pengalaman_brajakara]]` |
+| skills / stack user | `[[skills_stack]]` |
+| identitas user | `[[identitas]]` |
+| Navigation / master hub vault | `[[Navigation_Map]]` |
+| memory Claude | `[[Claude_Memory]]` |
+
+**Contoh:**
+- ❌ "Fix bug timezone di PDAM_SBY views.py"
+- ✅ "Fix bug timezone di [[PDAM_SBY]] views.py"
+
+- ❌ "Setup WireGuard profile baru di azkaban"
+- ✅ "Setup VPN profile baru di [[WireGuard_Azkaban|azkaban]]"
+
+Kalau ada keyword baru yang belum ada mapping — tambah note target dulu, lalu update tabel ini.
+
 ## Rekam Jejak Pekerjaan
 
 Setiap kali user menyebut sesuatu yang dikerjakan di Brajakara (fitur baru, bug fix, migrasi, konfigurasi, riset, dll) — **langsung catat ke `07_PROFIL (Professional Identity)/rekam_jejak.md`** tanpa menunggu diminta.
