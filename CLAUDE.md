@@ -337,16 +337,49 @@ Kalau ada keyword baru yang belum ada mapping — tambah note target dulu, lalu 
 
 ## Rekam Jejak Pekerjaan
 
-Setiap kali user menyebut sesuatu yang dikerjakan di Brajakara (fitur baru, bug fix, migrasi, konfigurasi, riset, dll) — **langsung catat ke `07_PROFIL (Professional Identity)/rekam_jejak.md`** tanpa menunggu diminta.
+Setiap kali user menyebut sesuatu yang dikerjakan di Brajakara (fitur baru, bug fix, migrasi, konfigurasi, riset, dll) — **langsung catat ke [[rekam_jejak]]** (`07_PROFIL (Professional Identity)/rekam_jejak.md`) tanpa menunggu diminta.
 
 Format entry:
 ```
 ### YYYY-MM-DD — [Judul Singkat]
 **Kategori:** Backend / Infra / Data Engineering / dll
-- deskripsi singkat apa yang dikerjakan dan dampaknya
+**Daily note:** [[YYYY-MM-DD]]
+- deskripsi singkat apa yang dikerjakan dan dampaknya (pakai `[[wikilink]]` untuk project/server/persona sesuai mapping di section Daily Note)
 ```
 
 Tujuan: tracking longitudinal "aku sudah ngapain aja di Brajakara" untuk kebutuhan resume, review, atau referensi karir ke depan.
+
+### WAJIB — Cross-Link Daily Note ↔ Rekam Jejak
+
+Daily note dan rekam_jejak **harus saling link**:
+
+1. **Dari rekam_jejak → daily note:** tiap entry rekam_jejak **wajib** punya baris `**Daily note:** [[YYYY-MM-DD]]` merujuk tanggal aktivitas.
+
+2. **Dari daily note → rekam_jejak:** setiap aktivitas di daily note yang **juga dipromote** ke rekam_jejak, tambahkan footer di akhir section aktivitas tersebut:
+   ```
+   ↗ Masuk [[rekam_jejak]]
+   ```
+   Hanya untuk aktivitas yang benar-benar masuk rekam jejak — aktivitas minor (misal setup kosmetik, tweak config sepele) tidak perlu.
+
+3. **Wikilink mapping** (section Daily Note) juga berlaku di entry rekam_jejak — keyword project/server/persona pakai `[[wikilink]]`, bukan text mentah.
+
+**Contoh entry rekam_jejak benar:**
+```
+### 2026-04-24 — Audit Dead Tables [[PDAM_SBY]]
+**Kategori:** Backend / Data Engineering
+**Daily note:** [[2026-04-24]]
+- Crosscheck Django models vs `\dt` PostgreSQL `dbflowmeter`
+- Temuan 3 dead tables: `checker_data`, `sensor_data`, `station` (nama lama pre-rename)
+```
+
+**Contoh footer di daily note:**
+```
+### Audit Dead Tables DB PDAM
+- Crosscheck Django models [[PDAM_SBY|BRAJA_PDAMSBY]] vs `\dt` PostgreSQL
+- Temuan 3 dead tables...
+
+↗ Masuk [[rekam_jejak]]
+```
 
 ## Note-Taking Behavior
 
