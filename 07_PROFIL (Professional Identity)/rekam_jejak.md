@@ -83,6 +83,13 @@ Tracking longitudinal aktivitas pekerjaan di Brajakara untuk referensi resume, r
 
 ---
 
+### 2026-04-26 — Dokumentasi Docker Compose MinIO
+**Kategori:** Infrastruktur
+**Daily note:** [[2026-04-26]]
+- Setup dokumentasi Docker Compose [[MinIO]] baru untuk rencana migrasi dari baremetal.
+
+---
+
 ### (Ongoing) — Data Engineering [[BE_WEATHERAPP|WEATHERAPP]]
 **Kategori:** Data Engineering
 - Melakukan ekstraksi data (data mining) dari format saintifik kompleks **NetCDF** dan **Weatherlink**
