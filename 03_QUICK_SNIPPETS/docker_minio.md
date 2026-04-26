@@ -10,8 +10,8 @@ services:
     image: quay.io/minio/minio:latest
     container_name: minio
     ports:
-      - "9000:9000"    # API
-      - "9001:9001"    # Console GUI
+      - "127.0.0.1:9000:9000"    # API (Local Only)
+      - "127.0.0.1:9001:9001"    # Console GUI (Local Only)
     environment:
       MINIO_ROOT_USER: admin
       MINIO_ROOT_PASSWORD: password_kuat_banget
