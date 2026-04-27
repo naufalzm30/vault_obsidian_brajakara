@@ -8,6 +8,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is an [Obsidian](https://obsidian.md) vault named `Brajakara_Naufal`, used as a backend development knowledge base. Notes are plain `.md` files; vault configuration lives under `.obsidian/`.
 
+**Vault scope:** Vault ini adalah **meta-layer** untuk Brajakara projects — bukan code projects itu sendiri. Code projects (BE_WEATHERAPP, BRAJA_PDAMSBY, dll) ada di folder terpisah (`~/` di tower, tidak ada di salazar). Vault track aktivitas, dokumentasi, dan temuan dari projects tersebut.
+
+## Multi-AI Support
+
+Vault mendukung multiple AI assistants:
+- **`CLAUDE.md`** — comprehensive guide untuk Claude Code (primary, file ini)
+- **`GEMINI.md`** — ringkas untuk Gemini CLI (summarized version)
+
+Kedua file sync ke GitHub via git. Perubahan major di CLAUDE.md perlu reflect ke GEMINI.md juga.
+
 ## Folder Structure
 
 The vault uses a numbered folder system:
@@ -418,6 +428,28 @@ Notes use standard Markdown with Obsidian extensions:
 - `backlink` / `outgoing-link` — bidirectional link navigation
 - `properties` — structured YAML frontmatter editing
 - `sync` — Obsidian Sync (cloud sync)
+
+## MCP Integrations
+
+### Plane Project Management
+
+MCP server configured untuk Plane workspace `brajakara` di `https://plane.blitztechnology.tech/api/v1/workspaces/brajakara`.
+
+**Projects aktif di Plane:**
+- WEBAP — Web App
+- SOFTW — SOFTWARE
+- HARDW — HARDWARE
+- PALEM — PALEMBANG
+- GIZPR — GIZ Project
+- BSNS — Bussines Development
+- BKS — BEKASI PROJECT
+
+**Known issue:** MCP tools (`mcp__plane__list_projects`, etc) sempat gagal 404 karena workspace slug tidak di-pass correct. Fixed dengan hardcode workspace di base URL. Kalau masih error, workaround pakai curl langsung:
+```bash
+rtk proxy curl -H "X-Api-Key: <key>" "https://plane.blitztechnology.tech/api/v1/workspaces/brajakara/projects/" | jq
+```
+
+Config MCP Plane ada di `~/.claude/settings.json` section `mcpServers.plane`.
 
 <!-- rtk-instructions v2 -->
 # RTK (Rust Token Killer) - Token-Optimized Commands

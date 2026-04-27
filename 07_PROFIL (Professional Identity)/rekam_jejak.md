@@ -90,6 +90,17 @@ Tracking longitudinal aktivitas pekerjaan di Brajakara untuk referensi resume, r
 
 ---
 
+### 2026-04-27 — MCP Plane Integration + CLAUDE.md Documentation Improvements
+**Kategori:** Infrastruktur / Dokumentasi
+**Daily note:** [[2026-04-27]]
+- Troubleshoot MCP Plane tool `mcp__plane__list_projects` gagal 404 — workspace slug dari env var tidak di-construct correct ke API endpoint
+- Fix config MCP di `~/.claude/settings.json`: hardcode workspace `brajakara` di base URL (workaround bug MCP server package)
+- Test via `rtk proxy curl`: detect 7 projects aktif di Plane (WEBAP, SOFTW, HARDW, PALEM, GIZPR, BSNS, BKS)
+- Improve [[CLAUDE.md]]: tambah vault scope clarification (meta-layer vs code projects), Multi-AI Support section (mention [[GEMINI.md]]), MCP Integrations section dengan known issues + workaround
+- Document troubleshooting workflow untuk future MCP integration issues
+
+---
+
 ### (Ongoing) — Data Engineering [[BE_WEATHERAPP|WEATHERAPP]]
 **Kategori:** Data Engineering
 - Melakukan ekstraksi data (data mining) dari format saintifik kompleks **NetCDF** dan **Weatherlink**
