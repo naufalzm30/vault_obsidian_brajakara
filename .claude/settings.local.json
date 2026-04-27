@@ -23,7 +23,12 @@
       "Bash(touch '/home/salazar/Brajakara_vault/Brajakara_Naufal/03_QUICK_SNIPPETS \\(Code examples, not full projects\\)/.gitkeep')",
       "Bash(touch /home/salazar/Brajakara_vault/Brajakara_Naufal/00_INBOX/Daily_Notes/.gitkeep)",
       "Bash(touch '/home/salazar/Brajakara_vault/Brajakara_Naufal/06_INDEX \\(Navigation hub\\)/.gitkeep')",
-      "Skill(keybindings-help)"
+      "Skill(keybindings-help)",
+      "mcp__plane__list_projects",
+      "mcp__plane__get_me",
+      "mcp__plane__get_workspace_members",
+      "WebSearch",
+      "WebFetch(domain:www.npmjs.com)"
     ]
   }
 }
