@@ -91,3 +91,15 @@ WAJIB prefix `rtk` di depan command verbose, atau pipe ke `rtk log` / `rtk pipe`
 **Why:** Output verbose tanpa RTK menghabiskan context window. User sudah install RTK + setup hook → tidak ada alasan tidak pakai.
 
 **How to apply:** Sebelum tiap Bash command verbose, cek `rtk --help`. Kalau ada wrapper, pakai. Kalau tidak ada, pipe ke `rtk log`/`rtk pipe`. Command yang sudah compact (mkdir, cp) tidak perlu.
+
+## Plane Work Item Description — Meaningful untuk Team
+
+Waktu buat/update work item di [[Brajakara_Infrastructure_Overview|Plane]] — description harus **meaningful dan readable untuk team**, bukan cuma copy-paste context dari daily note.
+
+**Why:** Info tidak relevan tanpa konteks bikin bingung, tidak membantu penyelesaian task. Team baca description untuk understand scope + requirements.
+
+**How to apply:**
+- **DO:** Focus pada what, why, how — jelas dan actionable
+- **DON'T:** Jangan include deployment notes / environment detail tanpa penjelasan kenapa penting untuk task
+- Contoh buruk: "Environment: UAT (`pdam_redis` sengaja tidak jalan)" — tanpa konteks
+- Contoh baik: "Update crontab `runningTaksasiOtomatis` untuk jalan semua balai tiap 15 menit. Alasan: perluas coverage monitoring."

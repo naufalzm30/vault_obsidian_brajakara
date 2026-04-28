@@ -451,6 +451,22 @@ rtk proxy curl -H "X-Api-Key: <key>" "https://plane.blitztechnology.tech/api/v1/
 
 Config MCP Plane ada di `~/.claude/settings.json` section `mcpServers.plane`.
 
+#### Work Item Description Guidelines
+
+Waktu buat atau update work item di Plane — **description harus meaningful dan readable untuk team**:
+
+**DO:**
+- Focus pada **what, why, how** — jelas dan actionable
+- Include context yang membantu penyelesaian task
+- Contoh: "Update crontab `runningTaksasiOtomatis` untuk jalan semua balai (bukan cuma 4,5) tiap 15 menit. Alasan: perluas coverage monitoring."
+
+**DON'T:**
+- Jangan include deployment notes / environment detail yang tidak affect task completion
+- Jangan tambah context noise tanpa penjelasan kenapa/apa
+- Contoh buruk: "Environment: UAT (`pdam_redis` sengaja tidak jalan)" — tanpa konteks kenapa ini penting atau mempengaruhi task
+
+**Why:** Description dibaca team untuk understand scope + requirements. Info tidak relevan bikin bingung, bukan membantu.
+
 <!-- rtk-instructions v2 -->
 # RTK (Rust Token Killer) - Token-Optimized Commands
 

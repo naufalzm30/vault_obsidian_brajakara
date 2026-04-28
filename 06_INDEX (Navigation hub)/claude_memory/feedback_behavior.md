@@ -132,3 +132,15 @@ WAJIB prefix `rtk` di depan command verbose, atau pipe ke `rtk log` / `rtk pipe`
 2. Kalau ada, prefix `rtk`
 3. Kalau tidak ada wrapper khusus, pipe output ke `rtk log` (untuk log) atau `rtk pipe` (general filter)
 4. Untuk command yang sudah pasti compact (mkdir, cp, simple echo) → tidak perlu RTK
+
+## Plane Work Item Description — Meaningful untuk Team
+
+Waktu buat/update work item di Plane — description harus **meaningful dan readable untuk team**, bukan cuma copy-paste context dari daily note.
+
+**Why:** Info tidak relevan tanpa konteks bikin bingung, tidak membantu penyelesaian task. Team baca description untuk understand scope + requirements.
+
+**How to apply:**
+- **DO:** Focus pada what, why, how — jelas dan actionable. Include context yang membantu solve task.
+- **DON'T:** Jangan include deployment notes / environment detail yang tidak affect task completion atau tidak ada penjelasan kenapa penting.
+- Contoh buruk: "Environment: UAT (`pdam_redis` sengaja tidak jalan)" — tanpa konteks kenapa ini penting
+- Contoh baik: "Update crontab `runningTaksasiOtomatis` untuk jalan semua balai (bukan cuma 4,5) tiap 15 menit. Alasan: perluas coverage monitoring."
