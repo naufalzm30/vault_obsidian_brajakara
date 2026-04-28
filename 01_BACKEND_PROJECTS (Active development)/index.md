@@ -19,7 +19,7 @@ Tracking semua project aktif Brajakara (backend + frontend). Path lokal mengacu 
 - **[[01_BACKEND_PROJECTS (Active development)/weatherapp_mqtt_parser|weatherapp_mqtt_parser]]** — MQTT parser + dockerize weather data (local only)
   - Path (tower): `~/weatherapp_mqtt_parser`
   
-- **[[01_BACKEND_PROJECTS (Active development)/PDAM_SBY|PDAM_SBY]]** (BRAJA_PDAMSBY) — PDAM flow meter monitoring (ServerFlowMeter-no-JH prod)
+- **[[01_BACKEND_PROJECTS (Active development)/PDAM_SBY|PDAM_SBY]]** (alias: **PDAM**, **BRAJA_PDAMSBY**) — PDAM flow meter monitoring (ServerFlowMeter-no-JH prod)
   - Path (tower): `~/BRAJA_PDAMSBY`
   - Repo: `Brajakara-Teknologi-Media/BRAJA_PDAMSBY`
 

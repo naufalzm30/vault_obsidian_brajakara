@@ -83,52 +83,30 @@ New notes that haven't been categorized yet go into `00_INBOX/`. Daily notes liv
 
 ## Quick Reference
 
-**Projects, servers, infra, persona** → refer to **[[06_INDEX (Navigation hub)/Navigation_Map|Navigation Map]]** (top-level routing hub).
+**All routing** → **[[06_INDEX (Navigation hub)/Navigation_Map|Navigation Map]]** (top-level hub).
 
-Path lokal project mengacu ke mesin **tower** (primary dev PC). Di mesin lain (salazar, dll) bisa beda — cek dulu sebelum akses.
+**Keywords:**
+- **Servers:** rockbottom, azkaban, riverstyx, FOEWS, MORDOR, ServerFlowMeter-no-JH
+- **VMs:** DungeonTower (tower), lumbungpadi, spakborsupra, ABURAYA
+- **Projects:** BE_WEATHERAPP, PDAM_SBY, weatherapp_mqtt_parser, FE_BRAJA_PDAMSBY, FE_weatherapp_palembang, GO_WHATSAPP_API, wa_notif, webhook_receiver
+- **Persona:** identitas, skills_stack, rekam_jejak, pengalaman_brajakara
+- **Dev machines:** salazar (laptop, no project lokal), tower (PC, semua project di `~/`)
 
-## Server Alias Quick Ref
-
-Alias unik Brajakara — pakai apa adanya, jangan diubah. Full detail: **[[04_INFRASTRUCTURE_REFERENCE/Brajakara_Infrastructure_Overview|Infrastructure Overview]]**.
-
-| Alias | IP | Fungsi Utama |
-|---|---|---|
-| rockbottom | `103.150.227.16` | MQTT broker (Mosquitto) |
-| azkaban | `103.103.23.233` | VPN (WireGuard) + CCTV restreamer + Plane + Nginx RP |
-| riverstyx | `103.94.239.32` | **Backbone Brajakara** — backend weather app + service pendukung |
-| FOEWS | `213.210.21.73` | Aplikasi FOEWS + legacy services (migrasi bertahap) |
-| MORDOR | `10.20.0.18` | Proxmox host — semua VM Brajakara jalan di sini |
-| ServerFlowMeter-no-JH | — | Prod BRAJA_PDAMSBY (path: `/home/usflowmeter/pdam-daas-project/src/DOCKER_BRAJA_PDAMSBY`) |
-| salazar | — | Dev laptop user (vault + Claude Code, tanpa project lokal) |
-| tower | — | Dev PC user (primary — semua project di `~/`) |
-
-### Subnet WireGuard (azkaban)
-- `10.20.0.x` — admin/human VPN clients, komputer
-- `10.20.1.x` — Raspberry Pi CCTV lapangan
-
-## Machine Profiles
-
-| Mesin | Role | Project Lokal | Catatan |
-|---|---|---|---|
-| **salazar** | Dev laptop | TIDAK ada — cuma vault + Claude Code | Kalau user minta kerja di project, minta lanjut di tower atau remote |
-| **tower** | Dev PC (primary) | SEMUA project di `~/<name>` langsung | Layout flat di `$HOME` |
-| **MORDOR** | Proxmox host | — | VM sandbox |
-| **riverstyx** | Prod backbone | BE_WEATHERAPP deployed | Jangan edit code langsung di prod |
+Detail: refer to Navigation Map → folder index (keyword mapping dengan full wikilink).
 
 ## Triage — Where to Look First
 
-**STRICT 3-HOP ROUTING:** **[[06_INDEX (Navigation hub)/Navigation_Map|Navigation Map]]** (hop 0) → folder index (hop 1) → detail file (hop 2). No bypass — cek frontmatter metadata untuk fast routing.
+**Routing:** **[[06_INDEX (Navigation hub)/Navigation_Map|Navigation Map]]** → folder index (keyword mapping) → detail file.
 
-| User bilang / tanya... | Routing workflow |
+| User bilang / tanya... | Action |
 |---|---|
-| **Apapun** tentang infra/server/VM/project/persona | [[06_INDEX (Navigation hub)/Navigation_Map\|Navigation Map]] → folder index → detail file |
-| Infra (server/VM/network) | Navigation Map → `04_INFRASTRUCTURE_REFERENCE/index.md` → detail file (Brajakara_Infrastructure_Overview, Proxmox_MORDOR, WireGuard_Azkaban) |
-| Projects (backend/frontend) | Navigation Map → `01_BACKEND_PROJECTS (Active development)/index.md` → detail file (BE_WEATHERAPP, PDAM_SBY, weatherapp_mqtt_parser, dll) |
-| Persona (identitas/skills/rekam jejak) | Navigation Map → `07_PROFIL (Professional Identity)/index.md` → detail file (identitas, skills_stack, rekam_jejak, pengalaman_brajakara) |
-| "aktivitas terbaru" / "apa yang baru" / "kemarin" | `rtk git fetch && rtk git pull` → daily note hari ini `00_INBOX/Daily_Notes/YYYY-MM-DD.md` + `07_PROFIL/rekam_jejak.md` |
-| Bug / quirk existing | Section `## Temuan / Catatan Penting` di note project (route via Navigation Map → folder index) |
-| Pattern reusable | `02_BACKEND_REFERENCE/` (kosong per 2026-04-24 — cuma `.gitkeep`) |
-| Memory Claude / context lama | `06_INDEX (Navigation hub)/claude_memory/` (vault mirror) atau `~/.claude/projects/-home-salazar-vault-obsidian-brajakara/memory/` (live) |
+| **Apapun** keyword vault (servers, VM, projects, persona) | Baca [[06_INDEX (Navigation hub)/Navigation_Map\|Navigation Map]] |
+| Infra keyword (rockbottom, azkaban, MORDOR, tower, lumbungpadi, dll) | [[06_INDEX (Navigation hub)/Navigation_Map\|Navigation Map]] → [[04_INFRASTRUCTURE_REFERENCE/index\|Infrastructure Index]] |
+| Project keyword (BE_WEATHERAPP, PDAM_SBY, weatherapp_mqtt_parser, dll) | [[06_INDEX (Navigation hub)/Navigation_Map\|Navigation Map]] → [[01_BACKEND_PROJECTS (Active development)/index\|Projects Index]] |
+| Persona keyword (identitas, skills_stack, rekam_jejak, pengalaman_brajakara) | [[06_INDEX (Navigation hub)/Navigation_Map\|Navigation Map]] → [[07_PROFIL (Professional Identity)/index\|Profile Index]] |
+| Aktivitas terbaru / apa yang baru / kemarin | `rtk git fetch && rtk git pull` → daily note `00_INBOX/Daily_Notes/YYYY-MM-DD.md` + rekam_jejak |
+| Bug / quirk existing | Section `## Temuan / Catatan Penting` di note project |
+| Memory Claude / context lama | `06_INDEX (Navigation hub)/claude_memory/` (vault mirror) atau `~/.claude/.../memory/` (live) |
 
 ## Global Gotchas
 

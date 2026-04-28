@@ -22,10 +22,15 @@ Dokumentasi lengkap infrastruktur Brajakara: server fisik, VM, network, dan depl
 ## Virtual Machines (MORDOR Proxmox)
 
 - **[[04_INFRASTRUCTURE_REFERENCE/Proxmox_MORDOR|Proxmox MORDOR]]** — VM management & detail (DungeonTower, lumbungpadi, spakborsupra, ABURAYA)
-  - **DungeonTower** (`10.20.0.11`) — user: `tower`, Testing & staging codebase
+  - **DungeonTower** (alias: **tower**) (`10.20.0.11`) — user: `tower`, Testing & staging codebase
   - **lumbungpadi** (`10.20.0.13`) — user: `lumbungpadi`, Database storage (PostgreSQL, MySQL, MinIO)
   - **spakborsupra** (`10.20.0.16`) — user: `spakborsupra`, CCTV services
   - **ABURAYA** (`10.20.0.14`) — Windows VM, GPU passthrough, ML training sandbox
+
+## Dev Machines (Client)
+
+- **salazar** — Dev laptop (vault + Claude Code, **no project lokal**)
+- **tower** → VM **DungeonTower** (alias, see Virtual Machines section above)
 
 ## Network & VPN
 

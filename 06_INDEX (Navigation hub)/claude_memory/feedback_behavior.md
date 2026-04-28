@@ -177,3 +177,33 @@ Waktu buat/update work item di Plane — description harus **meaningful dan read
 - User tanya "PDAM" → Navigation_Map (hop 0) → `01_BACKEND_PROJECTS/index.md` (hop 1) → [[PDAM_SBY]] (hop 2)
 
 **Scalability:** Tambah server/project/persona baru = update folder index saja. Navigation_Map stay simple, tidak perlu edit.
+
+## CLAUDE.md Lean — Index Files Heavy (Keyword Mapping)
+
+**Approach:** CLAUDE.md cuma plain text mention keywords + wikilink ke index. Index files = keyword mapper dengan full wikilink ke detail files.
+
+**Why:** CLAUDE.md wikilink-heavy = context overload + banyak wikilink tidak terpakai. User suggest: lean CLAUDE.md, heavy index files.
+
+**How to apply:**
+1. **CLAUDE.md:** plain text mention keywords (rockbottom, BE_WEATHERAPP, identitas, dll) + wikilink **only** ke index files
+2. **Index files:** comprehensive keyword mapping — semua keyword mention dengan full wikilink + context description
+3. **Workflow:** User tanya "BE_WEATHERAPP" → aku baca CLAUDE.md → lihat mention "BE_WEATHERAPP" di Projects section → follow wikilink ke `01_BACKEND_PROJECTS/index.md` → search keyword "BE_WEATHERAPP" → ketemu full wikilink → read detail file
+
+**Example CLAUDE.md (lean):**
+```markdown
+| Projects | [[01_BACKEND_PROJECTS/index]] (BE_WEATHERAPP, PDAM_SBY, weatherapp_mqtt_parser, dll) |
+```
+Plain text mention, wikilink cuma index.
+
+**Example Index file (heavy keyword mapping):**
+```markdown
+- **[[01_BACKEND_PROJECTS/BE_WEATHERAPP|BE_WEATHERAPP]]** — Backend Django weather monitoring (riverstyx prod)
+- **[[01_BACKEND_PROJECTS/PDAM_SBY|PDAM_SBY]]** (alias: PDAM, BRAJA_PDAMSBY) — PDAM flow meter monitoring
+```
+Full wikilink + alias + context.
+
+**Benefit:**
+- CLAUDE.md lean — no context overload
+- Index files = single source of truth untuk keyword mapping
+- Nearest path optimal — aku tau "keyword X mention di CLAUDE.md section Y → refer to index Z → search keyword → ketemu wikilink"
+- Scalable — tambah keyword = update index, CLAUDE.md stay clean
