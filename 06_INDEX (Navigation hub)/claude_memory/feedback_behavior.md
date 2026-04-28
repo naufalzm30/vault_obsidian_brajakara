@@ -145,25 +145,35 @@ Waktu buat/update work item di Plane — description harus **meaningful dan read
 - Contoh buruk: "Environment: UAT (`pdam_redis` sengaja tidak jalan)" — tanpa konteks kenapa ini penting
 - Contoh baik: "Update crontab `runningTaksasiOtomatis` untuk jalan semua balai (bukan cuma 4,5) tiap 15 menit. Alasan: perluas coverage monitoring."
 
-## Navigation_Map — Neural Network Routing Hub (3-Hop)
+## Navigation_Map — Neural Network Routing Hub (Strict 3-Hop)
 
-**Routing workflow:** [[Navigation_Map]] → **folder index** → detail file. Scalable — tambah entry baru cukup update folder index, tidak perlu touch Navigation_Map.
+**Routing workflow:** [[Navigation_Map]] → **folder index** → detail file. **No bypass** — Navigation_Map cuma link folder index, tidak ada direct link ke detail files.
 
 **Why:** Claude berkali-kali gagal menemukan info yang sudah ada di docs karena tidak tau file mana yang perlu dibaca. Contoh: user tanya "SSH ke tower" → Claude tidak connect bahwa tower = VM di MORDOR → tidak baca Proxmox_MORDOR.md.
 
-**How to apply (3-hop routing):**
+**Strict 3-hop rule:**
+1. **Navigation_Map (hop 0)** — cuma link ke folder index (hop 1), tidak boleh ada direct link ke detail files (hop 2)
+2. **Folder index (hop 1)** — route ke detail files (hop 2) dengan full path wikilink + context description
+3. **Detail files (hop 2)** — endpoint, tidak route lagi
+
+**Why strict (no bypass):**
+- Konsisten — semua routing workflow sama
+- Scalable — tambah file baru = update folder index saja, Navigation_Map tidak perlu touch
+- Frontmatter metadata — aku cek YAML block tanpa read full content, hop tetap cepat
+
+**How to apply:**
 1. **Setiap user tanya apapun** tentang infra/server/VM/project/persona → **baca [[Navigation_Map]] dulu**
 2. Navigation_Map route ke **folder index**:
    - Infra → `04_INFRASTRUCTURE_REFERENCE/index.md`
    - Projects → `01_BACKEND_PROJECTS (Active development)/index.md`
    - Profile → `07_PROFIL (Professional Identity)/index.md`
    - Agents → `08_HERMES_AGENT/index.md`
-3. **Folder index** route ke detail file (Brajakara_Infrastructure_Overview, Proxmox_MORDOR, BE_WEATHERAPP, dll)
-4. Jangan skip hop — workflow lama (Triage → langsung detail file) deprecated
+3. **Folder index** route ke detail file dengan full path wikilink + context
+4. **Jangan skip hop** — tidak boleh Navigation_Map → detail file direct
 
-**Pattern (3-hop):**
-- User sebut "tower" → Navigation_Map → `04_INFRASTRUCTURE_REFERENCE/index.md` → lihat "Virtual Machines > DungeonTower" → [[Proxmox_MORDOR]]
-- User tanya "PDAM project" → Navigation_Map → `01_BACKEND_PROJECTS/index.md` → lihat "Backend > BRAJA_PDAMSBY" → [[PDAM_SBY]]
-- User tanya "rockbottom" → Navigation_Map → `04_INFRASTRUCTURE_REFERENCE/index.md` → lihat "Physical Servers > rockbottom" → [[Brajakara_Infrastructure_Overview]]
+**Pattern (strict 3-hop):**
+- User sebut "tower" → Navigation_Map (hop 0) → `04_INFRASTRUCTURE_REFERENCE/index.md` (hop 1) → [[Proxmox_MORDOR]] (hop 2)
+- User tanya "identitas" → Navigation_Map (hop 0) → `07_PROFIL/index.md` (hop 1) → [[identitas]] (hop 2)
+- User tanya "PDAM" → Navigation_Map (hop 0) → `01_BACKEND_PROJECTS/index.md` (hop 1) → [[PDAM_SBY]] (hop 2)
 
-**Scalability:** Tambah server baru? Update `04_INFRASTRUCTURE_REFERENCE/index.md` saja. Tambah project baru? Update `01_BACKEND_PROJECTS/index.md` saja. Navigation_Map stay simple.
+**Scalability:** Tambah server/project/persona baru = update folder index saja. Navigation_Map stay simple, tidak perlu edit.

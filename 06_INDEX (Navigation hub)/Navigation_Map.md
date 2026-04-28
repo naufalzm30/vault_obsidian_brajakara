@@ -28,29 +28,23 @@ tags: [index, navigation, hub]
 
 ## 👤 Profile
 **[[07_PROFIL (Professional Identity)/index|Profile Index]]**
-- [[identitas]] — Info dasar user
-- [[skills_stack]] — Tech stack & competencies
-- [[rekam_jejak]] — Longitudinal career tracking (auto-update)
-- [[pengalaman_brajakara]] — Brajakara-specific experience
+- Professional identity docs (identitas, skills_stack, rekam_jejak, pengalaman_brajakara)
 
 ---
 
 ## 🤖 Agents
 **[[08_HERMES_AGENT/index|Hermes Agent Hub]]**
-- Multi-AI agent system (Hermes, Claude, Gemini)
+- Multi-AI agent system docs & config
 
 ---
 
 ## 🧠 Memory Mirror (Claude Context)
-- **Memory Index** → [[Claude_Memory]]
-- **Projects Memory** → [[Claude_Memory_Projects]]
-- **User Profile Memory** → [[Claude_Memory_UserProfile]]
-- **Feedback Memory** → [[Claude_Memory_Feedback]]
-- **Live Memory Dir** → `~/.claude/projects/-home-salazar-vault-obsidian-brajakara/memory/`
-- **Vault Mirror Dir** → `06_INDEX (Navigation hub)/claude_memory/`
+- Live: `~/.claude/projects/-home-salazar-vault-obsidian-brajakara/memory/`
+- Vault mirror: `06_INDEX (Navigation hub)/claude_memory/`
+- Files: MEMORY.md (index), user_profile.md, feedback_behavior.md, project_*.md
 
 ---
 
-## Dev Machines (Client)
-- **salazar** — Dev laptop user (vault + Claude Code, **TIDAK ada project lokal**)
-- **tower** — Dev PC user (primary — **semua project di `~/` langsung**)
+## 💻 Dev Machines (Client)
+- **salazar** — Dev laptop (vault + Claude Code, no project lokal)
+- **tower** — Dev PC primary (semua project di `~/` langsung)
