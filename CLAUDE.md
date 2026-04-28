@@ -93,17 +93,18 @@ File profil profesional user — pakai untuk pertanyaan identitas / skills / pen
 
 ## Triage — Where to Look First
 
+**NEURAL NETWORK ROUTING:** [[Navigation_Map]] adalah single entry point untuk semua routing. Tree structure dengan koneksi explicit — traverse dulu sebelum deep dive ke detail files.
+
 | User bilang / tanya... | Buka dulu |
 |---|---|
-| Nama project (PDAM, WEATHERAPP, dll) | Navigation Map di atas → buka wikilink `[[<Project>]]` |
-| Nama server/alias (azkaban, rockbottom, dll) | [[Brajakara_Infrastructure_Overview]] — `04_INFRASTRUCTURE_REFERENCE/Brajakara_Infrastructure_Overview.md` |
+| **Apapun** tentang infra/server/VM/project/persona | [[Navigation_Map]] — tree routing hub → traverse ke detail file |
+| Server fisik detail (setelah Navigation_Map) | [[Brajakara_Infrastructure_Overview]] |
+| VM detail (setelah Navigation_Map) | [[Proxmox_MORDOR]] |
+| VPN/network detail (setelah Navigation_Map) | [[WireGuard_Azkaban]] |
 | "aktivitas terbaru" / "apa yang baru" / "kemarin" | `rtk git fetch && rtk git pull` → daily note hari ini di `00_INBOX/Daily_Notes/YYYY-MM-DD.md` + [[rekam_jejak]] |
-| Bug / quirk existing | `## Temuan / Catatan Penting` di note project |
-| Infra / VPN / deployment | `04_INFRASTRUCTURE_REFERENCE/` — [[Brajakara_Infrastructure_Overview]], [[Proxmox_MORDOR]], [[WireGuard_Azkaban]] |
+| Bug / quirk existing | `## Temuan / Catatan Penting` di note project (akses via Navigation_Map) |
 | Pattern reusable | `02_BACKEND_REFERENCE/` (kosong per 2026-04-24 — cuma `.gitkeep`) |
 | Memory Claude / context lama | `06_INDEX (Navigation hub)/claude_memory/` (sync mirror) atau `~/.claude/projects/-home-salazar-vault-obsidian-brajakara/memory/` (live) |
-| Identitas / skill / rekam jejak | Persona Shortcuts section di atas, atau folder `07_PROFIL (Professional Identity)/` |
-| Master nav (human-browsable) | [[Navigation_Map]] — `06_INDEX (Navigation hub)/Navigation_Map.md` |
 
 ## Global Gotchas
 
