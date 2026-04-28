@@ -81,26 +81,15 @@ The vault uses a numbered folder system:
 
 New notes that haven't been categorized yet go into `00_INBOX/`. Daily notes live in `00_INBOX/Daily_Notes/`.
 
-## Navigation Map — Project & Paths
+## Quick Reference
 
-Project aktif Brajakara + lokasi di mesin dev + note vault + repo. Path di kolom "Local Path (tower)" adalah standar di mesin **tower** (primary dev machine). Di mesin lain bisa beda — cek dulu kalau perlu (`ls ~/<name>` atau `find ~ -maxdepth 2 -name <name>`).
+**Projects, servers, infra, persona** → refer to **[[06_INDEX (Navigation hub)/Navigation_Map|Navigation Map]]** (top-level routing hub).
 
-Kolom "Vault Note" pakai `[[wikilink]]` (resolve di Obsidian) + absolute path dari vault root (untuk Claude / external tool).
-
-| Project | Local Path (tower) | Vault Note | Absolute Path | Repo |
-|---|---|---|---|---|
-| BE_WEATHERAPP | `~/BE_WEATHERAPP` | [[BE_WEATHERAPP]] | `01_BACKEND_PROJECTS (Active development)/BE_WEATHERAPP.md` | `Brajakara-Teknologi-Media/BE_WEATHERAPP` |
-| weatherapp_mqtt_parser | `~/weatherapp_mqtt_parser` | [[weatherapp_mqtt_parser]] | `01_BACKEND_PROJECTS (Active development)/weatherapp_mqtt_parser.md` | local only |
-| BRAJA_PDAMSBY | `~/BRAJA_PDAMSBY` | [[PDAM_SBY]] | `01_BACKEND_PROJECTS (Active development)/PDAM_SBY.md` | `Brajakara-Teknologi-Media/BRAJA_PDAMSBY` |
-| FE_BRAJA_PDAMSBY | `~/FE_BRAJA_PDAMSBY` | [[FE_BRAJA_PDAMSBY]] 🟡 skeleton | `01_BACKEND_PROJECTS (Active development)/FE_BRAJA_PDAMSBY.md` | (cek di tower) |
-| FE_weatherapp_palembang | `~/FE_weatherapp_palembang` | [[FE_weatherapp_palembang]] 🟡 skeleton | `01_BACKEND_PROJECTS (Active development)/FE_weatherapp_palembang.md` | (cek di tower) |
-| GO_WHATSAPP_API | `~/GO_WHATSAPP_API` | [[GO_WHATSAPP_API]] 🟡 skeleton | `01_BACKEND_PROJECTS (Active development)/GO_WHATSAPP_API.md` | (cek di tower) |
-| wa_notif | `~/wa_notif` | [[wa_notif]] 🟡 skeleton | `01_BACKEND_PROJECTS (Active development)/wa_notif.md` | (cek di tower) |
-| webhook_receiver | `~/webhook_receiver` | [[webhook_receiver]] 🟡 skeleton | `01_BACKEND_PROJECTS (Active development)/webhook_receiver.md` | (cek di tower) |
+Path lokal project mengacu ke mesin **tower** (primary dev PC). Di mesin lain (salazar, dll) bisa beda — cek dulu sebelum akses.
 
 ## Server Alias Quick Ref
 
-Alias unik Brajakara — pakai apa adanya, jangan diubah. Full detail: `[[Brajakara_Infrastructure_Overview]]`.
+Alias unik Brajakara — pakai apa adanya, jangan diubah. Full detail: **[[04_INFRASTRUCTURE_REFERENCE/Brajakara_Infrastructure_Overview|Infrastructure Overview]]**.
 
 | Alias | IP | Fungsi Utama |
 |---|---|---|
@@ -126,32 +115,20 @@ Alias unik Brajakara — pakai apa adanya, jangan diubah. Full detail: `[[Brajak
 | **MORDOR** | Proxmox host | — | VM sandbox |
 | **riverstyx** | Prod backbone | BE_WEATHERAPP deployed | Jangan edit code langsung di prod |
 
-## Persona Shortcuts
-
-File profil profesional user — pakai untuk pertanyaan identitas / skills / pengalaman.
-
-| Topik | Wikilink | Absolute Path |
-|---|---|---|
-| Identitas | [[identitas]] | `07_PROFIL (Professional Identity)/identitas.md` |
-| Skills / stack | [[skills_stack]] | `07_PROFIL (Professional Identity)/skills_stack.md` |
-| Rekam jejak (longitudinal) | [[rekam_jejak]] | `07_PROFIL (Professional Identity)/rekam_jejak.md` — **auto-update tiap kerjaan baru** |
-| Pengalaman Brajakara | [[pengalaman_brajakara]] | `07_PROFIL (Professional Identity)/pengalaman_brajakara.md` |
-| Profil index | [[07_PROFIL (Professional Identity)/index\|Profil Index]] | `07_PROFIL (Professional Identity)/index.md` |
-
 ## Triage — Where to Look First
 
-**NEURAL NETWORK ROUTING (3-hop):** [[Navigation_Map]] → folder index → detail file. Scalable — tambah entry baru cukup update folder index.
+**STRICT 3-HOP ROUTING:** **[[06_INDEX (Navigation hub)/Navigation_Map|Navigation Map]]** (hop 0) → folder index (hop 1) → detail file (hop 2). No bypass — cek frontmatter metadata untuk fast routing.
 
 | User bilang / tanya... | Routing workflow |
 |---|---|
-| **Apapun** tentang infra/server/VM/project/persona | [[Navigation_Map]] → folder index (`04_INFRASTRUCTURE_REFERENCE/index.md`, `01_BACKEND_PROJECTS/index.md`, dll) → traverse ke detail file |
-| Infra (server/VM/network) | [[Navigation_Map]] → `04_INFRASTRUCTURE_REFERENCE/index.md` → [[Brajakara_Infrastructure_Overview]] / [[Proxmox_MORDOR]] / [[WireGuard_Azkaban]] |
-| Projects (backend/frontend) | [[Navigation_Map]] → `01_BACKEND_PROJECTS/index.md` → [[BE_WEATHERAPP]] / [[PDAM_SBY]] / dll |
-| Persona (identitas/skills/rekam jejak) | [[Navigation_Map]] → `07_PROFIL/index.md` → [[identitas]] / [[skills_stack]] / [[rekam_jejak]] / [[pengalaman_brajakara]] |
-| "aktivitas terbaru" / "apa yang baru" / "kemarin" | `rtk git fetch && rtk git pull` → daily note hari ini di `00_INBOX/Daily_Notes/YYYY-MM-DD.md` + [[rekam_jejak]] |
-| Bug / quirk existing | `## Temuan / Catatan Penting` di note project (route via Navigation_Map → folder index) |
+| **Apapun** tentang infra/server/VM/project/persona | [[06_INDEX (Navigation hub)/Navigation_Map\|Navigation Map]] → folder index → detail file |
+| Infra (server/VM/network) | Navigation Map → `04_INFRASTRUCTURE_REFERENCE/index.md` → detail file (Brajakara_Infrastructure_Overview, Proxmox_MORDOR, WireGuard_Azkaban) |
+| Projects (backend/frontend) | Navigation Map → `01_BACKEND_PROJECTS (Active development)/index.md` → detail file (BE_WEATHERAPP, PDAM_SBY, weatherapp_mqtt_parser, dll) |
+| Persona (identitas/skills/rekam jejak) | Navigation Map → `07_PROFIL (Professional Identity)/index.md` → detail file (identitas, skills_stack, rekam_jejak, pengalaman_brajakara) |
+| "aktivitas terbaru" / "apa yang baru" / "kemarin" | `rtk git fetch && rtk git pull` → daily note hari ini `00_INBOX/Daily_Notes/YYYY-MM-DD.md` + `07_PROFIL/rekam_jejak.md` |
+| Bug / quirk existing | Section `## Temuan / Catatan Penting` di note project (route via Navigation Map → folder index) |
 | Pattern reusable | `02_BACKEND_REFERENCE/` (kosong per 2026-04-24 — cuma `.gitkeep`) |
-| Memory Claude / context lama | `06_INDEX (Navigation hub)/claude_memory/` (sync mirror) atau `~/.claude/projects/-home-salazar-vault-obsidian-brajakara/memory/` (live) |
+| Memory Claude / context lama | `06_INDEX (Navigation hub)/claude_memory/` (vault mirror) atau `~/.claude/projects/-home-salazar-vault-obsidian-brajakara/memory/` (live) |
 
 ## Global Gotchas
 
