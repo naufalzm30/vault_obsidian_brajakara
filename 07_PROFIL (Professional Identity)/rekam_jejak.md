@@ -48,6 +48,18 @@ Tracking longitudinal aktivitas pekerjaan di Brajakara untuk referensi resume, r
 - Lagging window lag=20 mnt, window=60 mnt → alert ~45 mnt setelah data stop
 - Deploy pending ke prod [[Brajakara_Infrastructure_Overview|ServerFlowMeter-no-JH]] — perlu tambah `TELEGRAM_BOT_TOKEN` ke `.env` prod
 - Plus fix hook `SessionStart`/`UserPromptSubmit` error node not found — buat `.claude/find-node.sh` wrapper portabel (nvm/volta/fnm/PATH)
+
+---
+
+### 2026-04-28 — MCP [[Brajakara_Infrastructure_Overview|Plane]] Integration Debug
+**Kategori:** Infrastructure / Integration
+**Daily note:** [[2026-04-28]]
+- Troubleshoot MCP Plane tools return HTTP 404 untuk self-hosted instance `https://plane.blitztechnology.tech`
+- Verify direct API call work: `/api/v1/workspaces/brajakara/projects/` return 7 projects (WEBAP, SOFTW, HARDW, PALEM, GIZPR, BSNS, BKS)
+- Clone repo `makeplane/plane-mcp-server`, install `plane-sdk==0.2.10`, test SDK behavior dengan self-hosted config
+- **Confirmed SDK work proper** — test script `/tmp/test_plane_sdk.py` berhasil fetch projects via `PlaneClient`
+- Root cause: bukan bug SDK atau base URL, kemungkinan MCP server instance di Claude Code cached/tidak reload env vars
+- Pending: test ulang setelah restart Claude Code session
 - Setup [[PDAM_SBY|BRAJA_PDAMSBY]] di tower: install RTK 0.37.2 + register repo ke code-review-graph MCP (1183 nodes)
 
 ---
