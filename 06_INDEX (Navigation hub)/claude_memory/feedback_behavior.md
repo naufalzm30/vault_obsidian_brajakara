@@ -145,21 +145,25 @@ Waktu buat/update work item di Plane — description harus **meaningful dan read
 - Contoh buruk: "Environment: UAT (`pdam_redis` sengaja tidak jalan)" — tanpa konteks kenapa ini penting
 - Contoh baik: "Update crontab `runningTaksasiOtomatis` untuk jalan semua balai (bukan cuma 4,5) tiap 15 menit. Alasan: perluas coverage monitoring."
 
-## Navigation_Map — Neural Network Routing Hub
+## Navigation_Map — Neural Network Routing Hub (3-Hop)
 
-**[[Navigation_Map]]** adalah **single entry point** untuk semua routing queries tentang infra/server/VM/project/persona. Tree structure dengan koneksi explicit — traverse dulu sebelum deep dive ke detail files.
+**Routing workflow:** [[Navigation_Map]] → **folder index** → detail file. Scalable — tambah entry baru cukup update folder index, tidak perlu touch Navigation_Map.
 
 **Why:** Claude berkali-kali gagal menemukan info yang sudah ada di docs karena tidak tau file mana yang perlu dibaca. Contoh: user tanya "SSH ke tower" → Claude tidak connect bahwa tower = VM di MORDOR → tidak baca Proxmox_MORDOR.md.
 
-**How to apply:**
+**How to apply (3-hop routing):**
 1. **Setiap user tanya apapun** tentang infra/server/VM/project/persona → **baca [[Navigation_Map]] dulu**
-2. Traverse tree structure → lihat koneksi/kategori (Physical Servers, Virtual Machines, Projects, dll)
-3. Follow wikilink ke detail file yang relevan
-4. Jangan langsung jump ke detail file tanpa cek Navigation_Map dulu — workflow lama (cek Triage → langsung ke specific file) sudah deprecated
+2. Navigation_Map route ke **folder index**:
+   - Infra → `04_INFRASTRUCTURE_REFERENCE/index.md`
+   - Projects → `01_BACKEND_PROJECTS (Active development)/index.md`
+   - Profile → `07_PROFIL (Professional Identity)/index.md`
+   - Agents → `08_HERMES_AGENT/index.md`
+3. **Folder index** route ke detail file (Brajakara_Infrastructure_Overview, Proxmox_MORDOR, BE_WEATHERAPP, dll)
+4. Jangan skip hop — workflow lama (Triage → langsung detail file) deprecated
 
-**Pattern:**
-- User sebut "tower" / "dungeontower" → baca Navigation_Map → lihat "Virtual Machines (on MORDOR)" → "DungeonTower (10.20.0.11) user: tower" → detail di [[Proxmox_MORDOR]]
-- User tanya "PDAM project" → baca Navigation_Map → lihat "Projects > Backend > BRAJA_PDAMSBY" → [[PDAM_SBY]]
-- User tanya "rockbottom" → baca Navigation_Map → lihat "Physical Servers > rockbottom (103.150.227.16) MQTT broker" → [[Brajakara_Infrastructure_Overview]]
+**Pattern (3-hop):**
+- User sebut "tower" → Navigation_Map → `04_INFRASTRUCTURE_REFERENCE/index.md` → lihat "Virtual Machines > DungeonTower" → [[Proxmox_MORDOR]]
+- User tanya "PDAM project" → Navigation_Map → `01_BACKEND_PROJECTS/index.md` → lihat "Backend > BRAJA_PDAMSBY" → [[PDAM_SBY]]
+- User tanya "rockbottom" → Navigation_Map → `04_INFRASTRUCTURE_REFERENCE/index.md` → lihat "Physical Servers > rockbottom" → [[Brajakara_Infrastructure_Overview]]
 
-Navigation_Map = neural network hub — semua koneksi ada di sini, jangan skip step ini.
+**Scalability:** Tambah server baru? Update `04_INFRASTRUCTURE_REFERENCE/index.md` saja. Tambah project baru? Update `01_BACKEND_PROJECTS/index.md` saja. Navigation_Map stay simple.

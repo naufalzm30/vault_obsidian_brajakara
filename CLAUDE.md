@@ -93,16 +93,16 @@ File profil profesional user — pakai untuk pertanyaan identitas / skills / pen
 
 ## Triage — Where to Look First
 
-**NEURAL NETWORK ROUTING:** [[Navigation_Map]] adalah single entry point untuk semua routing. Tree structure dengan koneksi explicit — traverse dulu sebelum deep dive ke detail files.
+**NEURAL NETWORK ROUTING (3-hop):** [[Navigation_Map]] → folder index → detail file. Scalable — tambah entry baru cukup update folder index.
 
-| User bilang / tanya... | Buka dulu |
+| User bilang / tanya... | Routing workflow |
 |---|---|
-| **Apapun** tentang infra/server/VM/project/persona | [[Navigation_Map]] — tree routing hub → traverse ke detail file |
-| Server fisik detail (setelah Navigation_Map) | [[Brajakara_Infrastructure_Overview]] |
-| VM detail (setelah Navigation_Map) | [[Proxmox_MORDOR]] |
-| VPN/network detail (setelah Navigation_Map) | [[WireGuard_Azkaban]] |
+| **Apapun** tentang infra/server/VM/project/persona | [[Navigation_Map]] → folder index (`04_INFRASTRUCTURE_REFERENCE/index.md`, `01_BACKEND_PROJECTS/index.md`, dll) → traverse ke detail file |
+| Infra (server/VM/network) | [[Navigation_Map]] → `04_INFRASTRUCTURE_REFERENCE/index.md` → [[Brajakara_Infrastructure_Overview]] / [[Proxmox_MORDOR]] / [[WireGuard_Azkaban]] |
+| Projects (backend/frontend) | [[Navigation_Map]] → `01_BACKEND_PROJECTS/index.md` → [[BE_WEATHERAPP]] / [[PDAM_SBY]] / dll |
+| Persona (identitas/skills/rekam jejak) | [[Navigation_Map]] → `07_PROFIL/index.md` → [[identitas]] / [[skills_stack]] / [[rekam_jejak]] / [[pengalaman_brajakara]] |
 | "aktivitas terbaru" / "apa yang baru" / "kemarin" | `rtk git fetch && rtk git pull` → daily note hari ini di `00_INBOX/Daily_Notes/YYYY-MM-DD.md` + [[rekam_jejak]] |
-| Bug / quirk existing | `## Temuan / Catatan Penting` di note project (akses via Navigation_Map) |
+| Bug / quirk existing | `## Temuan / Catatan Penting` di note project (route via Navigation_Map → folder index) |
 | Pattern reusable | `02_BACKEND_REFERENCE/` (kosong per 2026-04-24 — cuma `.gitkeep`) |
 | Memory Claude / context lama | `06_INDEX (Navigation hub)/claude_memory/` (sync mirror) atau `~/.claude/projects/-home-salazar-vault-obsidian-brajakara/memory/` (live) |
 
@@ -167,6 +167,7 @@ Auto-check tanpa diminta di setiap session baru di vault:
 Master index absolute path — pakai langsung untuk `Read` tool tanpa perlu `find`/`grep`.
 
 ### Project Notes (`01_BACKEND_PROJECTS (Active development)/`)
+- `01_BACKEND_PROJECTS (Active development)/index.md` — **folder index** (route ke project detail)
 - `01_BACKEND_PROJECTS (Active development)/BE_WEATHERAPP.md` — [[BE_WEATHERAPP]]
 - `01_BACKEND_PROJECTS (Active development)/weatherapp_mqtt_parser.md` — [[weatherapp_mqtt_parser]]
 - `01_BACKEND_PROJECTS (Active development)/PDAM_SBY.md` — [[PDAM_SBY]]
@@ -177,6 +178,7 @@ Master index absolute path — pakai langsung untuk `Read` tool tanpa perlu `fin
 - `01_BACKEND_PROJECTS (Active development)/webhook_receiver.md` — [[webhook_receiver]] 🟡 skeleton
 
 ### Infrastructure (`04_INFRASTRUCTURE_REFERENCE/`)
+- `04_INFRASTRUCTURE_REFERENCE/index.md` — **folder index** (route ke infra detail)
 - `04_INFRASTRUCTURE_REFERENCE/Brajakara_Infrastructure_Overview.md` — [[Brajakara_Infrastructure_Overview]] (master server catalog)
 - `04_INFRASTRUCTURE_REFERENCE/Proxmox_MORDOR.md` — [[Proxmox_MORDOR]]
 - `04_INFRASTRUCTURE_REFERENCE/WireGuard_Azkaban.md` — [[WireGuard_Azkaban]]
