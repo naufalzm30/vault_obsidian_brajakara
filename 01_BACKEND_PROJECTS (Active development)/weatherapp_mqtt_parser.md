@@ -1,5 +1,8 @@
 ---
-tags: [project, backend, mqtt, iot, weatherapp]
+type: detail
+category: project
+hop: 2
+tags: [project/backend, mqtt, iot, weatherapp, parser]
 status: active
 repo: local only (~/weatherapp_mqtt_parser)
 related: [[BE_WEATHERAPP]]

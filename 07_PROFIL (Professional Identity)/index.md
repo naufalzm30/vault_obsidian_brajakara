@@ -1,6 +1,9 @@
 ---
+type: index
+category: profile
+hop: 1
+tags: [profile, index, identity, career]
 date: 2026-04-17
-tags: [profil, index]
 ---
 
 # Profil Professional — Naufal Zayn M
@@ -9,9 +12,10 @@ Folder ini berisi referensi tentang identitas profesional untuk keperluan resume
 
 ## Isi Folder
 
-- [[identitas]] — Siapa Naufal, role, dan highlight karir
-- [[skills_stack]] — Stack teknis dan tooling yang dikuasai
-- [[pengalaman_brajakara]] — Detail pekerjaan di Brajakara
+- **[[07_PROFIL (Professional Identity)/identitas|identitas]]** — Siapa Naufal, role, dan highlight karir
+- **[[07_PROFIL (Professional Identity)/skills_stack|skills_stack]]** — Stack teknis dan tooling yang dikuasai
+- **[[07_PROFIL (Professional Identity)/rekam_jejak|rekam_jejak]]** — Longitudinal career tracking (auto-update tiap kerjaan baru)
+- **[[07_PROFIL (Professional Identity)/pengalaman_brajakara|pengalaman_brajakara]]** — Detail pekerjaan di Brajakara
 
 ## Catatan
 

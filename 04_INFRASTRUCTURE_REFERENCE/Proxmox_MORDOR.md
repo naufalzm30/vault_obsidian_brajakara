@@ -1,3 +1,10 @@
+---
+type: detail
+category: infrastructure
+hop: 2
+tags: [infrastructure/vm, proxmox, virtualization, vm-management]
+---
+
 # Proxmox — MORDOR
 
 > Host Proxmox utama Brajakara. Nama "MORDOR" karena sifatnya sebagai "all-seeing eye" — semua VM ada di bawahnya.

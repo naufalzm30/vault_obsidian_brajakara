@@ -18,6 +18,53 @@ Vault mendukung multiple AI assistants:
 
 Kedua file sync ke GitHub via git. Perubahan major di CLAUDE.md perlu reflect ke GEMINI.md juga.
 
+## Metadata Schema (YAML Frontmatter)
+
+**Semua file di vault menggunakan YAML frontmatter standar** untuk fast routing tanpa perlu read full content.
+
+```yaml
+---
+type: index | detail | catalog | reference | daily-note | memory
+category: infrastructure | project | profile | agent | inbox | index-hub
+hop: 0 | 1 | 2 | 3  # depth dari Navigation_Map (0 = Navigation_Map itself)
+tags: [hierarchical/tags]  # hierarchical untuk Obsidian graph view
+---
+```
+
+**Type definitions:**
+- `index` — Folder index / MOC (Map of Content), route ke detail files
+- `detail` — Single-topic deep dive (Proxmox_MORDOR, BE_WEATHERAPP, dll)
+- `catalog` — Multi-entry list (Brajakara_Infrastructure_Overview)
+- `reference` — Reference doc (skills_stack, identitas)
+- `daily-note` — Daily notes (00_INBOX/Daily_Notes/)
+- `memory` — Claude memory files (06_INDEX/claude_memory/)
+
+**Hop definitions:**
+- `0` — Navigation_Map (top-level hub)
+- `1` — Folder index (04_INFRASTRUCTURE_REFERENCE/index.md, 01_BACKEND_PROJECTS/index.md)
+- `2` — Detail/catalog files (Proxmox_MORDOR, BE_WEATHERAPP, Brajakara_Infrastructure_Overview)
+- `3` — Sub-detail (belum ada, reserved untuk nesting lebih dalam)
+
+**Tag hierarchy:**
+- `infrastructure/servers` — Physical servers
+- `infrastructure/vm` — Virtual machines
+- `infrastructure/network` — Network & VPN
+- `project/backend` — Backend projects
+- `project/frontend` — Frontend projects
+- `profile/identity` — identitas, skills_stack
+- `profile/career` — rekam_jejak, pengalaman_brajakara
+- `agent/hermes` — Hermes Agent related
+- `index` — Index/MOC files
+- `memory` — Claude memory files
+- `daily-note` — Daily notes
+
+**Wikilink format standar:**
+```markdown
+[[folder/file|Display Alias]] — short context description
+```
+
+Full path wikilink menghindari ambiguitas, alias untuk readability, context description untuk routing decision tanpa read file.
+
 ## Folder Structure
 
 The vault uses a numbered folder system:

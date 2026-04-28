@@ -1,6 +1,9 @@
 ---
+type: detail
+category: infrastructure
+hop: 2
+tags: [infrastructure/network, wireguard, vpn, azkaban, network]
 date: 2026-04-18
-tags: [infrastructure, wireguard, vpn, azkaban]
 ---
 
 # WireGuard — Azkaban (103.103.23.233)

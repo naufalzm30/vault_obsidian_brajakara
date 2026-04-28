@@ -1,3 +1,10 @@
+---
+type: catalog
+category: infrastructure
+hop: 2
+tags: [infrastructure/servers, catalog, vps, server-list]
+---
+
 # Brajakara Infrastructure Overview
 
 > Catatan referensi infrastruktur Brajakara. Diperbarui secara bertahap.

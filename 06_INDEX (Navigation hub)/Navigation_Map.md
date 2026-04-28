@@ -1,3 +1,10 @@
+---
+type: index
+category: index-hub
+hop: 0
+tags: [index, navigation, hub]
+---
+
 # Navigation Map
 
 > **Top-level routing hub.** Neural network style — route ke folder index → traverse detail.

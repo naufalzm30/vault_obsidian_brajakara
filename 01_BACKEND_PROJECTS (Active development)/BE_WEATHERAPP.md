@@ -1,5 +1,8 @@
 ---
-tags: [project, backend, django, weatherapp]
+type: detail
+category: project
+hop: 2
+tags: [project/backend, django, weatherapp, iot, monitoring]
 status: active
 repo: git@github.com:Brajakara-Teknologi-Media/BE_WEATHERAPP.git
 ---
