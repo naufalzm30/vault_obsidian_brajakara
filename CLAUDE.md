@@ -92,18 +92,18 @@ New notes that haven't been categorized yet go into `00_INBOX/`. Daily notes liv
 - **Persona:** identitas, skills_stack, rekam_jejak, pengalaman_brajakara
 - **Dev machines:** salazar (laptop, no project lokal), tower (PC, semua project di `~/`)
 
-Detail: [[06_INDEX (Navigation hub)/Navigation_Map|Navigation_Map]] route ke folder index. Folder index punya keyword mapping dengan full wikilink.
+Detail: Navigation_Map route ke folder index. Folder index punya keyword mapping dengan full wikilink.
 
 ## Triage — Where to Look First
 
-**Routing:** Baca [[06_INDEX (Navigation hub)/Navigation_Map|Navigation_Map]] → folder index → detail file.
+**Routing:** Baca Navigation_Map → folder index → detail file.
 
 | User bilang / tanya... | Action |
 |---|---|
-| **Apapun** keyword vault (servers, VM, projects, persona) | Baca [[06_INDEX (Navigation hub)/Navigation_Map\|Navigation_Map]] |
-| Infra keyword (rockbottom, azkaban, MORDOR, tower, lumbungpadi, dll) | [[06_INDEX (Navigation hub)/Navigation_Map\|Navigation_Map]] → folder index |
-| Project keyword (BE_WEATHERAPP, PDAM_SBY, weatherapp_mqtt_parser, dll) | [[06_INDEX (Navigation hub)/Navigation_Map\|Navigation_Map]] → folder index |
-| Persona keyword (identitas, skills_stack, rekam_jejak, pengalaman_brajakara) | [[06_INDEX (Navigation hub)/Navigation_Map\|Navigation_Map]] → folder index |
+| **Apapun** keyword vault (servers, VM, projects, persona) | Baca Navigation_Map |
+| Infra keyword (rockbottom, azkaban, MORDOR, tower, lumbungpadi, dll) | Navigation_Map → folder index |
+| Project keyword (BE_WEATHERAPP, PDAM_SBY, weatherapp_mqtt_parser, dll) | Navigation_Map → folder index |
+| Persona keyword (identitas, skills_stack, rekam_jejak, pengalaman_brajakara) | Navigation_Map → folder index |
 | Aktivitas terbaru / apa yang baru / kemarin | `rtk git fetch && rtk git pull` → daily note `00_INBOX/Daily_Notes/YYYY-MM-DD.md` + rekam_jejak |
 | Bug / quirk existing | Section `## Temuan / Catatan Penting` di note project |
 | Memory Claude / context lama | `06_INDEX (Navigation hub)/claude_memory/` (vault mirror) atau `~/.claude/.../memory/` (live) |
