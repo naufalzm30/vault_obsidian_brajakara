@@ -4,6 +4,7 @@ category: index-hub
 hop: 0
 tags: [index, navigation, hub]
 down:
+  - "[[00_INBOX/index]]"
   - "[[04_INFRASTRUCTURE_REFERENCE/index]]"
   - "[[01_BACKEND_PROJECTS (Active development)/index]]"
   - "[[07_PROFIL (Professional Identity)/index]]"
@@ -13,6 +14,14 @@ down:
 # Navigation Map
 
 > **Top-level routing hub.** Neural network style — route ke folder index → traverse detail.
+
+---
+
+## 📥 Inbox
+
+**[[00_INBOX/index|Inbox Index]]**
+- Daily Notes (chronological notes + keyword mapping)
+- Uncategorized captures (notes belum dipindah ke folder proper)
 
 ---
 

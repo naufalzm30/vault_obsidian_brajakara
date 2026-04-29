@@ -51,13 +51,16 @@ Tracking longitudinal aktivitas pekerjaan di Brajakara untuk referensi resume, r
 
 ---
 
-### 2026-04-29 — Breadcrumbs Hierarchical Visualization Setup
+### 2026-04-29 — Breadcrumbs + CLAUDE.md Cleanup — Graph View Optimization
 **Kategori:** Dokumentasi / Knowledge Management
 **Daily note:** 2026-04-29
 - Setup Breadcrumbs plugin Obsidian untuk hierarchical graph view vault
-- Implementasi `up`/`down` metadata di semua files (Navigation_Map → folder indexes → detail files)
-- Document exception rule: Breadcrumbs metadata boleh cross-folder, content wikilinks tetap strict same-folder
-- Optimasi routing efficiency + graph visualization — clean hierarchy structure
+- Implementasi `up`/`down` metadata di semua files (Navigation_Map → 5 folder indexes → detail files)
+- Document exception rule: Breadcrumbs metadata boleh cross-folder, content wikilinks strict same-folder
+- Create `00_INBOX/index.md` + `00_INBOX/Daily_Notes/index.md` untuk routing daily notes
+- Pindah keyword mapping table dari CLAUDE.md ke Daily Notes index
+- CLAUDE.md cleanup: CUMA 1 wikilink ke Navigation_Map (bukan 30+ wikilinks spam)
+- Graph view clean + hierarchical — routing workflow optimized
 - Quiet hours 22:00–06:00: WARNING buffered, CRITICAL tetap real-time
 - Lagging window lag=20 mnt, window=60 mnt → alert ~45 mnt setelah data stop
 - Deploy pending ke prod ServerFlowMeter-no-JH — perlu tambah `TELEGRAM_BOT_TOKEN` ke `.env` prod
