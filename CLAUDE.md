@@ -83,7 +83,7 @@ New notes that haven't been categorized yet go into `00_INBOX/`. Daily notes liv
 
 ## Quick Reference
 
-**All routing** → **[[06_INDEX (Navigation hub)/Navigation_Map|Navigation Map]]** (top-level hub).
+**All routing** → Navigation_Map (`06_INDEX (Navigation hub)/Navigation_Map.md`) → folder index → detail file.
 
 **Keywords:**
 - **Servers:** rockbottom, azkaban, riverstyx, FOEWS, MORDOR, ServerFlowMeter-no-JH
@@ -92,18 +92,18 @@ New notes that haven't been categorized yet go into `00_INBOX/`. Daily notes liv
 - **Persona:** identitas, skills_stack, rekam_jejak, pengalaman_brajakara
 - **Dev machines:** salazar (laptop, no project lokal), tower (PC, semua project di `~/`)
 
-Detail: refer to Navigation Map → folder index (keyword mapping dengan full wikilink).
+Detail: Navigation_Map route ke folder index. Folder index punya keyword mapping dengan full wikilink.
 
 ## Triage — Where to Look First
 
-**Routing:** **[[06_INDEX (Navigation hub)/Navigation_Map|Navigation Map]]** → folder index (keyword mapping) → detail file.
+**Routing:** Baca Navigation_Map (`06_INDEX (Navigation hub)/Navigation_Map.md`) → folder index → detail file.
 
 | User bilang / tanya... | Action |
 |---|---|
-| **Apapun** keyword vault (servers, VM, projects, persona) | Baca [[06_INDEX (Navigation hub)/Navigation_Map\|Navigation Map]] |
-| Infra keyword (rockbottom, azkaban, MORDOR, tower, lumbungpadi, dll) | [[06_INDEX (Navigation hub)/Navigation_Map\|Navigation Map]] → [[04_INFRASTRUCTURE_REFERENCE/index\|Infrastructure Index]] |
-| Project keyword (BE_WEATHERAPP, PDAM_SBY, weatherapp_mqtt_parser, dll) | [[06_INDEX (Navigation hub)/Navigation_Map\|Navigation Map]] → [[01_BACKEND_PROJECTS (Active development)/index\|Projects Index]] |
-| Persona keyword (identitas, skills_stack, rekam_jejak, pengalaman_brajakara) | [[06_INDEX (Navigation hub)/Navigation_Map\|Navigation Map]] → [[07_PROFIL (Professional Identity)/index\|Profile Index]] |
+| **Apapun** keyword vault (servers, VM, projects, persona) | Baca Navigation_Map |
+| Infra keyword (rockbottom, azkaban, MORDOR, tower, lumbungpadi, dll) | Navigation_Map → Infrastructure Index (`04_INFRASTRUCTURE_REFERENCE/index.md`) |
+| Project keyword (BE_WEATHERAPP, PDAM_SBY, weatherapp_mqtt_parser, dll) | Navigation_Map → Projects Index (`01_BACKEND_PROJECTS (Active development)/index.md`) |
+| Persona keyword (identitas, skills_stack, rekam_jejak, pengalaman_brajakara) | Navigation_Map → Profile Index (`07_PROFIL (Professional Identity)/index.md`) |
 | Aktivitas terbaru / apa yang baru / kemarin | `rtk git fetch && rtk git pull` → daily note `00_INBOX/Daily_Notes/YYYY-MM-DD.md` + rekam_jejak |
 | Bug / quirk existing | Section `## Temuan / Catatan Penting` di note project |
 | Memory Claude / context lama | `06_INDEX (Navigation hub)/claude_memory/` (vault mirror) atau `~/.claude/.../memory/` (live) |
@@ -166,38 +166,38 @@ Auto-check tanpa diminta di setiap session baru di vault:
 
 ## Vault File Index
 
-Master index absolute path — pakai langsung untuk `Read` tool tanpa perlu `find`/`grep`.
+Master index absolute path — pakai langsung untuk `Read` tool tanpa perlu `find`/`grep`. **No wikilink** — cuma absolute path reference. Untuk keyword mapping pakai folder index files.
 
 ### Project Notes (`01_BACKEND_PROJECTS (Active development)/`)
-- `01_BACKEND_PROJECTS (Active development)/index.md` — **folder index** (route ke project detail)
-- `01_BACKEND_PROJECTS (Active development)/BE_WEATHERAPP.md` — [[BE_WEATHERAPP]]
-- `01_BACKEND_PROJECTS (Active development)/weatherapp_mqtt_parser.md` — [[weatherapp_mqtt_parser]]
-- `01_BACKEND_PROJECTS (Active development)/PDAM_SBY.md` — [[PDAM_SBY]]
-- `01_BACKEND_PROJECTS (Active development)/FE_BRAJA_PDAMSBY.md` — [[FE_BRAJA_PDAMSBY]] 🟡 skeleton
-- `01_BACKEND_PROJECTS (Active development)/FE_weatherapp_palembang.md` — [[FE_weatherapp_palembang]] 🟡 skeleton
-- `01_BACKEND_PROJECTS (Active development)/GO_WHATSAPP_API.md` — [[GO_WHATSAPP_API]] 🟡 skeleton
-- `01_BACKEND_PROJECTS (Active development)/wa_notif.md` — [[wa_notif]] 🟡 skeleton
-- `01_BACKEND_PROJECTS (Active development)/webhook_receiver.md` — [[webhook_receiver]] 🟡 skeleton
+- `01_BACKEND_PROJECTS (Active development)/index.md` — folder index (keyword mapping)
+- `01_BACKEND_PROJECTS (Active development)/BE_WEATHERAPP.md`
+- `01_BACKEND_PROJECTS (Active development)/weatherapp_mqtt_parser.md`
+- `01_BACKEND_PROJECTS (Active development)/PDAM_SBY.md`
+- `01_BACKEND_PROJECTS (Active development)/FE_BRAJA_PDAMSBY.md` 🟡 skeleton
+- `01_BACKEND_PROJECTS (Active development)/FE_weatherapp_palembang.md` 🟡 skeleton
+- `01_BACKEND_PROJECTS (Active development)/GO_WHATSAPP_API.md` 🟡 skeleton
+- `01_BACKEND_PROJECTS (Active development)/wa_notif.md` 🟡 skeleton
+- `01_BACKEND_PROJECTS (Active development)/webhook_receiver.md` 🟡 skeleton
 
 ### Infrastructure (`04_INFRASTRUCTURE_REFERENCE/`)
-- `04_INFRASTRUCTURE_REFERENCE/index.md` — **folder index** (route ke infra detail)
-- `04_INFRASTRUCTURE_REFERENCE/Brajakara_Infrastructure_Overview.md` — [[Brajakara_Infrastructure_Overview]] (master server catalog)
-- `04_INFRASTRUCTURE_REFERENCE/Proxmox_MORDOR.md` — [[Proxmox_MORDOR]]
-- `04_INFRASTRUCTURE_REFERENCE/WireGuard_Azkaban.md` — [[WireGuard_Azkaban]]
+- `04_INFRASTRUCTURE_REFERENCE/index.md` — folder index (keyword mapping)
+- `04_INFRASTRUCTURE_REFERENCE/Brajakara_Infrastructure_Overview.md` — master server catalog
+- `04_INFRASTRUCTURE_REFERENCE/Proxmox_MORDOR.md`
+- `04_INFRASTRUCTURE_REFERENCE/WireGuard_Azkaban.md`
 
 ### Profil Professional (`07_PROFIL (Professional Identity)/`)
-- `07_PROFIL (Professional Identity)/identitas.md` — [[identitas]]
-- `07_PROFIL (Professional Identity)/skills_stack.md` — [[skills_stack]]
-- `07_PROFIL (Professional Identity)/rekam_jejak.md` — [[rekam_jejak]] (auto-update)
-- `07_PROFIL (Professional Identity)/pengalaman_brajakara.md` — [[pengalaman_brajakara]]
-- `07_PROFIL (Professional Identity)/index.md` — index profil
+- `07_PROFIL (Professional Identity)/index.md` — folder index (keyword mapping)
+- `07_PROFIL (Professional Identity)/identitas.md`
+- `07_PROFIL (Professional Identity)/skills_stack.md`
+- `07_PROFIL (Professional Identity)/rekam_jejak.md` — auto-update
+- `07_PROFIL (Professional Identity)/pengalaman_brajakara.md`
 
 ### Index & Memory Mirror (`06_INDEX (Navigation hub)/`)
-- `06_INDEX (Navigation hub)/Navigation_Map.md` — [[Navigation_Map]] (master hub navigable)
-- `06_INDEX (Navigation hub)/Claude_Memory.md` — [[Claude_Memory]]
-- `06_INDEX (Navigation hub)/Claude_Memory_Projects.md` — [[Claude_Memory_Projects]]
-- `06_INDEX (Navigation hub)/Claude_Memory_UserProfile.md` — [[Claude_Memory_UserProfile]]
-- `06_INDEX (Navigation hub)/Claude_Memory_Feedback.md` — [[Claude_Memory_Feedback]]
+- `06_INDEX (Navigation hub)/Navigation_Map.md` — top-level routing hub
+- `06_INDEX (Navigation hub)/Claude_Memory.md`
+- `06_INDEX (Navigation hub)/Claude_Memory_Projects.md`
+- `06_INDEX (Navigation hub)/Claude_Memory_UserProfile.md`
+- `06_INDEX (Navigation hub)/Claude_Memory_Feedback.md`
 - `06_INDEX (Navigation hub)/claude_memory/` — folder mirror memory Claude
 
 ### Daily Notes & Inbox (`00_INBOX/`)

@@ -24,7 +24,7 @@ Mengikuti standar operasional vault:
 - **CAVEMAN MODE**: Ringkas, fragments OK, no filler.
 - **RTK**: Wajib untuk semua command.
 - **Git Sync**: Otomatis setiap ada perubahan.
-- **Daily Note**: Update tiap aksi di [[Daily_Notes|00_INBOX/Daily_Notes/YYYY-MM-DD.md]].
+- **Daily Note**: Update tiap aksi di `00_INBOX/Daily_Notes/YYYY-MM-DD.md`.
 - **Memory Sync**: Update mirror di `06_INDEX (Navigation hub)/claude_memory/` jika ada perubahan pada `~/.claude/.../memory/`.
 
 ## Status Integrasi

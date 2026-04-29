@@ -178,6 +178,37 @@ Waktu buat/update work item di Plane — description harus **meaningful dan read
 
 **Scalability:** Tambah server/project/persona baru = update folder index saja. Navigation_Map stay simple, tidak perlu edit.
 
+## Folder Index — Same-Folder Wikilink Only
+
+**Rule:** Folder index **hanya boleh link ke file di folder itu sendiri** (same-folder wikilinks). Cross-folder link hanya diperbolehkan di detail files untuk show hubungan dokumen.
+
+**Why:** Menjaga hierarki routing tetap strict dan scalable. Folder index tugasnya mapping keyword ke detail files dalam satu folder — bukan jadi "super index" yang nge-route ke mana-mana.
+
+**How to apply:**
+1. **Index files** (`04_INFRASTRUCTURE_REFERENCE/index.md`, `01_BACKEND_PROJECTS/index.md`, dll) — wikilink format `[[folder_name/file_name|alias]]` hanya untuk file di folder yang sama
+2. **Kalau perlu mention keyword dari folder lain** → plain text mention tanpa wikilink, atau refer ke Navigation_Map untuk routing
+3. **Cross-folder wikilink** → diperbolehkan di detail files (BE_WEATHERAPP.md bisa link ke [[Proxmox_MORDOR]], dll) karena itu show document relationship
+
+**Example (correct):**
+```markdown
+# 04_INFRASTRUCTURE_REFERENCE/index.md
+- **[[04_INFRASTRUCTURE_REFERENCE/Proxmox_MORDOR|Proxmox MORDOR]]** ✓ same-folder
+- **[[04_INFRASTRUCTURE_REFERENCE/WireGuard_Azkaban|WireGuard]]** ✓ same-folder
+```
+
+**Example (wrong):**
+```markdown
+# 08_HERMES_AGENT/index.md
+- Daily Note: [[00_INBOX/Daily_Notes/YYYY-MM-DD.md]] ❌ cross-folder
+```
+Fix → plain text: `00_INBOX/Daily_Notes/YYYY-MM-DD.md` (no wikilink)
+
+**Enforcement:**
+- CLAUDE.md → link cuma Navigation_Map
+- Navigation_Map → link cuma folder indexes
+- **Folder indexes → link cuma files dalam folder itu**
+- Detail files → cross-folder link OK (document relationships)
+
 ## CLAUDE.md Lean — Index Files Heavy (Keyword Mapping)
 
 **Approach:** CLAUDE.md cuma plain text mention keywords + wikilink ke index. Index files = keyword mapper dengan full wikilink ke detail files.

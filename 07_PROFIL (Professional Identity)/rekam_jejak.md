@@ -113,6 +113,19 @@ Tracking longitudinal aktivitas pekerjaan di Brajakara untuk referensi resume, r
 
 ---
 
+### 2026-04-28 — Strict Hierarchical Linking Structure — Vault Navigation Optimization
+**Kategori:** Dokumentasi / Knowledge Management
+**Daily note:** [[2026-04-28]]
+- Enforce strict hierarchical linking di vault: CLAUDE.md → [[Navigation_Map]] → folder indexes → detail files (3-hop routing)
+- **Same-folder wikilink rule**: folder index hanya boleh link ke file dalam folder itu sendiri (audit 4 index files, fix 1 cross-folder link di `08_HERMES_AGENT/index.md`)
+- **CLAUDE.md lean approach**: hapus 25 wikilinks (58 → 33), plain text mention keywords, wikilink only ke indexes
+- **Index files heavy approach**: comprehensive keyword mapping dengan full wikilink ke detail files
+- **YAML frontmatter metadata**: standardize `type`, `category`, `hop`, `tags` di semua files untuk fast routing tanpa read full content
+- **Benefit**: routing konsisten, scalable (tambah entry = update folder index saja), context optimization, nearest path optimal
+- Root cause optimization: Claude gagal find info "tower" padahal ada di [[Proxmox_MORDOR]] — tidak connect tower = VM = MORDOR karena flat routing pattern
+
+---
+
 ### (Ongoing) — Data Engineering [[BE_WEATHERAPP|WEATHERAPP]]
 **Kategori:** Data Engineering
 - Melakukan ekstraksi data (data mining) dari format saintifik kompleks **NetCDF** dan **Weatherlink**
