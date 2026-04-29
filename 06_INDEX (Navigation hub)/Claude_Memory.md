@@ -1,5 +1,13 @@
 ---
-tags: claude, memory, index
+type: index
+category: index-hub
+hop: 1
+tags: [claude, memory, index]
+up: "[[06_INDEX (Navigation hub)/Navigation_Map]]"
+down:
+  - "[[06_INDEX (Navigation hub)/Claude_Memory_UserProfile]]"
+  - "[[06_INDEX (Navigation hub)/Claude_Memory_Feedback]]"
+  - "[[06_INDEX (Navigation hub)/Claude_Memory_Projects]]"
 ---
 
 # Claude Memory — Brajakara Vault

@@ -53,9 +53,11 @@ down:
 ---
 
 ## 🧠 Memory Mirror (Claude Context)
-- Live: `~/.claude/projects/-home-salazar-vault-obsidian-brajakara/memory/`
-- Vault mirror: `06_INDEX (Navigation hub)/claude_memory/`
-- Files: MEMORY.md (index), user_profile.md, feedback_behavior.md, project_*.md
+
+**[[Claude_Memory]]**
+- Live memory: `~/.claude/projects/-home-salazar-vault-obsidian-brajakara/memory/`
+- Vault mirror: `claude_memory/` (same-folder)
+- Index: user_profile, feedback_behavior, project_brajakara_backends, project_active
 
 ---
 

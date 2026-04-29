@@ -1,5 +1,9 @@
 ---
-tags: claude, memory, feedback
+type: reference
+category: index-hub
+hop: 2
+tags: [claude, memory, feedback]
+up: "[[06_INDEX (Navigation hub)/Claude_Memory]]"
 ---
 
 # Instruksi Perilaku Claude

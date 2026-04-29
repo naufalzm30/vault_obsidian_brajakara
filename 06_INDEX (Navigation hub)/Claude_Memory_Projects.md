@@ -1,5 +1,9 @@
 ---
-tags: claude, memory, projects
+type: reference
+category: index-hub
+hop: 2
+tags: [claude, memory, projects]
+up: "[[06_INDEX (Navigation hub)/Claude_Memory]]"
 ---
 
 # Project Backend Aktif — Brajakara

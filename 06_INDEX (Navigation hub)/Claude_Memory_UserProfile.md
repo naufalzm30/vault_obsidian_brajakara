@@ -1,5 +1,9 @@
 ---
-tags: claude, memory, user
+type: reference
+category: index-hub
+hop: 2
+tags: [claude, memory, user]
+up: "[[06_INDEX (Navigation hub)/Claude_Memory]]"
 ---
 
 # User Profile — Brajakara

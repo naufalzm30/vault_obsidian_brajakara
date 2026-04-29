@@ -198,13 +198,13 @@ Waktu buat/update work item di Plane — description harus **meaningful dan read
 **Example CORRECT:**
 ```markdown
 # 04_INFRASTRUCTURE_REFERENCE/Brajakara_Infrastructure_Overview.md
-Detail lengkap ada di [[Proxmox_MORDOR]]. ✓ same-folder (both in 04_INFRASTRUCTURE_REFERENCE)
+Detail lengkap ada di `[[Proxmox_MORDOR]]`. ✓ same-folder (both in 04_INFRASTRUCTURE_REFERENCE)
 ```
 
 **Example WRONG:**
 ```markdown
 # 07_PROFIL/rekam_jejak.md
-Module check_data [[PDAM_SBY]] ❌ cross-folder (07_PROFIL → 01_BACKEND_PROJECTS)
+Module check_data `[[PDAM_SBY]]` ❌ cross-folder (07_PROFIL → 01_BACKEND_PROJECTS)
 ```
 **Fix** → plain text: `Module check_data PDAM_SBY` (no wikilink)
 
@@ -230,14 +230,14 @@ Module check_data [[PDAM_SBY]] ❌ cross-folder (07_PROFIL → 01_BACKEND_PROJEC
 
 **Example CLAUDE.md (lean):**
 ```markdown
-| Projects | [[01_BACKEND_PROJECTS/index]] (BE_WEATHERAPP, PDAM_SBY, weatherapp_mqtt_parser, dll) |
+| Projects | `[[01_BACKEND_PROJECTS/index]]` (BE_WEATHERAPP, PDAM_SBY, weatherapp_mqtt_parser, dll) |
 ```
 Plain text mention, wikilink cuma index.
 
 **Example Index file (heavy keyword mapping):**
 ```markdown
-- **[[01_BACKEND_PROJECTS/BE_WEATHERAPP|BE_WEATHERAPP]]** — Backend Django weather monitoring (riverstyx prod)
-- **[[01_BACKEND_PROJECTS/PDAM_SBY|PDAM_SBY]]** (alias: PDAM, BRAJA_PDAMSBY) — PDAM flow meter monitoring
+- **`[[01_BACKEND_PROJECTS/BE_WEATHERAPP|BE_WEATHERAPP]]`** — Backend Django weather monitoring (riverstyx prod)
+- **`[[01_BACKEND_PROJECTS/PDAM_SBY|PDAM_SBY]]`** (alias: PDAM, BRAJA_PDAMSBY) — PDAM flow meter monitoring
 ```
 Full wikilink + alias + context.
 
