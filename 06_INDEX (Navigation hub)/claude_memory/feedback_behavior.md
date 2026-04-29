@@ -10,7 +10,7 @@ Catat informasi baru ke folder relevan tanpa menunggu diminta.
 
 **Why:** User sering lupa minta Claude mencatat secara spesifik. User marah kalau Claude nanya dulu sebelum catat — langsung catat saja.
 
-**How to apply:** Setiap ada info baru (infra, project, snippet, dll) → langsung tulis ke folder sesuai tanpa nanya. Pecah topik besar ke file terpisah, hubungkan `[[wikilink]]`. Jangan tunggu konfirmasi.
+**How to apply:** Setiap ada info baru (infra, project, snippet, dll) → langsung tulis ke folder sesuai tanpa nanya. Pecah topik besar ke file terpisah, hubungkan "\[\[wikilink\]\]". Jangan tunggu konfirmasi.
 
 ## Statusline Caveman
 
@@ -172,9 +172,9 @@ Waktu buat/update work item di Plane — description harus **meaningful dan read
 4. **Jangan skip hop** — tidak boleh Navigation_Map → detail file direct
 
 **Pattern (strict 3-hop):**
-- User sebut "tower" → Navigation_Map (hop 0) → `04_INFRASTRUCTURE_REFERENCE/index.md` (hop 1) → [[Proxmox_MORDOR]] (hop 2)
-- User tanya "identitas" → Navigation_Map (hop 0) → `07_PROFIL/index.md` (hop 1) → [[identitas]] (hop 2)
-- User tanya "PDAM" → Navigation_Map (hop 0) → `01_BACKEND_PROJECTS/index.md` (hop 1) → [[PDAM_SBY]] (hop 2)
+- User sebut "tower" → Navigation_Map (hop 0) → `04_INFRASTRUCTURE_REFERENCE/index.md` (hop 1) → Proxmox_MORDOR (hop 2)
+- User tanya "identitas" → Navigation_Map (hop 0) → `07_PROFIL/index.md` (hop 1) → identitas (hop 2)
+- User tanya "PDAM" → Navigation_Map (hop 0) → `01_BACKEND_PROJECTS/index.md` (hop 1) → PDAM_SBY (hop 2)
 
 **Scalability:** Tambah server/project/persona baru = update folder index saja. Navigation_Map stay simple, tidak perlu edit.
 
@@ -198,13 +198,13 @@ Waktu buat/update work item di Plane — description harus **meaningful dan read
 **Example CORRECT:**
 ```markdown
 # 04_INFRASTRUCTURE_REFERENCE/Brajakara_Infrastructure_Overview.md
-Detail lengkap ada di `[[Proxmox_MORDOR]]`. ✓ same-folder (both in 04_INFRASTRUCTURE_REFERENCE)
+Detail lengkap ada di "\[\[Proxmox_MORDOR\]\]". ✓ same-folder (both in 04_INFRASTRUCTURE_REFERENCE)
 ```
 
 **Example WRONG:**
 ```markdown
 # 07_PROFIL/rekam_jejak.md
-Module check_data `[[PDAM_SBY]]` ❌ cross-folder (07_PROFIL → 01_BACKEND_PROJECTS)
+Module check_data "\[\[PDAM_SBY\]\]" ❌ cross-folder (07_PROFIL → 01_BACKEND_PROJECTS)
 ```
 **Fix** → plain text: `Module check_data PDAM_SBY` (no wikilink)
 
@@ -230,14 +230,14 @@ Module check_data `[[PDAM_SBY]]` ❌ cross-folder (07_PROFIL → 01_BACKEND_PROJ
 
 **Example CLAUDE.md (lean):**
 ```markdown
-| Projects | `[[01_BACKEND_PROJECTS/index]]` (BE_WEATHERAPP, PDAM_SBY, weatherapp_mqtt_parser, dll) |
+| Projects | "\[\[01_BACKEND_PROJECTS/index\]\]" (BE_WEATHERAPP, PDAM_SBY, weatherapp_mqtt_parser, dll) |
 ```
 Plain text mention, wikilink cuma index.
 
 **Example Index file (heavy keyword mapping):**
 ```markdown
-- **`[[01_BACKEND_PROJECTS/BE_WEATHERAPP|BE_WEATHERAPP]]`** — Backend Django weather monitoring (riverstyx prod)
-- **`[[01_BACKEND_PROJECTS/PDAM_SBY|PDAM_SBY]]`** (alias: PDAM, BRAJA_PDAMSBY) — PDAM flow meter monitoring
+- **"\[\[01_BACKEND_PROJECTS/BE_WEATHERAPP|BE_WEATHERAPP\]\]"** — Backend Django weather monitoring (riverstyx prod)
+- **"\[\[01_BACKEND_PROJECTS/PDAM_SBY|PDAM_SBY\]\]"** (alias: PDAM, BRAJA_PDAMSBY) — PDAM flow meter monitoring
 ```
 Full wikilink + alias + context.
 
