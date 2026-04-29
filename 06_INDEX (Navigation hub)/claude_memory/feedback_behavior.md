@@ -1,9 +1,11 @@
 ---
+up: "[[06_INDEX (Navigation hub)/Claude_Memory]]"
 name: Instruksi Perilaku Claude
 description: Aturan perilaku Claude di vault ini — catat proaktif, git sync otomatis
 type: feedback
 originSessionId: a3a7fb23-fce1-4545-8801-5683083eb8b4
 ---
+up: "[[06_INDEX (Navigation hub)/Claude_Memory]]"
 ## Catat Proaktif
 
 Catat informasi baru ke folder relevan tanpa menunggu diminta.

@@ -1,9 +1,11 @@
 ---
+up: "[[06_INDEX (Navigation hub)/Claude_Memory]]"
 name: User Profile — Brajakara
 description: Profil user, stack infra, mesin lokal, preferensi komunikasi
 type: user
 originSessionId: a3a7fb23-fce1-4545-8801-5683083eb8b4
 ---
+up: "[[06_INDEX (Navigation hub)/Claude_Memory]]"
 User bekerja di **Brajakara**, **versatile backend developer**: nulis kode backend, deployment, testing, dan maintain infra kantor sekaligus — bukan spesialisasi sempit.
 
 **Stack yang dikelola:**

@@ -1,9 +1,11 @@
 ---
+up: "[[06_INDEX (Navigation hub)/Claude_Memory]]"
 name: Brajakara Backend Projects
 description: Dua project backend utama yang dipegang user di Brajakara
 type: project
 originSessionId: 84d1e52b-dec2-4bf5-8ec3-906a306d79a0
 ---
+up: "[[06_INDEX (Navigation hub)/Claude_Memory]]"
 Dua project backend besar aktif di Brajakara: **WEATHERAPP** dan **PDAM_SBY**.
 
 **Why:** User sedang handle keduanya secara aktif, belum ada detail lebih lanjut — akan dilanjutkan di session berikutnya dari server terkait.

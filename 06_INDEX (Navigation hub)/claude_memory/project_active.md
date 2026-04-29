@@ -1,9 +1,11 @@
 ---
+up: "[[06_INDEX (Navigation hub)/Claude_Memory]]"
 name: Project Backend Aktif
 description: Daftar project backend aktif di Brajakara + task pending
 type: project
 originSessionId: 9ccb046f-2d98-46c5-baea-236432a872ac
 ---
+up: "[[06_INDEX (Navigation hub)/Claude_Memory]]"
 Dua project backend besar yang sedang dikerjakan:
 
 | Project | Status | Notes |
@@ -20,6 +22,7 @@ Dua project backend besar yang sedang dikerjakan:
 - Guard: `docker_compose_guard.sh`; hati-hati file `taksasi_old.py` vs `taksasi.py`
 
 ---
+up: "[[06_INDEX (Navigation hub)/Claude_Memory]]"
 
 ## ⚠️ Task Pending — Notif Telegram check_data (2026-04-20)
 
@@ -46,6 +49,7 @@ python -m core_logic run --module core_logic.check_data.run_checks --func main \
 **How to apply:** Tanya user apakah sudah punya token bot dan channel ID saat mulai session baru.
 
 ---
+up: "[[06_INDEX (Navigation hub)/Claude_Memory]]"
 
 ## ⚠️ Task Pending — MCP Plane Self-Hosted 404 (2026-04-28)
 

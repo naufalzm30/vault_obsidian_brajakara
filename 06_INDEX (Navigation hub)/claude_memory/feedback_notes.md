@@ -1,9 +1,11 @@
 ---
+up: "[[06_INDEX (Navigation hub)/Claude_Memory]]"
 name: Note-Taking Preferences
 description: Preferensi user soal cara Claude mencatat di vault Obsidian ini
 type: feedback
 originSessionId: 4bc3873d-a723-4e0b-ac0a-ddbccd7fd09e
 ---
+up: "[[06_INDEX (Navigation hub)/Claude_Memory]]"
 Catat informasi baru secara proaktif ke folder yang relevan tanpa menunggu diminta.
 
 **Why:** User sering lupa minta Claude untuk mencatat secara spesifik, jadi Claude harus inisiatif sendiri.
@@ -11,6 +13,7 @@ Catat informasi baru secara proaktif ke folder yang relevan tanpa menunggu dimin
 **How to apply:** Setiap kali ada informasi baru yang relevan (infra, project, snippet, dll), langsung tulis ke folder yang sesuai. Pecah topik besar ke beberapa file terpisah dan hubungkan dengan `[[wikilink]]` — jangan ditumpuk semua di satu file.
 
 ---
+up: "[[06_INDEX (Navigation hub)/Claude_Memory]]"
 
 Setelah membuat/mengubah file vault, **selalu** jalankan git pull → add → commit → push ke GitHub secara otomatis tanpa menunggu diminta.
 
