@@ -182,7 +182,7 @@ Waktu buat/update work item di Plane — description harus **meaningful dan read
 
 **Rule ULTRA STRICT:** **Semua files di vault** (index, detail, snippets, profil) **HANYA boleh wikilink same-folder** (files dalam folder yang sama). NO cross-folder wikilinks — routing cross-folder WAJIB lewat index.
 
-**Exception:** Daily Notes (`00_INBOX/Daily_Notes/*.md`) — temporarily allow cross-folder untuk capture/reference (akan review lagi).
+**Exception:** ~~Daily Notes — removed. Daily notes now strict same-folder only (plain text mention for cross-folder references).~~
 
 **Why:** Graph view clean + hierarchical. Struktur tree jelas: CLAUDE.md → Navigation_Map → folder indexes → detail files. Cross-folder links bikin graph berantakan (tidak informatif).
 
@@ -191,7 +191,7 @@ Waktu buat/update work item di Plane — description harus **meaningful dan read
 2. **Navigation_Map** → link cuma ke folder indexes (4 wikilinks)
 3. **Folder indexes** → link cuma ke files dalam folder itu (same-folder only)
 4. **Detail files** → link cuma ke files dalam folder itu (same-folder only)
-5. **Daily Notes** → exception (temporarily allow cross-folder)
+5. **Daily Notes** → same-folder only (plain text mention untuk cross-folder, e.g. "PDAM_SBY", "Proxmox_MORDOR")
 
 **Example CORRECT:**
 ```markdown
@@ -213,7 +213,7 @@ Module check_data [[PDAM_SBY]] ❌ cross-folder (07_PROFIL → 01_BACKEND_PROJEC
 - Navigation_Map → 4 links folder indexes ✓
 - Folder indexes → same-folder only ✓
 - Detail files → same-folder only ✓
-- Daily Notes → exception (cross-folder OK temporarily)
+- Daily Notes → same-folder only ✓
 
 ## CLAUDE.md Lean — Index Files Heavy (Keyword Mapping)
 
