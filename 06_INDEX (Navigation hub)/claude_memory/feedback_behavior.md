@@ -147,7 +147,7 @@ Waktu buat/update work item di Plane — description harus **meaningful dan read
 
 ## Navigation_Map — Neural Network Routing Hub (Strict 3-Hop)
 
-**Routing workflow:** [[Navigation_Map]] → **folder index** → detail file. **No bypass** — Navigation_Map cuma link folder index, tidak ada direct link ke detail files.
+**Routing workflow:** Navigation_Map → **folder index** → detail file. **No bypass** — Navigation_Map cuma link folder index, tidak ada direct link ke detail files.
 
 **Why:** Claude berkali-kali gagal menemukan info yang sudah ada di docs karena tidak tau file mana yang perlu dibaca. Contoh: user tanya "SSH ke tower" → Claude tidak connect bahwa tower = VM di MORDOR → tidak baca Proxmox_MORDOR.md.
 
@@ -162,7 +162,7 @@ Waktu buat/update work item di Plane — description harus **meaningful dan read
 - Frontmatter metadata — aku cek YAML block tanpa read full content, hop tetap cepat
 
 **How to apply:**
-1. **Setiap user tanya apapun** tentang infra/server/VM/project/persona → **baca [[Navigation_Map]] dulu**
+1. **Setiap user tanya apapun** tentang infra/server/VM/project/persona → **baca Navigation_Map dulu**
 2. Navigation_Map route ke **folder index**:
    - Infra → `04_INFRASTRUCTURE_REFERENCE/index.md`
    - Projects → `01_BACKEND_PROJECTS (Active development)/index.md`
@@ -178,36 +178,42 @@ Waktu buat/update work item di Plane — description harus **meaningful dan read
 
 **Scalability:** Tambah server/project/persona baru = update folder index saja. Navigation_Map stay simple, tidak perlu edit.
 
-## Folder Index — Same-Folder Wikilink Only
+## Strict Same-Folder Wikilink Rule — All Files
 
-**Rule:** Folder index **hanya boleh link ke file di folder itu sendiri** (same-folder wikilinks). Cross-folder link hanya diperbolehkan di detail files untuk show hubungan dokumen.
+**Rule ULTRA STRICT:** **Semua files di vault** (index, detail, snippets, profil) **HANYA boleh wikilink same-folder** (files dalam folder yang sama). NO cross-folder wikilinks — routing cross-folder WAJIB lewat index.
 
-**Why:** Menjaga hierarki routing tetap strict dan scalable. Folder index tugasnya mapping keyword ke detail files dalam satu folder — bukan jadi "super index" yang nge-route ke mana-mana.
+**Exception:** Daily Notes (`00_INBOX/Daily_Notes/*.md`) — temporarily allow cross-folder untuk capture/reference (akan review lagi).
+
+**Why:** Graph view clean + hierarchical. Struktur tree jelas: CLAUDE.md → Navigation_Map → folder indexes → detail files. Cross-folder links bikin graph berantakan (tidak informatif).
 
 **How to apply:**
-1. **Index files** (`04_INFRASTRUCTURE_REFERENCE/index.md`, `01_BACKEND_PROJECTS/index.md`, dll) — wikilink format `[[folder_name/file_name|alias]]` hanya untuk file di folder yang sama
-2. **Kalau perlu mention keyword dari folder lain** → plain text mention tanpa wikilink, atau refer ke Navigation_Map untuk routing
-3. **Cross-folder wikilink** → diperbolehkan di detail files (BE_WEATHERAPP.md bisa link ke [[Proxmox_MORDOR]], dll) karena itu show document relationship
+1. **CLAUDE.md** → link cuma ke Navigation_Map (1 wikilink)
+2. **Navigation_Map** → link cuma ke folder indexes (4 wikilinks)
+3. **Folder indexes** → link cuma ke files dalam folder itu (same-folder only)
+4. **Detail files** → link cuma ke files dalam folder itu (same-folder only)
+5. **Daily Notes** → exception (temporarily allow cross-folder)
 
-**Example (correct):**
+**Example CORRECT:**
 ```markdown
-# 04_INFRASTRUCTURE_REFERENCE/index.md
-- **[[04_INFRASTRUCTURE_REFERENCE/Proxmox_MORDOR|Proxmox MORDOR]]** ✓ same-folder
-- **[[04_INFRASTRUCTURE_REFERENCE/WireGuard_Azkaban|WireGuard]]** ✓ same-folder
+# 04_INFRASTRUCTURE_REFERENCE/Brajakara_Infrastructure_Overview.md
+Detail lengkap ada di [[Proxmox_MORDOR]]. ✓ same-folder (both in 04_INFRASTRUCTURE_REFERENCE)
 ```
 
-**Example (wrong):**
+**Example WRONG:**
 ```markdown
-# 08_HERMES_AGENT/index.md
-- Daily Note: [[00_INBOX/Daily_Notes/YYYY-MM-DD.md]] ❌ cross-folder
+# 07_PROFIL/rekam_jejak.md
+Module check_data [[PDAM_SBY]] ❌ cross-folder (07_PROFIL → 01_BACKEND_PROJECTS)
 ```
-Fix → plain text: `00_INBOX/Daily_Notes/YYYY-MM-DD.md` (no wikilink)
+**Fix** → plain text: `Module check_data PDAM_SBY` (no wikilink)
+
+**Reference folder lain:** Mention plain text atau link ke index folder lain (not detail file).
 
 **Enforcement:**
-- CLAUDE.md → link cuma Navigation_Map
-- Navigation_Map → link cuma folder indexes
-- **Folder indexes → link cuma files dalam folder itu**
-- Detail files → cross-folder link OK (document relationships)
+- CLAUDE.md → 1 link Navigation_Map ✓
+- Navigation_Map → 4 links folder indexes ✓
+- Folder indexes → same-folder only ✓
+- Detail files → same-folder only ✓
+- Daily Notes → exception (cross-folder OK temporarily)
 
 ## CLAUDE.md Lean — Index Files Heavy (Keyword Mapping)
 

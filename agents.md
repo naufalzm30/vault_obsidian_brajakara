@@ -39,5 +39,5 @@ Ini adalah file instruksi utama untuk Hermes Agent saat bekerja dalam vault `Bra
 Perubahan pada `agents.md` WAJIB disinkronkan ke `CLAUDE.md` dan `GEMINI.md`.
 
 ## 8. Prosedur Navigasi
-- Selalu cek [[Navigation_Map]] di `06_INDEX (Navigation hub)/Navigation_Map.md`.
+- Selalu cek Navigation_Map di `06_INDEX (Navigation hub)/Navigation_Map.md`.
 - Gunakan `wikilink` [[ ]] untuk referensi silang antar note.

@@ -26,4 +26,4 @@ services:
 2. `docker compose up -d`.
 3. Akses GUI di `http://IP_SERVER:9001`.
 
-↗ Masuk [[rekam_jejak]]
+↗ Masuk rekam_jejak
