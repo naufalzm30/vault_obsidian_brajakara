@@ -1,6 +1,9 @@
 ---
+type: reference
+category: profile
+hop: 2
+tags: [profile/identity]
 date: 2026-04-17
-tags: [profil, identitas]
 ---
 
 # Identitas Profesional

@@ -53,7 +53,7 @@ Map singkat alias → fungsi → public IP, biar Claude tidak perlu buka Brajaka
 | salazar | (laptop) | Dev machine user |
 | tower | (PC) | Dev machine user |
 
-Full detail → `[[Brajakara_Infrastructure_Overview]]`
+Full detail → `Brajakara_Infrastructure_Overview`
 
 ### 3. Persona Shortcuts
 ```

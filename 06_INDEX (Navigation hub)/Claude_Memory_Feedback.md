@@ -94,7 +94,7 @@ WAJIB prefix `rtk` di depan command verbose, atau pipe ke `rtk log` / `rtk pipe`
 
 ## Plane Work Item Description — Meaningful untuk Team
 
-Waktu buat/update work item di [[Brajakara_Infrastructure_Overview|Plane]] — description harus **meaningful dan readable untuk team**, bukan cuma copy-paste context dari daily note.
+Waktu buat/update work item di Plane — description harus **meaningful dan readable untuk team**, bukan cuma copy-paste context dari daily note.
 
 **Why:** Info tidak relevan tanpa konteks bikin bingung, tidak membantu penyelesaian task. Team baca description untuk understand scope + requirements.
 

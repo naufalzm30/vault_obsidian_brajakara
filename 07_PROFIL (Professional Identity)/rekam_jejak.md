@@ -1,6 +1,9 @@
 ---
+type: reference
+category: profile
+hop: 2
+tags: [profile/career]
 date: 2026-04-17
-tags: [profil, rekam-jejak]
 ---
 
 # Rekam Jejak Pekerjaan — Brajakara Teknologi

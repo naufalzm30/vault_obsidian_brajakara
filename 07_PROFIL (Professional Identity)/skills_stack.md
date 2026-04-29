@@ -1,6 +1,9 @@
 ---
+type: reference
+category: profile
+hop: 2
+tags: [profile/skills]
 date: 2026-04-17
-tags: [profil, skills]
 ---
 
 # Skills & Stack Teknis
