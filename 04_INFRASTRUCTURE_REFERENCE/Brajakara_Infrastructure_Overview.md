@@ -3,6 +3,7 @@ type: catalog
 category: infrastructure
 hop: 2
 tags: [infrastructure/servers, catalog, vps, server-list]
+up: "[[04_INFRASTRUCTURE_REFERENCE/index]]"
 ---
 
 # Brajakara Infrastructure Overview

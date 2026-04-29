@@ -1,5 +1,6 @@
 ---
 tags: [project, backend, golang, whatsapp, api]
+up: "[[01_BACKEND_PROJECTS (Active development)/index]]"
 status: active
 repo: (cek di tower — belum diverifikasi)
 related: [[wa_notif]]

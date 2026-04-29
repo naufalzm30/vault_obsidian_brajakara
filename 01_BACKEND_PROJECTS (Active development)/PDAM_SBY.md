@@ -3,6 +3,7 @@ type: detail
 category: project
 hop: 2
 tags: [project/backend, django, mqtt, docker, pdam, iot]
+up: "[[01_BACKEND_PROJECTS (Active development)/index]]"
 date_created: 2026-04-16
 status: aktif
 repo: git@github.com:Brajakara-Teknologi-Media/BRAJA_PDAMSBY.git

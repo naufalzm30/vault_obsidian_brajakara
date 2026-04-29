@@ -3,6 +3,11 @@ type: index
 category: infrastructure
 hop: 1
 tags: [infrastructure, index, servers, vm, network]
+up: "[[06_INDEX (Navigation hub)/Navigation_Map]]"
+down:
+  - "[[04_INFRASTRUCTURE_REFERENCE/Brajakara_Infrastructure_Overview]]"
+  - "[[04_INFRASTRUCTURE_REFERENCE/Proxmox_MORDOR]]"
+  - "[[04_INFRASTRUCTURE_REFERENCE/WireGuard_Azkaban]]"
 ---
 
 # Infrastructure Reference — Brajakara

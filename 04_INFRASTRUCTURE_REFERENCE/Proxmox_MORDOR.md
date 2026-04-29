@@ -3,6 +3,7 @@ type: detail
 category: infrastructure
 hop: 2
 tags: [infrastructure/vm, proxmox, virtualization, vm-management]
+up: "[[04_INFRASTRUCTURE_REFERENCE/index]]"
 ---
 
 # Proxmox — MORDOR

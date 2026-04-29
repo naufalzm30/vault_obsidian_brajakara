@@ -1,5 +1,6 @@
 ---
 tags: [project, backend, whatsapp, notification]
+up: "[[01_BACKEND_PROJECTS (Active development)/index]]"
 status: active
 repo: (cek di tower — belum diverifikasi)
 related: [[GO_WHATSAPP_API]]

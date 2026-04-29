@@ -182,7 +182,9 @@ Waktu buat/update work item di Plane — description harus **meaningful dan read
 
 **Rule ULTRA STRICT:** **Semua files di vault** (index, detail, snippets, profil) **HANYA boleh wikilink same-folder** (files dalam folder yang sama). NO cross-folder wikilinks — routing cross-folder WAJIB lewat index.
 
-**Exception:** ~~Daily Notes — removed. Daily notes now strict same-folder only (plain text mention for cross-folder references).~~
+**Exception Breadcrumbs:** Metadata `up`/`down` fields di YAML frontmatter **boleh cross-folder** — ini hierarchy metadata untuk plugin Breadcrumbs, bukan content wikilink. Content wikilinks tetap strict same-folder.
+
+**Exception Daily Notes:** ~~Daily Notes — removed. Daily notes now strict same-folder only (plain text mention for cross-folder references).~~
 
 **Why:** Graph view clean + hierarchical. Struktur tree jelas: CLAUDE.md → Navigation_Map → folder indexes → detail files. Cross-folder links bikin graph berantakan (tidak informatif).
 

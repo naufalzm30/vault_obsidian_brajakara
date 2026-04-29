@@ -3,6 +3,7 @@ type: detail
 category: infrastructure
 hop: 2
 tags: [infrastructure/network, wireguard, vpn, azkaban, network]
+up: "[[04_INFRASTRUCTURE_REFERENCE/index]]"
 date: 2026-04-18
 ---
 

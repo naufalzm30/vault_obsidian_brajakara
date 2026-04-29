@@ -3,6 +3,11 @@ type: index
 category: index-hub
 hop: 0
 tags: [index, navigation, hub]
+down:
+  - "[[04_INFRASTRUCTURE_REFERENCE/index]]"
+  - "[[01_BACKEND_PROJECTS (Active development)/index]]"
+  - "[[07_PROFIL (Professional Identity)/index]]"
+  - "[[08_HERMES_AGENT/index]]"
 ---
 
 # Navigation Map

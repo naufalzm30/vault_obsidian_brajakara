@@ -1,5 +1,6 @@
 ---
 tags: [project, frontend, weatherapp, palembang]
+up: "[[01_BACKEND_PROJECTS (Active development)/index]]"
 status: active
 repo: (cek di tower — belum diverifikasi)
 related: [[BE_WEATHERAPP]]

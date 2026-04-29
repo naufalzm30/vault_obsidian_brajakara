@@ -4,6 +4,12 @@ category: profile
 hop: 1
 tags: [profile, index, identity, career]
 date: 2026-04-17
+up: "[[06_INDEX (Navigation hub)/Navigation_Map]]"
+down:
+  - "[[07_PROFIL (Professional Identity)/identitas]]"
+  - "[[07_PROFIL (Professional Identity)/skills_stack]]"
+  - "[[07_PROFIL (Professional Identity)/rekam_jejak]]"
+  - "[[07_PROFIL (Professional Identity)/pengalaman_brajakara]]"
 ---
 
 # Profil Professional — Naufal Zayn M

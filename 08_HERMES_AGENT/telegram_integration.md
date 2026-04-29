@@ -1,3 +1,11 @@
+---
+type: detail
+category: agent
+hop: 2
+tags: [agent/hermes, telegram, integration]
+up: "[[08_HERMES_AGENT/index]]"
+---
+
 # Telegram Integration
 
 Integrasi bot Telegram untuk Brajakara.

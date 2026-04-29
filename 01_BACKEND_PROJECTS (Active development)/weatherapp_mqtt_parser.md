@@ -3,6 +3,7 @@ type: detail
 category: project
 hop: 2
 tags: [project/backend, mqtt, iot, weatherapp, parser]
+up: "[[01_BACKEND_PROJECTS (Active development)/index]]"
 status: active
 repo: local only (~/weatherapp_mqtt_parser)
 related: [[BE_WEATHERAPP]]

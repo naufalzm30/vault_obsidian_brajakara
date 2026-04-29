@@ -1,5 +1,6 @@
 [
   "calendar",
   "terminal",
-  "templater-obsidian"
+  "templater-obsidian",
+  "breadcrumbs"
 ]

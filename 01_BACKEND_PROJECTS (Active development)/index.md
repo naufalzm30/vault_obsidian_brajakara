@@ -3,6 +3,16 @@ type: index
 category: project
 hop: 1
 tags: [project, index, backend, frontend]
+up: "[[06_INDEX (Navigation hub)/Navigation_Map]]"
+down:
+  - "[[01_BACKEND_PROJECTS (Active development)/BE_WEATHERAPP]]"
+  - "[[01_BACKEND_PROJECTS (Active development)/weatherapp_mqtt_parser]]"
+  - "[[01_BACKEND_PROJECTS (Active development)/PDAM_SBY]]"
+  - "[[01_BACKEND_PROJECTS (Active development)/GO_WHATSAPP_API]]"
+  - "[[01_BACKEND_PROJECTS (Active development)/wa_notif]]"
+  - "[[01_BACKEND_PROJECTS (Active development)/webhook_receiver]]"
+  - "[[01_BACKEND_PROJECTS (Active development)/FE_BRAJA_PDAMSBY]]"
+  - "[[01_BACKEND_PROJECTS (Active development)/FE_weatherapp_palembang]]"
 ---
 
 # Active Development Projects — Brajakara

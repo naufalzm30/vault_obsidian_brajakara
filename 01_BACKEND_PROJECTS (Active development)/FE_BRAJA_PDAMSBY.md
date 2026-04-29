@@ -3,6 +3,7 @@ type: detail
 category: project
 hop: 2
 tags: [project/frontend]
+up: "[[01_BACKEND_PROJECTS (Active development)/index]]"
 status: skeleton
 ---
 

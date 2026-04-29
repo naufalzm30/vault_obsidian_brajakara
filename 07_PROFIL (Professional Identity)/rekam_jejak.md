@@ -3,6 +3,7 @@ type: reference
 category: profile
 hop: 2
 tags: [profile/career]
+up: "[[07_PROFIL (Professional Identity)/index]]"
 date: 2026-04-17
 ---
 
@@ -47,6 +48,16 @@ Tracking longitudinal aktivitas pekerjaan di Brajakara untuk referensi resume, r
 - Lanjut implementasi `run_checks.py` + integrasi Telegram bot `@suryasembadabot`, 4 channel (MISSING/THRESHOLD/VOLTASE_TURUN/KUBIKASI_MINUS)
 - Stateful alert via Redis: state machine OK→SUSPECT→MISSING→CRITICAL, 2-cycle confirm, escalate >2 jam, graceful fallback kalau Redis down
 - Tier routing: WARNING real-time, CRITICAL always, INFO digest, ≥5 station = OUTAGE 1 notif
+
+---
+
+### 2026-04-29 — Breadcrumbs Hierarchical Visualization Setup
+**Kategori:** Dokumentasi / Knowledge Management
+**Daily note:** 2026-04-29
+- Setup Breadcrumbs plugin Obsidian untuk hierarchical graph view vault
+- Implementasi `up`/`down` metadata di semua files (Navigation_Map → folder indexes → detail files)
+- Document exception rule: Breadcrumbs metadata boleh cross-folder, content wikilinks tetap strict same-folder
+- Optimasi routing efficiency + graph visualization — clean hierarchy structure
 - Quiet hours 22:00–06:00: WARNING buffered, CRITICAL tetap real-time
 - Lagging window lag=20 mnt, window=60 mnt → alert ~45 mnt setelah data stop
 - Deploy pending ke prod ServerFlowMeter-no-JH — perlu tambah `TELEGRAM_BOT_TOKEN` ke `.env` prod

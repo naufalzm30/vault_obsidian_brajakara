@@ -3,6 +3,9 @@ type: index
 category: agent
 hop: 1
 tags: [agent, hermes, index]
+up: "[[06_INDEX (Navigation hub)/Navigation_Map]]"
+down:
+  - "[[08_HERMES_AGENT/telegram_integration]]"
 ---
 
 # Hermes Agent Hub
