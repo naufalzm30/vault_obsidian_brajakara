@@ -57,12 +57,17 @@ Setiap nulis daily note, keyword kunci WAJIB di-wrap jadi wikilink biar backlink
 
 ### 2026-04
 
-- [[2026-04-29]] — Breadcrumbs hierarchical metadata setup
-- [[2026-04-28]] — (summary TBD)
+- [[2026-04-29]] — Breadcrumbs + CLAUDE.md cleanup — graph optimization
+- [[2026-04-28]] — Folder index same-folder wikilink rule enforcement
+- [[2026-04-27]] — Fix MCP Plane integration
+- [[2026-04-26]] — Inisialisasi sesi
+- [[2026-04-25]] — Selesaikan cross-link daily note ↔ rekam_jejak
+- [[2026-04-24]] — Audit dead tables PDAM + plan optimasi CLAUDE.md navigation
 - [[2026-04-21]] — Stateful alert system PDAM
 - [[2026-04-20]] — Module check_data PDAM_SBY
 - [[2026-04-18]] — WireGuard VPN automation
 - [[2026-04-17]] — Setup folder profil professional
+- [[2026-04-16]] — Setup vault Obsidian Brajakara
 
 ### 2026-03
 
