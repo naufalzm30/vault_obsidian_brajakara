@@ -13,6 +13,15 @@ Tracking longitudinal aktivitas pekerjaan di Brajakara untuk referensi resume, r
 
 ---
 
+### 2026-04-30 — Export Schema PostgreSQL [[PDAM_SBY|BRAJA_PDAMSBY]]
+**Kategori:** Backend / Data Engineering
+**Daily note:** [[2026-04-30]]
+- Export schema DB `pdamsby` (dev `192.168.1.41:2800`) ke `~/BRAJA_PDAMSBY/schema_pdamsby.sql` (1943 baris, 30 tabel)
+- Bersihkan injeksi `\restrict`/`\unrestrict` dari proxy yang break syntax psql
+- Schema portable — restore: `psql -U <user> -h <host> -d <db> -f schema_pdamsby.sql`
+
+---
+
 ### 2026-04-17 — Setup Folder Profil Professional
 **Kategori:** Dokumentasi
 **Daily note:** 2026-04-17
