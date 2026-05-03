@@ -425,6 +425,19 @@ rtk proxy curl -H "X-Api-Key: <key>" "https://plane.blitztechnology.tech/api/v1/
 
 Config MCP Plane ada di `~/.claude/settings.json` section `mcpServers.plane`.
 
+#### Aturan Sync Detail Project → Plane
+
+**Setiap kali mencatat atau mengupdate detail project di vault** (note project, temuan, bug, keputusan arsitektur, konfigurasi penting, dll) — **wajib tambahkan/update juga ke work item Plane yang relevan**.
+
+**Alur:**
+1. Catat di vault note project (seperti biasa)
+2. Cari work item Plane yang relevan di project terkait (SOFTW, WEBAP, dll)
+3. Kalau ada work item yang match → update description-nya dengan detail baru
+4. Kalau tidak ada work item yang match → buat work item baru di project yang sesuai
+5. Sync vault ke GitHub seperti biasa
+
+**Tujuan:** vault + Plane tetap sinkron — vault sebagai knowledge base, Plane sebagai task tracker yang up-to-date.
+
 #### Work Item Description Guidelines
 
 Waktu buat atau update work item di Plane — **description harus meaningful dan readable untuk team**:

@@ -135,6 +135,19 @@ WAJIB prefix `rtk` di depan command verbose, atau pipe ke `rtk log` / `rtk pipe`
 3. Kalau tidak ada wrapper khusus, pipe output ke `rtk log` (untuk log) atau `rtk pipe` (general filter)
 4. Untuk command yang sudah pasti compact (mkdir, cp, simple echo) → tidak perlu RTK
 
+## Sync Detail Project → Plane (Aturan Baru)
+
+Setiap kali mencatat atau mengupdate detail project di vault → **wajib tambahkan/update juga ke work item Plane yang relevan**.
+
+**Why:** Vault = knowledge base, Plane = task tracker. Keduanya harus sinkron agar team tidak perlu buka vault untuk lihat detail.
+
+**How to apply:**
+1. Catat di vault note project seperti biasa
+2. Cari work item Plane yang relevan di project terkait (SOFTW, WEBAP, dll)
+3. Kalau ada match → update description dengan detail baru
+4. Kalau tidak ada match → buat work item baru di project yang sesuai
+5. Sync vault ke GitHub seperti biasa
+
 ## Plane Work Item Description — Meaningful untuk Team
 
 Waktu buat/update work item di Plane — description harus **meaningful dan readable untuk team**, bukan cuma copy-paste context dari daily note.
