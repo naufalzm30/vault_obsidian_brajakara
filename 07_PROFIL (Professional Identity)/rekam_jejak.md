@@ -13,6 +13,17 @@ Tracking longitudinal aktivitas pekerjaan di Brajakara untuk referensi resume, r
 
 ---
 
+### 2026-05-03 — Build Plane pi Extension
+**Kategori:** Infrastructure / Integration
+**Daily note:** [[2026-05-03]]
+- MCP npm plane-mcp-server tidak kompatibel dengan pi (pi tidak support MCP protocol)
+- Rebuild sebagai pi Extension TypeScript native: `~/.pi/agent/extensions/plane/index.ts`
+- 5 tools: `plane_list_projects`, `plane_list_issues`, `plane_get_issue`, `plane_create_issue`, `plane_update_issue`
+- Resolve project by identifier (WEBAP, SOFTW, dll), resolve state by name, cache in-memory
+- Test API verified: 7 projects, issues WEBAP, states fetch semua OK
+
+---
+
 ### 2026-04-30 — Export Schema PostgreSQL [[PDAM_SBY|BRAJA_PDAMSBY]]
 **Kategori:** Backend / Data Engineering
 **Daily note:** [[2026-04-30]]
