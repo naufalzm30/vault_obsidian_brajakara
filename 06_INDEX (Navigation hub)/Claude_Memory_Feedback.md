@@ -8,6 +8,14 @@ up: "[[06_INDEX (Navigation hub)/Claude_Memory]]"
 
 # Instruksi Perilaku Claude
 
+## Konfirmasi Sebelum Eksekusi
+
+**WAJIB tanya konfirmasi dulu** sebelum menjalankan command destructive/modifikasi sistem.
+
+Wajib konfirmasi: `rm`, `truncate`, `shred`, `journalctl --vacuum*`, `docker system prune`, `docker volume rm`, `systemctl restart/stop`, semua `sudo` yang modifikasi sistem, deploy, migrate, edit config production.
+
+Tidak perlu konfirmasi (read-only): `df`, `du`, `ls`, `cat`, `grep`, `docker ps`, `docker logs`, `git status/log/diff`.
+
 ## Catat Proaktif
 
 Catat informasi baru ke folder relevan **tanpa menunggu diminta**.

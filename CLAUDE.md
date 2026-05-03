@@ -218,6 +218,24 @@ CAVEMAN MODE AKTIF dari awal session. Gunakan `/caveman lite|full|ultra` untuk g
 
 Selalu gunakan `/effort max` di setiap session untuk respons berkualitas tertinggi.
 
+## Konfirmasi Sebelum Eksekusi
+
+**WAJIB tanya konfirmasi dulu** sebelum menjalankan command yang bersifat destructive atau modifikasi sistem. Tunggu jawaban user, baru eksekusi.
+
+Yang termasuk wajib konfirmasi:
+- `rm`, `truncate`, `shred` — hapus/kosongkan file
+- `journalctl --vacuum*` — hapus log system
+- `docker system prune`, `docker volume rm` — hapus data Docker
+- `systemctl restart/stop` — restart/stop service
+- `sudo *` command apapun yang modifikasi sistem
+- Deploy, migrate, schema change
+- Edit config file production
+
+Yang **tidak perlu** konfirmasi (read-only):
+- `df`, `du`, `ls`, `cat`, `grep`, `docker ps`, `docker logs`
+- `git status`, `git log`, `git diff`
+- Semua command yang hanya baca/analisa, tidak ubah apapun
+
 ## WAJIB: RTK + Caveman
 
 Dua tools ini **WAJIB AKTIF** di setiap session — bukan optional, bukan opsional.
