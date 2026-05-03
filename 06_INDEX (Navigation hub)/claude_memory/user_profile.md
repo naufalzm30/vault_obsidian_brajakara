@@ -25,4 +25,6 @@ User bekerja di **Brajakara**, **versatile backend developer**: nulis kode backe
 
 **Catatan salazar:** Pindah ke EndeavourOS (Arch). Package manager: `pacman`/`yay`. Perintah systemd, path config, dll mungkin berbeda dari distro sebelumnya.
 
+**AI Tooling:** User pakai **pi** (coding agent harness, `@mariozechner/pi-coding-agent`) sebagai interface ke Claude — bukan Claude Code langsung. Pi baca `CLAUDE.md` otomatis (kompatibel, tidak perlu `AGENTS.md` terpisah). `CLAUDE.md` tetap file instruksi utama.
+
 **SSH:** Mesin `tower` = VM 102 di Proxmox MORDOR, IP WireGuard `10.20.0.11`, user `tower`. SSH: `ssh tower@10.20.0.11` (tanpa flag key eksplisit — bisa connect langsung). Key `devbrajakara` (akun GitHub devbrajakara) tercatat tapi tidak wajib di-flag. Repo vault pakai SSH config `github-naufalzm30` dengan key `~/.ssh/id_ed25519_naufalzm30` → akun `naufalzm30`.

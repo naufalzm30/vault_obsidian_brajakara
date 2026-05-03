@@ -11,16 +11,19 @@ date: 2026-04-17
 
 ## Backend
 
-- Bahasa: *(perlu dilengkapi — Python? Go? Node?)*
-- Protocol: MQTT, REST API
-- Database: *(perlu dilengkapi)*
+- Bahasa: **Python** (utama — Django, DRF, scripting), **Go** (in progress — GO_WHATSAPP_API)
+- Framework: Django 3.2 + Django REST Framework, Gunicorn
+- Protocol: MQTT (`paho-mqtt`, Mosquitto broker), REST API
+- Database: **PostgreSQL** (PDAM — `dbflowmeter`), **MySQL** (WeatherApp — `weather_app`, via PyMySQL)
 
 ## Infrastructure & DevOps
 
 - VPS: Biznet, Hostinger
 - On-premise: **Proxmox VE** — virtualisasi untuk lingkungan sandbox pengujian fitur baru secara terisolasi
 - VPN: WireGuard
-- Container: *(perlu dilengkapi — Docker? Podman?)*
+- Container: **Docker** + **docker-compose** (semua project pakai ini)
+- Scheduler: **Supercronic** (PDAM), **django-crontab** (WeatherApp)
+- Cache: **Redis 7** (PDAM — stateful alert, session)
 - OS: Linux (EndeavourOS/Arch, Debian)
 
 ## Monitoring & IoT
