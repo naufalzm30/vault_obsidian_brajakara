@@ -186,3 +186,13 @@ Tracking longitudinal aktivitas pekerjaan di Brajakara untuk referensi resume, r
 ---
 
 > Entri bertanggal "Ongoing" akan diperbarui dengan tanggal aktual saat detail diketahui.
+
+### 2026-05-04 — DB_UAT Portable Dev Database — Final Debugging & Testing
+**Kategori:** Backend / DevOps / Data Engineering
+**Daily note:** [[2026-05-04]]
+- Fixed schema import errors (dead table FK references ke `sensor_data`, `checker_data`, `station`)
+- Fixed static data import collision dengan `TRUNCATE CASCADE` sebelum import
+- Reverted `fzf` arrow key menu ke numeric input — display corruption issue saat output streaming
+- Fixed script exit code 137 (SIGKILL) — removed `set -e` karena conflict dengan `tee` pipe
+- Created automated E2E test script (`test_install.sh`) untuk verify full install flow + data integrity
+- **Impact:** [[PDAM_SBY|BRAJA_PDAMSBY]] portable dev DB siap testing, end-to-end install flow lengkap & stable
