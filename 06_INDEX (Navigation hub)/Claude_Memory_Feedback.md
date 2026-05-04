@@ -10,11 +10,20 @@ up: "[[06_INDEX (Navigation hub)/Claude_Memory]]"
 
 ## Konfirmasi Sebelum Eksekusi
 
-**WAJIB tanya konfirmasi dulu** sebelum menjalankan command destructive/modifikasi sistem.
+**WAJIB tanya konfirmasi dulu** sebelum menjalankan command yang bersifat destructive atau modifikasi sistem/state.
 
-Wajib konfirmasi: `rm`, `truncate`, `shred`, `journalctl --vacuum*`, `docker system prune`, `docker volume rm`, `systemctl restart/stop`, semua `sudo` yang modifikasi sistem, deploy, migrate, edit config production.
+Yang termasuk wajib konfirmasi:
+- **File operations:** `rm`, `truncate`, `shred`
+- **System:** `journalctl --vacuum*`, `docker system prune`, `docker volume rm`, `systemctl restart/stop`, `sudo *`
+- **Git state-changing:** `git checkout`, `git stash`, `git stash pop`, `git commit`, `git push`, `git branch -d`, `git reset`
+- **Development:** Deploy, migrate, schema change
+- **Config:** Edit/create file
 
-Tidak perlu konfirmasi (read-only): `df`, `du`, `ls`, `cat`, `grep`, `docker ps`, `docker logs`, `git status/log/diff`.
+Yang **tidak perlu** konfirmasi (read-only):
+- **File inspection:** `ls`, `cat`, `grep`, `find`, `tree`, `du`, `df`
+- **Git read-only:** `git status`, `git log`, `git diff`, `git branch -a`, `git show`
+- **SSH read-only:** `ssh <host> "<read-only-command>"`
+- **Docker inspect:** `docker ps`, `docker logs`, `docker images`
 
 ## Catat Proaktif
 

@@ -5,7 +5,7 @@ description: Aturan perilaku Claude di vault ini — catat proaktif, git sync ot
 type: feedback
 originSessionId: a3a7fb23-fce1-4545-8801-5683083eb8b4
 ---
-up: "[[06_INDEX (Navigation hub)/Claude_Memory]]"
+
 ## Catat Proaktif
 
 Catat informasi baru ke folder relevan tanpa menunggu diminta.
@@ -99,21 +99,21 @@ Saat git sync vault, jangan tampilkan output git mentah. Cukup tulis satu baris:
 
 ## Konfirmasi Sebelum Eksekusi
 
-**WAJIB tanya konfirmasi dulu** sebelum menjalankan command destructive/modifikasi sistem. Tunggu jawaban user, baru eksekusi.
+**WAJIB tanya konfirmasi dulu** sebelum menjalankan command yang bersifat destructive atau modifikasi sistem/state. Tunggu jawaban user, baru eksekusi.
 
 Yang termasuk wajib konfirmasi:
-- `rm`, `truncate`, `shred` — hapus/kosongkan file
-- `journalctl --vacuum*` — hapus log system
-- `docker system prune`, `docker volume rm` — hapus data Docker
-- `systemctl restart/stop` — restart/stop service
-- `sudo *` command apapun yang modifikasi sistem
-- Deploy, migrate, schema change
-- Edit config file production
+- **File operations:** `rm`, `truncate`, `shred` — hapus/kosongkan file
+- **System:** `journalctl --vacuum*`, `docker system prune`, `docker volume rm`, `systemctl restart/stop`, `sudo *`
+- **Git state-changing:** `git checkout`, `git stash`, `git stash pop`, `git commit`, `git push`, `git branch -d`, `git reset`
+- **Development:** Deploy, migrate, schema change
+- **Config:** Edit/create file
 
-Yang **tidak perlu** konfirmasi (read-only):
-- `df`, `du`, `ls`, `cat`, `grep`, `docker ps`, `docker logs`
-- `git status`, `git log`, `git diff`
-- Semua command yang hanya baca/analisa, tidak ubah apapun
+Yang **tidak perlu** konfirmasi (read-only, informasi saja):
+- **File inspection:** `ls`, `cat`, `grep`, `find`, `tree`, `du`, `df`
+- **Git read-only:** `git status`, `git log`, `git diff`, `git branch -a`, `git show`
+- **SSH read-only:** `ssh <host> "<read-only-command>"` — inspect remote, tidak modifikasi
+- **Docker inspect:** `docker ps`, `docker logs`, `docker images`
+- Semua command yang hanya baca/analisa, tidak ubah apapun state/sistem
 
 **Why:** User tidak mau Claude langsung gas eksekusi tanpa konfirmasi — bisa merusak sistem.
 
