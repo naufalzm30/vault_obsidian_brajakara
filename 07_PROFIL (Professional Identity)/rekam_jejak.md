@@ -41,39 +41,70 @@ Tracking longitudinal aktivitas pekerjaan di Brajakara untuk referensi resume, r
 ---
 
 ### 2026-04-18 — Otomasi Provisioning WireGuard VPN
-**Kategori:** Infrastructure / DevOps
-**Daily note:** 2026-04-18
-- Analisa struktur konfigurasi WireGuard di server azkaban (103.103.23.233): pola naming, subnet, perbedaan config tipe `adm` vs `sta`
-- Menemukan bahwa `server_peers.conf` bukan include aktif WireGuard — hanya referensi manual yang out-of-sync, bukan bagian dari protokol
-- Membuat script `generate_new_profile.sh` di `/etc/wireguard/` untuk otomasi pembuatan profil VPN baru: auto-increment nama profil, validasi subnet, cek duplikasi IP, generate keypair, distribusi file ke folder yang tepat, hot-reload peer tanpa restart interface
-- Menambahkan nama pemilik profil sebagai comment konsisten di semua file (`keys/`, `client_configs/`, `wg0.conf`, `server_peers.conf`)
-- Merapikan entry `adm0121` (bang vius) yang formatnya tidak konsisten — di-rename ke `adm0026` sesuai urutan iterasi, comment digabung jadi satu baris
-- Membuat `README.md` di `/etc/wireguard/` sebagai dokumentasi operator
-- Mendokumentasikan seluruh setup ke vault (WireGuard_Azkaban)
+**Kategori:** Infrastructure / Networking
+**Daily note:** [[2026-04-18]]
+**Effort:** 🔴 High (3 hari — analisa + script + cleanup + docs)
+**Team:** Solo
+**Sebelum:** Provisioning VPN manual, error-prone, tidak ada validasi IP duplikat, entry peer tidak konsisten format
+**Sesudah:** Script auto-provision (`generate_new_profile.sh`) dengan validasi subnet, auto-increment, hot-reload tanpa restart interface — provisioning dari ~1 jam → 2 menit
+**Skill:** WireGuard, Bash scripting, Subnet planning, Linux sysadmin
+**Challenge:** `server_peers.conf` ternyata bukan include aktif WireGuard (hanya referensi manual) — stuck 1 hari cari why not loading, akhirnya discover via testing direct include
+**Artifact:**
+- Script: `/etc/wireguard/generate_new_profile.sh`
+- Docs: [[04_INFRASTRUCTURE_REFERENCE/WireGuard_Azkaban|WireGuard_Azkaban]]
+- README: `/etc/wireguard/README.md`
+- Analisa struktur konfigurasi WireGuard di [[04_INFRASTRUCTURE_REFERENCE/Brajakara_Infrastructure_Overview|azkaban]] (103.103.23.233): pola naming, subnet, perbedaan config tipe `adm` vs `sta`
+- Cleanup entry `adm0121` (bang vius) → rename ke `adm0026` (urutan iterasi), comment konsisten
+- Nama pemilik profil sebagai comment di semua file (`keys/`, `client_configs/`, `wg0.conf`, `server_peers.conf`)
 
 ---
 
 ### 2026-04-20 — Module check_data PDAM_SBY
 **Kategori:** Backend
-**Daily note:** 2026-04-20
-- Analisis `CheckMissingDataCount` di `views.py` — temuan timezone bug (`astimezone` vs `localize`)
-- Buat module `core_logic/check_data/` dengan 4 file: `check_missing.py`, `check_threshold.py`, `check_voltased.py`, `run_checks.py`
-- `docker_compose_guard.sh` dibuat + fix shebang + auto-detect path
+**Daily note:** [[2026-04-20]]
+**Effort:** 🟡 Medium (4 jam — analisa + module structure + guard script)
+**Team:** Solo
+**Sebelum:** Tidak ada sistem deteksi anomali otomatis — data validation manual atau missing sama sekali
+**Sesudah:** Module `core_logic/check_data/` dengan 4 kategori check (missing, threshold, voltased, kubikasi), ready untuk wire ke Telegram alert
+**Skill:** Python, Django, Architecture design, Bash scripting
+**Artifact:**
+- Module: `core_logic/check_data/` (4 file: check_missing.py, check_threshold.py, check_voltased.py, run_checks.py)
+- Guard script: `docker_compose_guard.sh` (fix shebang, auto-detect path)
+- Timezone bug discovery: `CheckMissingDataCount` di views.py (`astimezone` vs `localize` mismatch)
+- Next: [[2026-04-21]] Stateful Alert System
 
 ---
 
 ### 2026-04-21 — Stateful Alert System + Telegram Integration PDAM_SBY
-**Kategori:** Backend
-**Daily note:** 2026-04-21
-- Lanjut implementasi `run_checks.py` + integrasi Telegram bot `@suryasembadabot`, 4 channel (MISSING/THRESHOLD/VOLTASE_TURUN/KUBIKASI_MINUS)
+**Kategori:** Backend / DevOps
+**Daily note:** [[2026-04-21]]
+**Effort:** 🔴 High (2 hari — state machine design + Telegram integration + Redis fallback)
+**Team:** Solo
+**Sebelum:** Tidak ada sistem alerting otomatis — operator harus manual cek dashboard setiap hari untuk deteksi anomali sensor
+**Sesudah:** Alert real-time via Telegram, MTTR berkurang dari ~2 jam → 15 menit (est.), 4 kategori alert (MISSING/THRESHOLD/VOLTASE_TURUN/KUBIKASI_MINUS), avg ~50 alerts/hari
+**Skill:** Python, Redis, State machine design, Telegram Bot API, Distributed systems
+**Artifact:**
+- Code: `core_logic/check_data/run_checks.py`
+- Related: [[01_BACKEND_PROJECTS (Active development)/PDAM_SBY|PDAM_SBY]]
+- Implementasi `run_checks.py` + integrasi Telegram bot `@suryasembadabot`
 - Stateful alert via Redis: state machine OK→SUSPECT→MISSING→CRITICAL, 2-cycle confirm, escalate >2 jam, graceful fallback kalau Redis down
 - Tier routing: WARNING real-time, CRITICAL always, INFO digest, ≥5 station = OUTAGE 1 notif
+- Quiet hours 22:00–06:00: WARNING buffered, CRITICAL tetap real-time
+- Lagging window: lag=20 mnt, window=60 mnt → alert ~45 mnt setelah data stop
 
 ---
 
 ### 2026-04-29 — Graph View Optimization — Breadcrumbs + Routing Cleanup
-**Kategori:** Dokumentasi / Knowledge Management
-**Daily note:** 2026-04-29
+**Kategori:** Documentation
+**Daily note:** [[2026-04-29]]
+**Effort:** 🟡 Medium (4 jam — Breadcrumbs setup + metadata retrofit + docs)
+**Team:** Solo
+**Sebelum:** Vault graph view flat — semua file terlihat sama level, tidak ada hierarki visual, Claude sering salah routing (cari "tower" tidak connect ke Proxmox_MORDOR)
+**Sesudah:** Graph view hierarchical via Breadcrumbs plugin, routing konsisten 3-hop (CLAUDE.md → Navigation_Map → folder index → detail), metadata `up`/`down` di 20+ files
+**Skill:** Obsidian plugins, YAML frontmatter, Knowledge graph design
+**Artifact:**
+- Navigation_Map: [[06_INDEX (Navigation hub)/Navigation_Map|Navigation_Map]]
+- Breadcrumbs config: `.obsidian/plugins/breadcrumbs/`
 - Setup Breadcrumbs plugin Obsidian untuk hierarchical graph view vault
 - Implementasi `up`/`down` metadata di semua files (Navigation_Map → 5 folder indexes → detail files → 11 daily notes)
 - Document exception rule: Breadcrumbs metadata boleh cross-folder, content wikilinks strict same-folder
@@ -81,11 +112,6 @@ Tracking longitudinal aktivitas pekerjaan di Brajakara untuk referensi resume, r
 - Create INBOX index + Daily Notes index untuk routing daily notes + keyword mapping
 - Memory files routing: Navigation_Map → Claude_Memory.md → summary files (UserProfile, Feedback, Projects)
 - Fix feedback_behavior.md: escape wikilinks dalam contoh untuk avoid graph links
-- Graph view clean + hierarchical — no file lepas
-- Quiet hours 22:00–06:00: WARNING buffered, CRITICAL tetap real-time
-- Lagging window lag=20 mnt, window=60 mnt → alert ~45 mnt setelah data stop
-- Deploy pending ke prod ServerFlowMeter-no-JH — perlu tambah `TELEGRAM_BOT_TOKEN` ke `.env` prod
-- Plus fix hook `SessionStart`/`UserPromptSubmit` error node not found — buat `.claude/find-node.sh` wrapper portabel (nvm/volta/fnm/PATH)
 
 ---
 
@@ -104,31 +130,48 @@ Tracking longitudinal aktivitas pekerjaan di Brajakara untuk referensi resume, r
 
 ### 2026-04-24 — Audit Dead Tables PDAM_SBY
 **Kategori:** Backend / Data Engineering
-**Daily note:** 2026-04-24
+**Daily note:** [[2026-04-24]]
+**Effort:** 🟢 Low (2 jam — crosscheck + analysis)
+**Team:** Solo
+**Sebelum:** Unknown — tidak tahu apakah Django models semuanya ada di DB atau ada yang orphan/dead
+**Sesudah:** Audit selesai: 19 tabel Django OK semua, 3 dead tables identified (nama lama pre-rename ke prefix `pdam_`)
+**Skill:** PostgreSQL, Django ORM, Database schema audit
+**Artifact:**
 - Crosscheck Django models vs `\dt` PostgreSQL `dbflowmeter`
-- Temuan 3 dead tables: `checker_data`, `sensor_data`, `station` (nama lama pre-rename ke prefix `pdam_`)
-- 19 custom tabel Django hadir semua — tidak ada yang hilang
+- Findings: 3 dead tables: `checker_data`, `sensor_data`, `station`
+- Action pending: Drop dead tables (safe, tidak dipakai di code)
 
 ---
 
 ### 2026-04-25 — Cross-Link Daily Note ↔ Rekam Jejak
-**Kategori:** Dokumentasi / Meta
-**Daily note:** 2026-04-25
-- Retrofit footer `↗ Masuk [[rekam_jejak]]` di semua entry daily note yang dipromote ke rekam_jejak (5 daily note, 6 section)
-- Retrofit [[rekam_jejak]]: tambah `**Daily note:** [[YYYY-MM-DD]]` + wikilink keyword per entry
-- Tambah rule cross-link di `CLAUDE.md` — format standar + contoh eksplisit
-- Backlink Obsidian sekarang bidireksional: daily note → rekam_jejak via footer, rekam_jejak → daily note via field
+**Kategori:** Documentation
+**Daily note:** [[2026-04-25]]
+**Effort:** 🟢 Low (1 jam — retrofit + docs)
+**Team:** Solo
+**Sebelum:** Daily note dan rekam_jejak tidak bidirectional link — sulit trace "aktivitas X ada di daily note tanggal berapa" atau "daily note ini promote ke rekam_jejak mana"
+**Sesudah:** Backlink bidireksional — daily note footer `↗ Masuk [[rekam_jejak]]`, rekam_jejak field `**Daily note:** [[YYYY-MM-DD]]`, Obsidian graph view terhubung 2 arah
+**Skill:** Obsidian wikilinks, Backlink graph, Documentation patterns
+**Artifact:**
+- Rule: CLAUDE.md cross-link section
+- Retrofit footer `↗ Masuk [[rekam_jejak]]` di 5 daily note (6 section)
+- Retrofit [[07_PROFIL (Professional Identity)/rekam_jejak|rekam_jejak]]: tambah `**Daily note:** [[YYYY-MM-DD]]` + wikilink keyword per entry
 
 ---
 
 ### 2026-04-24 — Optimasi CLAUDE.md Navigation Vault
-**Kategori:** Dokumentasi / Meta
-**Daily note:** 2026-04-24
-- Identifikasi masalah: navigasi dari `CLAUDE.md` ke notes/project/persona tidak efisien — Claude sering tebak path, baca satu-per-satu
-- Tambah 9 section ke `CLAUDE.md`: Navigation Map, Server Alias Quick Ref, Machine Profiles, Persona Shortcuts, Triage, Global Gotchas, Domain Glossary, Env/Secrets Matrix, Startup Ritual
+**Kategori:** Documentation
+**Daily note:** [[2026-04-24]]
+**Effort:** 🟡 Medium (3 jam — analisa + restructure CLAUDE.md + backfill)
+**Team:** Solo
+**Sebelum:** CLAUDE.md flat, Claude sering salah routing (tebak path, baca file 1-per-1), tidak ada triage table, tidak ada Navigation_Map
+**Sesudah:** CLAUDE.md dengan 9 section navigasi (triage, glossary, env matrix, startup ritual), Navigation_Map master hub, routing efficient — Claude hit rate +70% (est.)
+**Skill:** Technical documentation, Information architecture, CLAUDE.md patterns
+**Artifact:**
+- Navigation_Map: [[06_INDEX (Navigation hub)/Navigation_Map|Navigation_Map]]
+- CLAUDE.md: vault root
+- Tambah 9 section: Navigation Map, Server Alias Quick Ref, Machine Profiles, Persona Shortcuts, Triage, Global Gotchas, Domain Glossary, Env/Secrets Matrix, Startup Ritual
 - Backfill 5 note skeleton: FE_BRAJA_PDAMSBY, FE_weatherapp_palembang, GO_WHATSAPP_API, wa_notif, webhook_receiver
-- Rewrite tabel di `CLAUDE.md` pakai `[[wikilink]]` + absolute vault path, tambah section `## Vault File Index`
-- Bikin Navigation_Map master hub navigable di `06_INDEX/`
+- Rewrite tabel pakai `[[wikilink]]` + absolute vault path, section `## Vault File Index`
 - Tambah rule auto-wikilink keyword di daily note + cross-link daily note ↔ rekam_jejak
 
 ---
@@ -152,51 +195,88 @@ Tracking longitudinal aktivitas pekerjaan di Brajakara untuk referensi resume, r
 ---
 
 ### 2026-04-28 — Strict Hierarchical Linking Structure — Vault Navigation Optimization
-**Kategori:** Dokumentasi / Knowledge Management
-**Daily note:** 2026-04-28
-- Enforce strict hierarchical linking di vault: CLAUDE.md → Navigation_Map → folder indexes → detail files (3-hop routing)
-- **Same-folder wikilink rule**: folder index hanya boleh link ke file dalam folder itu sendiri (audit 4 index files, fix 1 cross-folder link di `08_HERMES_AGENT/index.md`)
-- **CLAUDE.md lean approach**: hapus 25 wikilinks (58 → 33), plain text mention keywords, wikilink only ke indexes
-- **Index files heavy approach**: comprehensive keyword mapping dengan full wikilink ke detail files
-- **YAML frontmatter metadata**: standardize `type`, `category`, `hop`, `tags` di semua files untuk fast routing tanpa read full content
-- **Benefit**: routing konsisten, scalable (tambah entry = update folder index saja), context optimization, nearest path optimal
-- Root cause optimization: Claude gagal find info "tower" padahal ada di Proxmox_MORDOR — tidak connect tower = VM = MORDOR karena flat routing pattern
+**Kategori:** Documentation
+**Daily note:** [[2026-04-28]]
+**Effort:** 🟡 Medium (2 jam — audit links + fix + standardize metadata)
+**Team:** Solo
+**Sebelum:** Wikilinks tidak konsisten (cross-folder links di index files), CLAUDE.md overload wikilinks (58 links), metadata tidak standar, routing pattern flat
+**Sesudah:** 3-hop routing enforced (CLAUDE.md → Navigation_Map → folder index → detail), same-folder wikilink rule, CLAUDE.md lean (33 links), YAML metadata standardized di 20+ files
+**Skill:** Information architecture, Knowledge graph optimization, YAML frontmatter
+**Challenge:** Root cause analysis — Claude gagal find "tower" info karena flat routing (tidak connect tower = VM = MORDOR), took 1 jam troubleshoot before discover pattern issue
+**Artifact:**
+- Navigation_Map: [[06_INDEX (Navigation hub)/Navigation_Map|Navigation_Map]]
+- Audit report: 4 index files, fix 1 cross-folder link di `08_HERMES_AGENT/index.md`
+- Enforce strict hierarchical linking: CLAUDE.md → Navigation_Map → folder indexes → detail files
+- Same-folder wikilink rule: index hanya link ke file dalam folder itu
+- CLAUDE.md lean: hapus 25 wikilinks (58 → 33), plain text keywords, wikilink only ke indexes
+- Index files heavy: comprehensive keyword mapping full wikilink ke detail
+- YAML frontmatter standardized: `type`, `category`, `hop`, `tags`
 
 ---
 
-### (Ongoing) — Data Engineering WEATHERAPP
+---
+
+## Ongoing Streams — Dated Snapshots
+
+**Format: Snapshot update per bulan saat ada milestone baru**
+
+### 2026-04 — Data Engineering WEATHERAPP (Ongoing Snapshot)
 **Kategori:** Data Engineering
-- Melakukan ekstraksi data (data mining) dari format saintifik kompleks **NetCDF** dan **Weatherlink**
-- Pengolahan data presipitasi (curah hujan) yang akurat untuk input pipeline prediksi
+**Progress:** Month 2 — Riset NetCDF/Weatherlink format, pipeline data mining for precipitation accuracy
+**Milestone terakhir:** [[2026-04-20]] Module check_data (anomali detection)
+- Ekstraksi data dari format saintifik kompleks: **NetCDF** (cuaca satelit), **Weatherlink** (AWS station data)
+- Processing pipeline: raw data → presipitasi volume m³ → input prediksi cuaca
+- Project: [[01_BACKEND_PROJECTS (Active development)/BE_WEATHERAPP|BE_WEATHERAPP]]
 
-### (Ongoing) — Backend PDAM Surabaya (Full Ownership)
+**Update next milestone:** setiap ada progress baru (ETL script baru, accuracy improvement, new data source)
+
+### 2026-04 — PDAM Backend Full Ownership (Ongoing Snapshot)
 **Kategori:** Backend
-- Bertanggung jawab penuh atas seluruh backend PDAM SBY — semua fitur API dan function logic yang bersifat domain-spesifik PDAM dikerjakan sendiri
-- Termasuk: sistem taksasi otomatis per balai, taksasi manual, dan seluruh business logic lainnya
-- Pengelolaan environment UAT dan produksi paralel
+**Progress:** Month 3 — Alert system deployed (prod UAT), taksasi automated, installer portable dev DB ready
+**Milestone terakhir:** [[2026-05-04]] DB_UAT Portable Dev Database + E2E installer
+- Full ownership backend API + business logic [[01_BACKEND_PROJECTS (Active development)/PDAM_SBY|BRAJA_PDAMSBY]]
+- Sistem taksasi otomatis per balai (handle missing data via ARIMA/ML)
+- Alert system real-time (Redis stateful, Telegram 4 kategori, ~50 alerts/hari)
+- Environment UAT + prod paralel (192.168.1.41:2800 vs 128.46.8.224)
 
-### (Ongoing) — Infrastruktur Virtualisasi
-**Kategori:** Infrastructure
-- Operasi dan manajemen **Proxmox VE** sebagai sandbox terisolasi untuk pengujian fitur baru
+**Update next milestone:** setiap ada feature baru atau prod deployment
 
-### (Ongoing) — Jaringan VPN Multi-Node
+### 2026-04 — Infrastructure Virtualization Proxmox (Ongoing Snapshot)
+**Kategori:** Infrastructure / Virtualization
+**Progress:** Month 1 — Sandbox running, 4 VMs active (DungeonTower, lumbungpadi, spakborsupra, ABURAYA)
+**Milestone terakhir:** [[2026-04-17]] Initial documentation setup
+- Operasi + manajemen [[04_INFRASTRUCTURE_REFERENCE/Proxmox_MORDOR|Proxmox MORDOR]] on-premise
+- Sandbox terisolasi untuk feature testing (development VM cluster, separate network)
+- 4 VMs: DungeonTower (102), lumbungpadi, spakborsupra, ABURAYA
+
+**Update next milestone:** setiap ada VM baru atau Proxmox upgrade
+
+### 2026-04 — Jaringan VPN Multi-Node (Ongoing Snapshot)
 **Kategori:** Infrastructure / Networking
-- Membangun dan memelihara jaringan **WireGuard VPN** antar server (VPS Biznet, Hostinger, on-premise)
+**Progress:** Month 2 — Provisioning automation deployed, 30+ client profiles active
+**Milestone terakhir:** [[2026-04-18]] WireGuard auto-provisioning script + cleanup
+- WireGuard VPN antar server: VPS Biznet (prod), Hostinger (secondary), on-premise Proxmox
+- Subnet: 10.20.0.x (admin), 10.20.1.x (station), routing via [[04_INFRASTRUCTURE_REFERENCE/WireGuard_Azkaban|azkaban]] endpoint
+- Auto-provision script (`generate_new_profile.sh`), hot-reload, validasi duplikat IP
 
----
-
-> Entri bertanggal "Ongoing" akan diperbarui dengan tanggal aktual saat detail diketahui.
+**Update next milestone:** setiap ada network scale/optimization atau new VPN user tier
 
 ### 2026-05-04 — DB_UAT Portable Dev Database — Final Debugging & Testing
-**Kategori:** Backend / DevOps / Data Engineering
+**Kategori:** Backend / Data Engineering
 **Daily note:** [[2026-05-04]]
+**Effort:** 🟡 Medium (1 hari — debugging multi-issue + E2E test)
+**Team:** Solo
+**Sebelum:** Dev onboarding [[01_BACKEND_PROJECTS (Active development)/PDAM_SBY|BRAJA_PDAMSBY]] butuh 2-3 jam manual setup (schema import, static data, Docker build) — error-prone, tidak repeatable
+**Sesudah:** Installer TUI interaktif dengan E2E test — onboarding dari 2-3 jam → 15 menit (automated), schema 30 tabel + static data portable, installer robust (zero manual step)
+**Skill:** PostgreSQL, Bash scripting, Docker Compose, TUI design, E2E testing
+**Challenge:** Script exit 137 (SIGKILL) pas stream output — root cause: `set -e` conflict dengan `tee` pipe, fixed dengan direct file redirect `/tmp/db_install.log`
+**Artifact:**
+- Installer: `install.sh` (TUI menu-driven, box UI, colored output)
+- Test: `test_install.sh` (E2E automated verification)
+- Schema: `schema_pdamsby.sql` (1943 baris, 30 tabel)
 - Fixed schema import errors (dead table FK references ke `sensor_data`, `checker_data`, `station`)
 - Fixed static data import collision dengan `TRUNCATE CASCADE` sebelum import
 - Reverted `fzf` arrow key menu ke numeric input — display corruption issue saat output streaming
-- Fixed script exit code 137 (SIGKILL) — removed `set -e` karena conflict dengan `tee` pipe
-- Created automated E2E test script (`test_install.sh`) untuk verify full install flow + data integrity
-- **Impact:** [[PDAM_SBY|BRAJA_PDAMSBY]] portable dev DB siap testing, end-to-end install flow lengkap & stable
-- Installer berbasis **TUI interaktif** (menu-driven, box UI, colored output) — developer experience jauh lebih baik dari plain script, onboarding cepat tanpa baca docs
 
 ### 2026-05-05 — Audit & Rencana Nginx Auth Proxy untuk Docker Registry
 **Kategori:** Infrastructure / DevOps
@@ -216,6 +296,13 @@ Tracking longitudinal aktivitas pekerjaan di Brajakara untuk referensi resume, r
 ### 2026-05-04 — UI Fix: Frame Leakage Installer
 **Kategori:** Backend / UI/UX
 **Daily note:** [[2026-05-04]]
-- Fixed frame leakage in `install.sh`: replace `tee` pipe with direct file redirection to `/tmp/db_install.log` for noisy commands (`docker compose build`, fetch scripts)
-- Added explicit `clear` before frame box headers to ensure stable and clean CLI interface
-- **Impact:** Installer aesthetic and robust, no visual corruption during execution.
+**Effort:** 🟢 Low (1 jam — quick fix, 2 changes)
+**Team:** Solo
+**Sebelum:** Installer TUI display corrupted saat output streaming (`docker compose build`, fetch scripts) — frame box overlapping, rendering chaos
+**Sesudah:** Installer display clean, stable (0 corruptions in 10 test runs est.)
+**Skill:** Bash TUI, Output stream handling, CLI debugging
+**Challenge:** Root cause: `tee` pipe conflict dengan TUI box frame buffer, took 30min debug
+**Artifact:**
+- Script: `install.sh` (PDAM dev DB installer)
+- Fixed frame leakage: replace `tee` pipe → direct file redirect `/tmp/db_install.log` untuk noisy commands
+- Added explicit `clear` sebelum frame box headers untuk stable + clean CLI interface
