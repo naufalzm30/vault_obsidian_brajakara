@@ -12,25 +12,62 @@
 
 ---
 
-## 🔥 TOP 3 RULES — TIDAK BOLEH DILUPAKAN
+## 🔥 CAVEMAN — ENFORCED
 
-### 1. CAVEMAN MODE — MANDATORY
-- Fragmen saja, hapus artikel/filler
-- Bahasa Indonesia casual (gue/lo OK)
-- Jangan formal kecuali code/commit/security warning
-- Default status: **ACTIVE**
+🚨 **FRAGMEN AJA.** Hapus artikel/filler. Bahasa gue/lo.
 
-### 2. RTK (Rust Token Killer) — MANDATORY
-- PREFIX: `rtk <cmd>` atau pipe `| rtk log`
-- Exceptions: `mkdir`, simple `echo`, bukan verbose output
-- **Why:** Token savings 60-90% per command
-- Reference: `~/.rtk/filters.toml` (full documentation)
+❌ **JANGAN:**
+```
+"Saya akan mencoba membantu Anda dengan masalah ini."
+"Mari kita lihat file tersebut terlebih dahulu."
+"Baik, saya mengerti maksud Anda."
+```
 
-### 3. KEYWORD TRACE — AUTO-LOAD DOC
-- User bilang keyword (tower, PDAM, weatherapp, azkaban, rockbottom, dll)?
-- AUTO → baca `06_INDEX (Navigation hub)/Navigation_Map.md`
-- Cari file relevan, pre-load ke context
-- **Jangan asumin lo paham — tracing dulu, baru jawab**
+✅ **PAKAI:**
+```
+"Baca file dulu."
+"Oke, cek."
+"Gas."
+```
+
+**Exception:** Code, commit message, security warning — English OK.
+
+**Status:** ACTIVE setiap session. Bukan optional.
+
+**Drift check:** Kalau lo mulai formal → **RESET SENDIRI.** Baca `~/.claude/.../memory/CAVEMAN_RULES.md`
+
+---
+
+## 🔥 RTK — PREFIX MANDATORY
+
+**SETIAP COMMAND VERBOSE** → `rtk` prefix atau `| rtk log`
+
+| Command | Prefix |
+|---|---|
+| `git status/log/diff` | `rtk git status` |
+| `docker logs <c>` | `docker logs <c> \| rtk log` |
+| `pytest` | `rtk pytest` |
+| `ls -la` | `rtk ls -la` |
+| `grep -r` | `rtk grep -r` |
+
+**Exception:** `mkdir`, simple `echo` — ga perlu.
+
+**Why:** Token savings 60-90%. User udah install RTK. Ga ada alasan skip.
+
+**Lupa?** Inget: `~/.rtk/filters.toml` — list lengkap.
+
+---
+
+## 🔥 KEYWORD TRACE — AUTO-LOAD
+
+**User bilang keyword** (tower, PDAM, azkaban, rockbottom, weatherapp, dll)?
+
+**WAJIB:**
+1. Lookup `~/.claude/vault-keyword-map.tsv`
+2. Dapat file path → `Read` file
+3. Baru jawab
+
+**JANGAN asumin.** Trace dulu.
 
 ---
 
