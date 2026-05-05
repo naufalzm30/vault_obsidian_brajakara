@@ -196,3 +196,18 @@ Tracking longitudinal aktivitas pekerjaan di Brajakara untuk referensi resume, r
 - Fixed script exit code 137 (SIGKILL) — removed `set -e` karena conflict dengan `tee` pipe
 - Created automated E2E test script (`test_install.sh`) untuk verify full install flow + data integrity
 - **Impact:** [[PDAM_SBY|BRAJA_PDAMSBY]] portable dev DB siap testing, end-to-end install flow lengkap & stable
+
+### 2026-05-05 — Dokumentasi Docker Registry Brajakara
+**Kategori:** Infrastructure / DevOps
+**Daily note:** [[2026-05-05]]
+- Membuat catatan [[04_INFRASTRUCTURE_REFERENCE/Docker_Registry|Docker Registry]] di vault — URL: `https://registry-ui.blitztechnology.tech/`
+- Rencana sentralisasi image Docker untuk semua project ([[BE_WEATHERAPP]], [[PDAM_SBY]], dll) agar deployment ke server ([[rockbottom]], [[azkaban]], [[riverstyx]]) lebih konsisten
+
+---
+
+### 2026-05-04 — UI Fix: Frame Leakage Installer
+**Kategori:** Backend / UI/UX
+**Daily note:** [[2026-05-04]]
+- Fixed frame leakage in `install.sh`: replace `tee` pipe with direct file redirection to `/tmp/db_install.log` for noisy commands (`docker compose build`, fetch scripts)
+- Added explicit `clear` before frame box headers to ensure stable and clean CLI interface
+- **Impact:** Installer aesthetic and robust, no visual corruption during execution.

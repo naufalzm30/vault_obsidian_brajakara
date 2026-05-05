@@ -43,6 +43,10 @@ Dokumentasi lengkap infrastruktur Brajakara: server fisik, VM, network, dan depl
   - Subnet admin/human: `10.20.0.x`
   - Subnet Raspberry Pi CCTV: `10.20.1.x`
 
+## Tools & Services
+
+- **[[04_INFRASTRUCTURE_REFERENCE/Docker_Registry|Docker Registry]]** — Container registry Brajakara (`https://registry-ui.blitztechnology.tech/`), tempat push/pull image Docker hasil build
+
 ## Notes
 
 Semua alias server (rockbottom, azkaban, dll) adalah nama unik Brajakara — gunakan apa adanya, jangan diubah.
