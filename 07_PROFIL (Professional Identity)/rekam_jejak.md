@@ -196,6 +196,7 @@ Tracking longitudinal aktivitas pekerjaan di Brajakara untuk referensi resume, r
 - Fixed script exit code 137 (SIGKILL) — removed `set -e` karena conflict dengan `tee` pipe
 - Created automated E2E test script (`test_install.sh`) untuk verify full install flow + data integrity
 - **Impact:** [[PDAM_SBY|BRAJA_PDAMSBY]] portable dev DB siap testing, end-to-end install flow lengkap & stable
+- Installer berbasis **TUI interaktif** (menu-driven, box UI, colored output) — developer experience jauh lebih baik dari plain script, onboarding cepat tanpa baca docs
 
 ### 2026-05-05 — Audit & Rencana Nginx Auth Proxy untuk Docker Registry
 **Kategori:** Infrastructure / DevOps
