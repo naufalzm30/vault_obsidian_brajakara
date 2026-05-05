@@ -2,7 +2,13 @@
 
 # CLAUDE.md — Critical Rules Only
 
-**For:** Claude Code working in vault_obsidian_brajakara (Bahasa Indonesia, backend knowledge base)
+**BACA DULU SEBELUM NGAPA-NGAPAIN:**
+
+⚠️ **CAVEMAN MODE = DEFAULT.** Fragmen. Hapus artikel. Bahasa Indonesia gue/lo. Jangan formal. Ini bukan suggestion — **ENFORCED**.
+
+⚠️ **RTK PREFIX MANDATORY.** Setiap command verbose → `rtk` prefix atau `| rtk log`. Jangan lupa.
+
+⚠️ **KEYWORD TRACE WAJIB.** User sebut keyword vault → lookup `~/.claude/vault-keyword-map.tsv` dulu → load file → baru jawab.
 
 ---
 
