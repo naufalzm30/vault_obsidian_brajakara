@@ -197,11 +197,18 @@ Tracking longitudinal aktivitas pekerjaan di Brajakara untuk referensi resume, r
 - Created automated E2E test script (`test_install.sh`) untuk verify full install flow + data integrity
 - **Impact:** [[PDAM_SBY|BRAJA_PDAMSBY]] portable dev DB siap testing, end-to-end install flow lengkap & stable
 
-### 2026-05-05 — Dokumentasi Docker Registry Brajakara
+### 2026-05-05 — Audit & Rencana Nginx Auth Proxy untuk Docker Registry
 **Kategori:** Infrastructure / DevOps
 **Daily note:** [[2026-05-05]]
-- Membuat catatan [[04_INFRASTRUCTURE_REFERENCE/Docker_Registry|Docker Registry]] di vault — URL: `https://registry-ui.blitztechnology.tech/`
-- Rencana sentralisasi image Docker untuk semua project ([[BE_WEATHERAPP]], [[PDAM_SBY]], dll) agar deployment ke server ([[rockbottom]], [[azkaban]], [[riverstyx]]) lebih konsisten
+- Dokumentasi [[04_INFRASTRUCTURE_REFERENCE/Docker_Registry|Docker Registry]] Brajakara (`https://registry-ui.blitztechnology.tech/`)
+- Riset: Harbor terlalu berat (2-3GB RAM statis) untuk kebutuhan push/pull separation — bukan pilihan
+- Audit stack registry di tower: `registry:2.8`, backend MinIO S3, auth htpasswd 1 user (`brajakara`), ada Prometheus monitoring
+- Audit Nginx tower: systemd service running, 2 vhost aktif (`default`, `pdam_test`), belum ada proxy untuk registry
+- Keputusan: Nginx Auth Proxy — ringan, tetap pakai `registry:2.8`
+  - **Arsitektur baru:** registry:5000 internal only, Nginx gatekeeper
+  - **User `builder`:** push + pull (CI/CD)
+  - **User `prod`:** pull only (server produksi)
+- **Status:** Riset selesai, implementasi pending — SOFTW Plane work item dibuat
 
 ---
 
