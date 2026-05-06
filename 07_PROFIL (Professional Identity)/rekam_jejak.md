@@ -13,6 +13,19 @@ Tracking longitudinal aktivitas pekerjaan di Brajakara untuk referensi resume, r
 
 ---
 
+### 2026-05-06 — Audit & Refactor Vault Brajakara — CLAUDE.md Rules + Support Files
+**Kategori:** Documentation
+**Daily note:** [[2026-05-06]]
+**Effort:** 🟡 Medium (3 jam — analisis komprehensif + 7 fixes)
+**Team:** Collab with claude-code-kit perspective
+**Sebelum:** Vault setup solid tapi ada 5 issues (duplikasi memory folder, agents.md overlap, dev-db-plan orphan, GEMINI.md stale, RTK table duplikat) + 4 peluang optimize yang tidak tertangkap
+**Sesudah:** Semua 7 issue + optimize fix applied. Memory files ter-load di session, agents.md jadi redirect, dev-db-plan discoverable + registered, GEMINI.md up-to-date, CLAUDE.md lean. Cloud sync ke GitHub.
+**Skill:** Obsidian vault architecture, configuration management, documentation system design, Git workflow
+**Challenge:** Duplikasi project folder dash vs underscore — subtle tapi break memory loading seluruhnya
+**Artifact:** commit 9bd7eae — 7 files modified, 6 memory files synced, +1 TSV entry
+
+---
+
 ### 2026-05-03 — Build Plane pi Extension
 **Kategori:** Infrastructure / Integration
 **Daily note:** [[2026-05-03]]
