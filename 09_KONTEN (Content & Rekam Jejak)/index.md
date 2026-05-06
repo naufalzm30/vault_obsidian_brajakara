@@ -17,6 +17,7 @@ Hub konten profesional, rekam jejak showcase, dan strategi perkontenan.
 
 - **[[rekam_jejak_konten]]** — Tracking konten yang udah dibuat (artikel, video, posts, showcase)
 - **[[strategi_konten]]** — Planning konten ke depan, tema, format, distribusi
+- **[[konten_sanitasi_rules]]** — Rules & checklist sanitasi sebelum publish (what to expose vs protect)
 
 ---
 
