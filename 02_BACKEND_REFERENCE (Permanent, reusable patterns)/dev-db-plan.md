@@ -1,3 +1,14 @@
+---
+type: reference
+category: backend
+hop: 2
+tags: [backend, database, docker, reference, development]
+up: "[[02_BACKEND_REFERENCE (Permanent, reusable patterns)/index]]"
+related:
+  - "[[01_BACKEND_PROJECTS (Active development)/PDAM_SBY]]"
+  - "[[01_BACKEND_PROJECTS (Active development)/BE_WEATHERAPP]]"
+---
+
 # Dev Database Portable — Plan
 
 > Tujuan: DB lokal yang portable via Docker, bisa dibangkitkan di mesin manapun untuk debugging Django app tanpa perlu akses prod atau setup manual.

@@ -55,6 +55,12 @@ Setiap nulis daily note, keyword kunci WAJIB di-wrap jadi wikilink biar backlink
 
 ## Daily Notes (Chronological)
 
+### 2026-05
+
+- [[2026-05-05]] — CLAUDE.md v2 refactor + keyword router + housekeeping
+- [[2026-05-04]] — DB_UAT portable plan + TUI installer
+- [[2026-05-03]] — Docker registry reference + nginx auth proxy
+
 ### 2026-04
 
 - [[2026-04-29]] — Breadcrumbs + CLAUDE.md cleanup — graph optimization

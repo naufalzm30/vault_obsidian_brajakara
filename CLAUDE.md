@@ -149,21 +149,6 @@ Hook `~/.claude/hooks/session-start.sh` auto-run setiap session baru:
 
 ---
 
-## RTK Quick Reference
-
-| Workflow | Prefix | Savings |
-|----------|--------|---------|
-| Test | `rtk pytest/jest/vitest` | 90-99% |
-| Build | `rtk cargo/tsc/prettier` | 70-87% |
-| Git | `rtk git status/log/diff/push` | 59-80% |
-| Files | `rtk ls/grep/find` | 60-75% |
-| Docker/Infra | `rtk docker/kubectl` | 85% |
-| Network | `rtk curl` | 70% |
-
-**Default:** prefix `rtk` atau `| rtk log`. Kalau tidak ada filter khusus, RTK pass through (safe).
-
-**Full reference:** `~/.claude/.rtk/filters.toml` atau `rtk --help`
-
 ---
 
 ## Lokasi Files Penting
