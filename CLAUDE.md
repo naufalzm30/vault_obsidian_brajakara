@@ -158,6 +158,7 @@ Hook `~/.claude/hooks/session-start.sh` auto-run setiap session baru:
 ├── CLAUDE.md (ini — critical rules)
 ├── CLAUDE-REFERENCE.md (detail reference)
 ├── CLAUDE-MEMORY-SYNC.md (memory protocol)
+├── CLAUDE-NEURAL-NETWORK.md (fast context loading Tier 1+2)
 ├── 06_INDEX (Navigation hub)/
 │   ├── Navigation_Map.md (routing hub)
 │   ├── Claude_Memory.md (vault mirror)
@@ -188,4 +189,10 @@ Hook `~/.claude/hooks/session-start.sh` auto-run setiap session baru:
 ⏳ Keyword router: in progress (step 2/5)
 ⏳ Auto-compact history: in progress (step 3/5)
 
-Last updated: 2026-05-05
+## Quick Link
+
+**Lambat baca vault?** → Baca **[[CLAUDE-NEURAL-NETWORK.md]]** — Tier 1+2 optimization jalan.
+
+---
+
+Last updated: 2026-05-06
