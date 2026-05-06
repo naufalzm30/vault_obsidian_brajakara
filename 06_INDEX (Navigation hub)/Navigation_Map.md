@@ -9,6 +9,7 @@ down:
   - "[[01_BACKEND_PROJECTS (Active development)/index]]"
   - "[[07_PROFIL (Professional Identity)/index]]"
   - "[[08_HERMES_AGENT/index]]"
+  - "[[09_KONTEN (Content & Rekam Jejak)/index]]"
 ---
 
 # Navigation Map
@@ -49,6 +50,13 @@ down:
 ## 🤖 Agents
 **[[08_HERMES_AGENT/index|Hermes Agent Hub]]**
 - Multi-AI agent system docs & config
+
+---
+
+## 📣 Konten
+**[[09_KONTEN (Content & Rekam Jejak)/index|Konten Index]]**
+- Rekam jejak konten profesional (artikel, video, showcase, posts)
+- Strategi & planning konten ke depan
 
 ---
 
