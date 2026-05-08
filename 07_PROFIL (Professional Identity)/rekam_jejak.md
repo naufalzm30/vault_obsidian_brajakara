@@ -13,6 +13,39 @@ Tracking longitudinal aktivitas pekerjaan di Brajakara untuk referensi resume, r
 
 ---
 
+### 2026-05-08 — Software Engineering Documentation Reference + SRS BRAJA_PDAMSBY
+**Kategori:** Documentation / Backend
+**Daily note:** [[2026-05-08]]
+**Effort:** 🟡 Medium (3 jam — SE doc ref + SRS full write dari reverse-engineer codebase)
+**Team:** Solo
+
+#### Part 1: SE Doc Types Reference
+**Sebelum:** Sering dengar BRD/PRD/SRS/API Ref tapi tidak jelas kapan pakai, tujuan, isi apa, sebelum/sesudah code
+**Sesudah:** Referensi lengkap 8 doc type dengan tabel ringkas + detail + contoh Brajakara workflow
+**Artifact:** `02_BACKEND_REFERENCE/Software_Engineering_Documentation.md`
+- 8 doc type: BRD (stakeholder), PRD (PM+Eng), SRS (Eng), TDD (QA), Architecture (Tech Lead), API Ref (Eng), User Manual (operator), Deployment (DevOps)
+- Per doc: audience, kapan buat (sebelum/sesudah code), isi lengkap, contoh Brajakara
+- Brajakara workflow recommended: kickoff → sprint → coding → review → release → prod
+
+#### Part 2: SRS BRAJA_PDAMSBY (Production Project)
+**Sebelum:** Tidak ada formal SRS untuk codebase production PDAM_SBY yang sudah jalan
+**Sesudah:** SRS komprehensif (43KB, 11 section) dari reverse-engineer kodebase production
+**Skill:** Technical writing, requirement extraction, Django/PostgreSQL architecture analysis
+**Challenge:** Extract dari 6800+ lines views.py, 30+ tabel, 50+ cron command — organize jadi SRS clean
+**Artifact:** `~/BRAJA_PDAMSBY/SRS_BRAJA_PDAMSBY.md`
+- Functional req: MQTT ingestion (2-min interval), anomaly detection (MISSING/THRESHOLD/VOLTASE/KUBIKASI), alert system (stateful, Telegram, quiet hour), taksasi ARIMA/ML, REST API (dashboard, data query, download, taksasi approval, bulk upload)
+- Non-functional: performance (API <500ms p95), scalability (100+ station future), security (JWT/RBAC), reliability (SLA 99.5%, backup daily)
+- Data model: 10+ tabel PostgreSQL documented (station, sensor_data, threshold, telegram_notification, raw_message, maintenance_record, dll)
+- API spec: OpenAPI 3.0 format (auth, dashboard, data query+export, taksasi approval, bulk upload)
+- Error handling: error code mapping, retry policy (MQTT/DB/Telegram), fallback strategy
+- Deployment: env var list, cron jobs (4 job: message2sensordata 2min, check 5min, taksasi daily 06:00, telegram 1min)
+- Testing: unit >60%, integration E2E (data flow, alert, taksasi), load test 50 concurrent user
+- Known limitation + roadmap: Redis HA, ML anomaly detection, mobile app, WebSocket, microservice, Kubernetes
+- Glossary: kubikasi, taksasi, totalizer, flow meter, voltase, lagging, MQTT, ARIMA, calibration
+- Project: [[01_BACKEND_PROJECTS (Active development)/PDAM_SBY|PDAM_SBY]]
+
+---
+
 ### 2026-05-06 — Tier 1+2 Fast Context Loading — Memory Optimization
 **Kategori:** Infrastructure / Integration
 **Daily note:** [[2026-05-06]]
