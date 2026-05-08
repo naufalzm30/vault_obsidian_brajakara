@@ -13,6 +13,16 @@ Tracking longitudinal aktivitas pekerjaan di Brajakara untuk referensi resume, r
 
 ---
 
+### 2026-05-08 — SSO Migration: Dex → Authentik (Outline Wiki)
+**Kategori:** Infrastructure / Auth
+**Daily note:** [[2026-05-08]]
+**Effort:** 🟡 Medium (setup Dex + decision migrate + Authentik install)
+**Team:** Solo
+**Sebelum:** Pakai Dex untuk SSO — kompleks, kurang pas untuk kebutuhan.
+**Sesudah:** Migrasi ke Authentik sebagai IdP. Instance Authentik sudah terpasang. SSO Google (OIDC) belum di-hook ke aplikasi target (Outline Wiki).
+**Next:** Implementasi Google OAuth di Authentik → connect ke Outline Wiki untuk bypass Gmail domain restriction.
+**Artifact:** Authentik instance running, Outline Wiki pending auth migration.
+
 ### 2026-05-08 — Outline Wiki Deployment + Authentik Setup
 **Kategori:** Infrastructure / Auth
 **Daily note:** [[2026-05-08]]
