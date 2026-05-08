@@ -13,6 +13,15 @@ Tracking longitudinal aktivitas pekerjaan di Brajakara untuk referensi resume, r
 
 ---
 
+### 2026-05-08 — Outline Wiki Deployment + Authentik Setup
+**Kategori:** Infrastructure / Auth
+**Daily note:** [[2026-05-08]]
+**Effort:** 🟡 Medium (3 jam — setup Outline, debug proxy, riset Authentik)
+**Team:** Solo
+**Sebelum:** Outline Wiki blocked domain Gmail personal, auth manual.
+**Sesudah:** Outline running (port 3101), fix proxy SSL via azkaban, roadmap migrasi SSO Authentik sebagai IdP untuk bypass domain restriction.
+**Artifact:** Outline running, SRS PDAM (updated via daily note).
+
 ### 2026-05-08 — Software Engineering Documentation Reference + SRS BRAJA_PDAMSBY
 **Kategori:** Documentation / Backend
 **Daily note:** [[2026-05-08]]
