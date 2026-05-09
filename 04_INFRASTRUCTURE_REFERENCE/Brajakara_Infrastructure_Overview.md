@@ -82,6 +82,15 @@ Detail lengkap ada di [[Proxmox_MORDOR]].
 
 ---
 
+## Services & Domain
+
+| Service | URL | Host | Keterangan |
+|---|---|---|---|
+| Authentik (SSO) | https://auth.blitztechnology.tech | DungeonTower (`10.20.0.11`) | Identity provider Brajakara, self-hosted |
+| Docker Registry | https://registry-ui.blitztechnology.tech | — | Container registry |
+
+---
+
 ## Catatan Arsitektur
 
 - Semua routing nginx untuk koneksi VPN dipusatkan di **azkaban** karena WireGuard server ada di sana.

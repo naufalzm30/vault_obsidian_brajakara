@@ -45,6 +45,7 @@ Dokumentasi lengkap infrastruktur Brajakara: server fisik, VM, network, dan depl
 
 ## Tools & Services
 
+- **[[04_INFRASTRUCTURE_REFERENCE/Authentik_SSO|Authentik SSO]]** — Identity provider Brajakara (`https://auth.blitztechnology.tech`), SSO + Google OAuth, monitoring user activity
 - **[[04_INFRASTRUCTURE_REFERENCE/Docker_Registry|Docker Registry]]** — Container registry Brajakara (`https://registry-ui.blitztechnology.tech/`), tempat push/pull image Docker hasil build
 
 ## Notes
