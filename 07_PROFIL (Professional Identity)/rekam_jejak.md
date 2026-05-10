@@ -389,3 +389,26 @@ Tracking longitudinal aktivitas pekerjaan di Brajakara untuk referensi resume, r
 - Script: `install.sh` (PDAM dev DB installer)
 - Fixed frame leakage: replace `tee` pipe → direct file redirect `/tmp/db_install.log` untuk noisy commands
 - Added explicit `clear` sebelum frame box headers untuk stable + clean CLI interface
+
+### 2026-05-10 — Authentik Custom Login — CANCELLED, Revert ke Dex
+**Kategori:** Infrastructure / DevOps / SSO
+**Daily note:** [[2026-05-10]]
+**Effort:** 🔴 High (1 hari penuh — banyak approach gagal)
+**Team:** Solo
+**Sebelum:** Outline OIDC via Authentik — login flow double step, CSS kacau
+**Sesudah:** Revert ke Dex — simpler, stable, OIDC tetap jalan
+**Skill:** Nginx, Docker, Authentik, Dex, OIDC, CSS/PatternFly, Lit web components
+**Challenge:**
+- Authentik custom CSS: PatternFly CSS + Shadow DOM prevent external CSS penetration
+- Option A (static HTML wrapper): redirect loop `/` → flow → `/`
+- Option C (Django template override): semua halaman internal Authentik CSS kacau
+- Option D (rebuild frontend): `custom.css` terlalu aggressive → blank page, minimal CSS → layout kacau
+- Login sukses tapi redirect balik ke login (flow destination issue)
+**Keputusan:** Cancel Authentik custom login, matikan Authentik, balik ke Dex
+**Artifact:**
+- `~/authentik-custom/` — Authentik repo clone v2024.10.1 (tidak dipakai)
+- `~/FE_SSO/login.html` — custom HTML design Brajakara (disimpan, belum dipakai)
+- Nginx config: `/etc/nginx/sites-enabled/auth.blitztechnology.tech` di azkaban (proxy ke Dex port 5556)
+- Outline OIDC: revert ke Dex endpoints (`/auth`, `/token`, `/userinfo`)
+**Status:** Dex running, Authentik stopped, Outline stable
+**Plane:** [[SOFTW-61]] → Cancelled
