@@ -54,7 +54,7 @@
 
 **Why:** Token savings 60-90%. User udah install RTK. Ga ada alasan skip.
 
-**Lupa?** Inget: `~/.rtk/filters.toml` — list lengkap.
+**Lupa?** RTK hook transparent via `rtk hook claude` di PreToolUse — ga perlu manual.
 
 ---
 
@@ -86,6 +86,7 @@
 ## Rituals (Automatic, tanpa diminta)
 
 ### 1. Git Sync (Setiap edit vault file)
+**Auto-run:** Otomatis tanpa diminta.
 ```bash
 git pull --rebase origin master
 git add <file>
@@ -95,6 +96,7 @@ git push origin master
 Summary display: **"syncing to github..."** (satu baris, tidak tampilkan raw output)
 
 ### 2. Daily Note Update (Setiap edit file vault)
+**Auto-run:** Otomatis tanpa diminta.
 File: `00_INBOX/Daily_Notes/YYYY-MM-DD.md`
 Format:
 ```markdown
@@ -142,9 +144,9 @@ Lihat **[CLAUDE-MEMORY-SYNC.md](./CLAUDE-MEMORY-SYNC.md)** untuk:
 
 ## Session Start
 
-Hook `~/.claude/hooks/session-start.sh` auto-run setiap session baru:
+Hook `~/.claude/hooks/session-start-v2.sh` + `memory-chunk.sh` auto-run setiap session baru:
 - Print reminder: Caveman + RTK + Keyword trace aktif
-- Pre-load active tasks + behavior rules ke context
+- Pre-load: user profile, active projects, task pending, memory summary (Tier 2)
 - Ready untuk bekerja
 
 ---
@@ -185,9 +187,9 @@ Hook `~/.claude/hooks/session-start.sh` auto-run setiap session baru:
 ## Status
 
 ✅ File structure: refactored v2 (2026-05-05)
-✅ Hook: updated session-start.sh
-⏳ Keyword router: in progress (step 2/5)
-⏳ Auto-compact history: in progress (step 3/5)
+✅ Hooks: memory-chunk.sh + session-start-v2.sh (2026-05-11)
+✅ RTK integration: active via PreToolUse hook
+✅ Keyword map: 27 entries, updated 2026-05-11
 
 ## Quick Link
 
@@ -195,4 +197,4 @@ Hook `~/.claude/hooks/session-start.sh` auto-run setiap session baru:
 
 ---
 
-Last updated: 2026-05-06
+Last updated: 2026-05-11
