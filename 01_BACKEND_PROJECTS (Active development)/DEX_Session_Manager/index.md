@@ -17,7 +17,7 @@
 
 ## Project Overview
 
-Monitor & manage user sessions connected via Dex SSO extension.
+Monitor & manage user sessions connected via Dex SSO (webhook + log parsing).
 
 **Features:**
 - Real-time active sessions tracking
@@ -43,8 +43,10 @@ Monitor & manage user sessions connected via Dex SSO extension.
 - **UI:** TailwindCSS
 - **Charts:** Chart.js / ApexCharts
 
-### Extension
-- **Dex (existing)** — modified background.js for session tracking
+### Activity Tracking
+- **Dex Webhooks** — trigger on successful auth
+- **Nginx Log Parser** — Python script tail access log → passive heartbeat
+- **(Optional)** Browser extension postponed → Phase 7
 
 ---
 

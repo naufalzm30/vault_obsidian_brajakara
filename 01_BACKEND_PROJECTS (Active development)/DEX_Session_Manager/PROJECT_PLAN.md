@@ -1,7 +1,7 @@
 # DEX Session Manager — Full Project Plan
 
-**Project:** Session monitoring & management dashboard for Dex SSO extension  
-**Stack:** FastAPI + SQLite + Vue 3  
+**Project:** Session monitoring & management dashboard for Dex SSO  
+**Stack:** FastAPI + SQLite + Vue 3 + Nginx log parser  
 **Start Date:** 2026-05-10  
 **Target Completion:** 2026-06-07 (4 weeks)
 
@@ -14,8 +14,8 @@
 ```
 User Flow:
 1. User login via Dex SSO (auth.blitztechnology.tech)
-2. Dex extension intercepts auth → stores JWT token
-3. Extension sends session data → FastAPI backend
+2. Dex trigger webhook on successful auth → FastAPI backend
+3. Nginx access log parser → track activity & last_active
 4. Admin access dashboard via /admin (same domain)
 
 Components:
@@ -26,17 +26,23 @@ Components:
 │  /auth, /token   → Dex (tower:5556)                      │
 │  /admin          → FastAPI + Vue (tower:8000)            │
 └──────────────────────────────────────────────────────────┘
-         │                           │
-         ▼                           ▼
-  ┌─────────────┐          ┌──────────────────┐
-  │  Dex SSO    │          │  FastAPI Backend │
-  │  (5556)     │          │  + Vue Dashboard │
-  └─────────────┘          │  (8000)          │
-                           └────────┬─────────┘
-                                    │
-                              ┌─────▼──────┐
-                              │  SQLite DB │
-                              └────────────┘
+    │ webhook on auth    │ access log (tail)  │
+    ▼                    ▼                    │
+┌──────────┐    ┌─────────────────┐           │
+│ Dex SSO  │    │  Nginx Log      │           │
+│ (5556)   │    │  Parser (py)    │           │
+└────┬─────┘    └───────┬─────────┘           │
+     │                  │                     │
+     └──────────────────▼─────────────────────▼
+                  ┌──────────────────┐
+                  │  FastAPI Backend │
+                  │  + Vue Dashboard │
+                  │  (8000)          │
+                  └────────┬─────────┘
+                           │
+                     ┌─────▼──────┐
+                     │  SQLite DB │
+                     └────────────┘
 ```
 
 ---
@@ -82,16 +88,16 @@ dex-session-manager/
 │   ├── package.json
 │   └── vite.config.js
 │
-├── extension/                  # Dex (existing, modified)
-│   ├── manifest.json
-│   ├── background.js          # + session tracking
-│   ├── content.js
-│   └── utils/api-client.js    # Send data to backend
+├── log_parser/                 # Nginx log parser
+│   ├── parser.py              # Tail access log
+│   ├── config.py              # Log patterns
+│   └── requirements.txt       # re, requests
 │
 └── docs/
     ├── API.md
     ├── DATABASE_SCHEMA.md
-    └── DEPLOYMENT.md
+    ├── DEPLOYMENT.md
+    └── DEX_WEBHOOK_SETUP.md   # Dex config guide
 ```
 
 ---
@@ -204,15 +210,38 @@ CREATE INDEX idx_activity_timestamp ON activity_logs(timestamp);
 
 ---
 
-### Phase 2: Extension Integration (Week 1-2)
+### Phase 2: Dex Integration & Activity Tracking (Week 1-2)
 **Start:** 2026-05-13 | **Target:** 2026-05-20  
 **Work Item:** SOFTW-63 (high)
 
-- Modify Dex background.js
-- Intercept login → send session data
-- Heartbeat mechanism (5 min interval)
-- Track page navigation → activity log
-- Store session_id in chrome.storage.local
+**Goal:** Track login events & user activity tanpa browser extension
+
+#### A. Dex Webhook Integration
+- Configure Dex connector untuk trigger webhook on successful auth
+- Endpoint: `POST /admin/api/sessions/webhook` (receive login event)
+- Extract: email, IP, timestamp, OAuth client_id
+- Parse user-agent → device info (browser, OS)
+- Create session record di DB
+
+#### B. Nginx Access Log Parser
+- Setup log format di azkaban Nginx:
+  ```nginx
+  log_format session_track '$remote_addr - $remote_user [$time_local] '
+                          '"$request" $status $body_bytes_sent '
+                          '"$http_referer" "$http_user_agent" '
+                          '$upstream_http_x_user_email';
+  ```
+- Background service (Python script) parse log setiap 5 detik
+- Update `last_activity` untuk matching sessions
+- Log activity: `POST /admin/api/activity` (action, resource, timestamp)
+
+#### C. Session Expiry Logic
+- Auto-mark session sebagai `expired` kalau `last_activity` > 24h
+- Cron job tiap 1 jam: cleanup expired sessions
+
+**Stack:** Dex webhooks, Python log parser (tail -f), Nginx custom log format
+
+**Note:** Extension-based tracking postponed → Phase 7 (optional enhancement)
 
 ---
 
