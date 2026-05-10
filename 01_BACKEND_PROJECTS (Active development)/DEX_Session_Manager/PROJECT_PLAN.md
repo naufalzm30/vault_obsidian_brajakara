@@ -9,27 +9,34 @@
 
 ## Architecture Overview
 
+**Admin Access:** `https://auth.blitztechnology.tech/admin`
+
 ```
 User Flow:
-1. User login via FE_SSO (existing HTML form)
+1. User login via Dex SSO (auth.blitztechnology.tech)
 2. Dex extension intercepts auth → stores JWT token
 3. Extension sends session data → FastAPI backend
-4. Admin monitors via Vue dashboard (real-time)
+4. Admin access dashboard via /admin (same domain)
 
 Components:
-┌──────────────┐      ┌──────────────┐      ┌──────────────┐
-│   FE_SSO     │─────>│ Dex Extension│─────>│  FastAPI     │
-│  (login UI)  │      │ (auth layer) │      │  Backend     │
-└──────────────┘      └──────────────┘      └──────┬───────┘
-                                                    │
-                                              ┌─────▼──────┐
-                                              │  SQLite DB │
-                                              └─────┬──────┘
-                                                    │
-                                              ┌─────▼──────┐
-                                              │  Vue Admin │
-                                              │  Dashboard │
-                                              └────────────┘
+┌──────────────────────────────────────────────────────────┐
+│  auth.blitztechnology.tech (Nginx di azkaban)            │
+├──────────────────────────────────────────────────────────┤
+│  /               → Dex (tower:5556)                      │
+│  /auth, /token   → Dex (tower:5556)                      │
+│  /admin          → FastAPI + Vue (tower:8000)            │
+└──────────────────────────────────────────────────────────┘
+         │                           │
+         ▼                           ▼
+  ┌─────────────┐          ┌──────────────────┐
+  │  Dex SSO    │          │  FastAPI Backend │
+  │  (5556)     │          │  + Vue Dashboard │
+  └─────────────┘          │  (8000)          │
+                           └────────┬─────────┘
+                                    │
+                              ┌─────▼──────┐
+                              │  SQLite DB │
+                              └────────────┘
 ```
 
 ---
@@ -182,13 +189,15 @@ CREATE INDEX idx_activity_timestamp ON activity_logs(timestamp);
 ## Implementation Phases
 
 ### Phase 1: Backend Foundation (Week 1)
-**Start:** 2026-05-10 | **Target:** 2026-05-17  
+**Start:** 2026-05-10 | **Target:** 2026-05-17
 **Work Item:** SOFTW-64 (urgent)
+**Access:** `https://auth.blitztechnology.tech/admin`
 
 - Setup FastAPI + SQLAlchemy + Pydantic
 - Create SQLite database (users, sessions, activity_logs)
-- Implement CRUD endpoints
-- Add JWT authentication
+- Implement CRUD endpoints (prefix: `/admin/api/`)
+- Add JWT authentication for admin
+- FastAPI serve Vue static files di `/admin`
 - Write API tests
 
 **Stack:** FastAPI, SQLite, SQLAlchemy, python-jose, passlib
@@ -208,14 +217,16 @@ CREATE INDEX idx_activity_timestamp ON activity_logs(timestamp);
 ---
 
 ### Phase 3: Frontend Dashboard (Week 2)
-**Start:** 2026-05-17 | **Target:** 2026-05-24  
+**Start:** 2026-05-17 | **Target:** 2026-05-24
 **Work Item:** SOFTW-62 (high)
+**Access:** `https://auth.blitztechnology.tech/admin`
 
 - Setup Vue 3 + Vite + TailwindCSS
-- Create routing (Dashboard, UserDetail, Login)
-- Build components: SessionTable, UserCard, StatCard, Badge
-- Axios API integration
-- Pinia store
+- Create routing (Dashboard, UserDetail, Login) — base path: `/admin`
+- Build components: SessionTable, UserCard, StatCard, Badge, RevokeModal
+- Axios API integration (prefix: `/admin/api`)
+- Pinia store for session state
+- FastAPI serve Vue dist/ sebagai static files di `/admin`
 
 **Stack:** Vue 3, Vite, Pinia, Axios, TailwindCSS
 
@@ -245,17 +256,20 @@ CREATE INDEX idx_activity_timestamp ON activity_logs(timestamp);
 ---
 
 ### Phase 6: Security & Deploy (Week 4)
-**Start:** 2026-05-31 | **Target:** 2026-06-07  
+**Start:** 2026-05-31 | **Target:** 2026-06-07
 **Work Item:** SOFTW-63 (high)
 
 - Rate limiting (100 req/min per IP)
-- CORS configuration
-- Admin role validation
-- Hash session tokens
-- Auto-expire (24h)
-- Docker: backend + frontend + compose
-- HTTPS setup
-- Deploy VPS ($13/month est.)
+- CORS whitelist (same-origin: auth.blitztechnology.tech)
+- Admin RBAC validation
+- Hash session tokens sebelum simpan DB
+- Auto-expire sessions (24h default)
+- Docker: backend Dockerfile, frontend build into backend, docker-compose.yml
+- Deploy ke tower (10.20.0.11:8000)
+- **Nginx config azkaban:**
+  - `/admin` → proxy ke `tower:8000` (FastAPI)
+  - `/` → proxy ke `tower:5556` (Dex)
+- HTTPS already setup (Let's Encrypt existing — gratis)
 
 ---
 
@@ -394,14 +408,19 @@ services:
 
 ---
 
-## Cost Estimate (VPS Deployment)
+## Deployment Architecture
 
-| Service | Spec | Cost/Month |
-|---------|------|------------|
-| DigitalOcean Droplet | 2GB RAM, 1 vCPU | $12 |
-| Domain (.com) | - | $12/year |
-| SSL (Let's Encrypt) | - | Free |
-| **Total** | | **~$13/month** |
+**Host:** DungeonTower VM (10.20.0.11) — existing infrastructure
+**Proxy:** Nginx di azkaban (103.103.23.233)
+**Domain:** `auth.blitztechnology.tech` — existing domain
+**SSL:** Let's Encrypt (already active)
+**Cost:** $0 — pakai infra existing
+
+**Nginx routing:**
+```
+/admin       → proxy_pass http://10.20.0.11:8000  (FastAPI + Vue)
+/auth, /     → proxy_pass http://10.20.0.11:5556  (Dex SSO)
+```
 
 ---
 
