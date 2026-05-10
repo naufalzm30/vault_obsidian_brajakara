@@ -105,7 +105,14 @@ Format:
 - auto-wrap keyword `[[wikilink]]` (lihat Daily_Notes/index.md untuk mapping)
 ```
 
-### 3. Konfirmasi Sebelum Eksekusi (Destructive commands)
+### 3. Documentation Suggestion (Kalau task kompleks di Plane)
+**Trigger:** Plane issue deskripsi >300 karakter atau butuh arsitektur/spec detail.
+**Action:** Suggest bikin Outline page di `https://wiki.blitztechnology.tech`, tambahin link ke Plane description.
+**Format link:** `📖 Doc: https://wiki.blitztechnology.tech/doc/...`
+
+**Tidak auto-create Outline page** — cuma suggest + link placeholder.
+
+### 4. Konfirmasi Sebelum Eksekusi (Destructive commands)
 **WAJIB tanya dulu** sebelum jalankan:
 - File operations: `rm`, `truncate`, `shred`
 - System: `journalctl --vacuum*`, `docker system prune`, `systemctl restart/stop`, `sudo *`

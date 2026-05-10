@@ -175,17 +175,42 @@ rtk proxy curl -H "X-Api-Key: <key>" "https://plane.blitztechnology.tech/api/v1/
 
 Config: `~/.claude/settings.json` → `mcpServers.plane`
 
+### Outline Documentation Wiki
+
+**URL:** `https://wiki.blitztechnology.tech`
+
+**Role:** Single source of truth untuk dokumentasi teknis (pengganti Plane Pages).
+
+**Struktur content:**
+- Arsitektur sistem (design decision, flow diagram)
+- Setup guides (deployment, development environment)
+- API specifications (endpoint list, auth flow)
+- Troubleshooting runbooks (known issues, workarounds)
+
+**Naming convention:**
+- Collection: nama project/domain (e.g., "DEX Session Manager", "PDAM System")
+- Page: spesifik topik (e.g., "Auth Flow", "Database Schema", "API Reference")
+
+**Integration pattern:**
+```
+Pi (execution) → Plane (task tracking) → Outline (documentation)
+  ↓                ↓                        ↓
+  Code           Issue + link            Detail spec
+```
+
 ### Plane Sync Rules
 
 Setiap mencatat/update detail project di vault → **tambah/update juga work item Plane**:
 1. Catat di vault note project
 2. Cari work item Plane yang match (SOFTW, WEBAP, dll)
 3. Ada → update description | Tidak ada → buat work item baru
-4. Sync vault ke GitHub
+4. **Kalau butuh dokumentasi panjang** → bikin/update Outline page, link di Plane description
+5. Sync vault ke GitHub
 
 **Description guidelines:**
-- DO: what, why, how — actionable
+- DO: what, why, how — actionable + link ke Outline kalau ada
 - DON'T: deployment noise, environment detail yang tidak affect task
+- Format link Outline: `📖 Doc: https://wiki.blitztechnology.tech/doc/...`
 
 ---
 
